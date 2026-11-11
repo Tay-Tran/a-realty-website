@@ -1,11 +1,7 @@
 import { useTranslations } from 'next-intl';
-import type { AmenityKey, Listing } from '@/lib/data/types';
+import type { Listing } from '@/lib/data/types';
 import { activeConditions } from '@/lib/listing/derived';
-
-const ICONS: Record<AmenityKey, string> = {
-  aircon: '❄️', balcony: '🌿', deliveryBox: '📦', elevator: '🛗', bikeParking: '🚲', separateToilet: '🚻',
-  washlet: '🚽', internet: '📶', systemKitchen: '🍳', flooring: '🪵', storage: '🗄️',
-};
+import { AMENITY_ICONS } from '@/components/ui/feature-icons';
 
 export function Amenities({ listing }: { listing: Listing }) {
   const t = useTranslations();
@@ -16,11 +12,14 @@ export function Amenities({ listing }: { listing: Listing }) {
         {activeConditions(listing).map((k) => (
           <span key={k} className="rounded-full bg-accent/10 px-3 py-1.5 text-sm font-medium text-accent-dark">✓ {t(`conditions.${k}`)}</span>
         ))}
-        {listing.amenities.map((k) => (
-          <span key={k} className="rounded-full border border-line bg-paper px-3 py-1.5 text-sm">
-            <span aria-hidden className="mr-1">{ICONS[k]}</span>{t(`amenities.${k}`)}
-          </span>
-        ))}
+        {listing.amenities.map((k) => {
+          const Icon = AMENITY_ICONS[k];
+          return (
+            <span key={k} className="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1.5 text-sm">
+              <Icon className="h-4 w-4 text-accent" />{t(`amenities.${k}`)}
+            </span>
+          );
+        })}
       </div>
     </section>
   );

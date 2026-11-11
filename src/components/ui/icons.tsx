@@ -17,3 +17,6 @@ export const TrainIcon = ({ className = 'h-4 w-4' }: P) => (
 export const StationIcon = ({ className = 'h-4 w-4' }: P) => (
   <svg viewBox="0 0 24 24" className={className} {...base}><path d="M3 21h18M5 21V9l7-5 7 5v12" /><path d="M9 21v-6h6v6" /></svg>
 );
+export const PhoneIcon = ({ className = 'h-4 w-4' }: P) => (
+  <svg viewBox="0 0 24 24" className={className} {...base}><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" /></svg>
+);

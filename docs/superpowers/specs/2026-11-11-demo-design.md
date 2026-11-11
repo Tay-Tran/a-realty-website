@@ -22,7 +22,7 @@
 ## 2. Thương hiệu tạm
 
 - Tên: **Kurashi Homes** (暮らし – "cuộc sống"). Đây là tên tạm, chưa phải tên công ty khách.
-- Màu: chính là navy đậm (`#1f2a44`), nhấn là đỏ son (`#e4572e`), nền trắng ngà (`#faf8f4`).
+- Màu: chính là navy đậm (`#1f2a44`), nhấn là xanh dương (`#2272c9`), nền xanh rất nhạt (`#f3f8fd`). (Đổi từ cam sang xanh theo góp ý của Thuận, 2026-11-11.)
 - Mọi thông tin thương hiệu (tên, tagline, màu, logo, số điện thoại, link LINE/WhatsApp/Messenger) nằm trong `src/config/site.ts`. Đổi thương hiệu chỉ cần sửa file này.
 - **Không dùng lại hình ảnh, nội dung của AREALTY.** Chỉ tham khảo bố cục và cách tìm kiếm.
 
