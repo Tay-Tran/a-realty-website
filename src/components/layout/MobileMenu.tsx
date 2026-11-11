@@ -9,9 +9,9 @@ export function MobileMenu({ links, menuLabel, closeLabel }: { links: NavItem[];
   const [open, setOpen] = useState(false);
   return (
     <div className="md:hidden">
-      <button type="button" onClick={() => setOpen((o) => !o)} aria-expanded={open}
-        className="whitespace-nowrap rounded-full border border-line bg-white px-3 py-1.5 text-sm">
-        {open ? closeLabel : menuLabel}
+      <button type="button" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-label={open ? closeLabel : menuLabel}
+        className="grid h-9 w-9 place-items-center rounded-full border border-line bg-white text-base">
+        <span aria-hidden>{open ? '✕' : '☰'}</span>
       </button>
       {open && (
         <nav className="absolute inset-x-0 top-16 border-b border-line bg-paper px-4 pb-4 shadow-sm">

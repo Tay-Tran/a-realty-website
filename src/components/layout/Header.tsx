@@ -15,7 +15,7 @@ export function Header() {
   ];
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/95 backdrop-blur">
-      <Container className="relative flex h-16 items-center justify-between gap-4">
+      <Container className="relative flex h-16 items-center justify-between gap-3">
         <Link href="/" className="flex shrink-0 items-center gap-2 font-semibold text-ink">
           <span aria-hidden className="grid h-8 w-8 place-items-center rounded-lg bg-accent text-sm font-bold text-white">暮</span>
           <span className="whitespace-nowrap text-base sm:text-lg">{site.name}</span>
