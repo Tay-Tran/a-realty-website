@@ -58,7 +58,8 @@ export default async function RentPage({ params, searchParams }: Props) {
         </div>
         <div className="mt-6 grid gap-8 lg:grid-cols-[280px_1fr]">
           <aside className="hidden lg:block">
-            <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto rounded-2xl border border-line bg-white p-5">
+            {/* Flows with the page (no nested scroll box); the action bar inside FilterPanel sticks to the viewport bottom. */}
+            <div className="rounded-2xl border border-line bg-white p-5 pb-0">
               <FilterPanel key={panelKey} options={options} filters={filters} />
             </div>
           </aside>

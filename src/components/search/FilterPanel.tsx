@@ -138,9 +138,9 @@ export function FilterPanel({ options, filters, onApplied }: { options: SearchOp
           ))}
         </div>
       </fieldset>
-      <div className="flex gap-2">
-        <button type="button" onClick={() => go({ sort: filters.sort })} className="flex-1 rounded-full border border-line bg-white px-4 py-2.5 text-sm">{t('search.clear')}</button>
-        <button type="submit" className="flex-1 rounded-full bg-accent px-4 py-2.5 text-sm font-semibold text-white hover:bg-accent-dark">{t('search.apply')}</button>
+      <div className="sticky bottom-0 -mx-5 flex gap-2 border-t border-line bg-white px-5 py-3">
+        <button type="button" onClick={() => go({ sort: filters.sort })} className="shrink-0 whitespace-nowrap rounded-full border border-line bg-white px-3 py-2.5 text-sm">{t('search.clear')}</button>
+        <button type="submit" className="min-w-0 flex-1 whitespace-nowrap rounded-full bg-accent px-3 py-2.5 text-sm font-semibold text-white hover:bg-accent-dark">{t('search.apply')}</button>
       </div>
     </form>
   );
