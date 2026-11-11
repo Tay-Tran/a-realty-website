@@ -1,6 +1,7 @@
 import type { Locale } from '@/lib/data/types';
 import { formatYen } from '@/lib/listing/format';
 
+export const CURRENCY_KEY = 'kurashi:currency';
 export const CURRENCIES = ['JPY', 'USD', 'EUR', 'VND'] as const;
 export type Currency = (typeof CURRENCIES)[number];
 

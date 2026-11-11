@@ -3,7 +3,9 @@ import { Noto_Sans, Noto_Sans_JP, Noto_Sans_Myanmar } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
+import { FloatingContact } from '@/components/layout/FloatingContact';
 import { Footer } from '@/components/layout/Footer';
+import { PreferencesProvider } from '@/components/providers/PreferencesProvider';
 import { Header } from '@/components/layout/Header';
 import { MobileContactBar } from '@/components/layout/MobileContactBar';
 import { site } from '@/config/site';
@@ -50,10 +52,13 @@ export default async function LocaleLayout({ children, params }: {
     <html lang={locale} className={`${notoSans.variable} ${notoSansJP.variable} ${notoSansMyanmar.variable}`} style={brandVars}>
       <body className="min-h-screen pb-16 font-sans antialiased md:pb-0">
         <NextIntlClientProvider>
-          <Header />
-          {children}
-          <Footer />
-          <MobileContactBar />
+          <PreferencesProvider>
+            <Header />
+            {children}
+            <Footer />
+            <MobileContactBar />
+            <FloatingContact />
+          </PreferencesProvider>
         </NextIntlClientProvider>
       </body>
     </html>
