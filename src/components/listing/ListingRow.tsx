@@ -7,6 +7,7 @@ import { pickText } from '@/lib/listing/format';
 import { listingPath } from '@/lib/listing/paths';
 import { PinIcon, TrainIcon } from '@/components/ui/icons';
 import { Price } from '@/components/ui/Price';
+import { TagScroller } from '@/components/ui/TagScroller';
 import { FavoriteButton } from './FavoriteButton';
 import { FloorPlan } from './FloorPlan';
 import { ListingStats } from './ListingStats';
@@ -66,10 +67,8 @@ export function ListingRow({ listing, stations, areas, lines }: {
         </ul>
         <ListingStats listing={listing} className="max-w-md" />
         {badges.length > 0 && (
-          // One row like the reference; extra tags scroll sideways instead of making the card taller.
-          <div className="flex max-w-md gap-1.5 overflow-x-auto whitespace-nowrap pb-0.5 [mask-image:linear-gradient(to_right,black_88%,transparent)] [scrollbar-width:none]">
-            {badges.map((k) => <span key={k} className="shrink-0 rounded-full bg-paper px-2.5 py-1 text-xs text-ink">{t(`conditions.${k}`)}</span>)}
-          </div>
+          // One row like the reference; ‹ › buttons reveal tags that do not fit.
+          <TagScroller tags={badges.map((k) => t(`conditions.${k}`))} className="max-w-md" />
         )}
       </div>
 
