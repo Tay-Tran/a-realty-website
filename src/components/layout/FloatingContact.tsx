@@ -22,7 +22,7 @@ const PhoneGlyph = () => (
   <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z" /></svg>
 );
 const ChatGlyph = () => (
-  <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z" /></svg>
+  <svg viewBox="0 0 24 24" className="h-6 w-6 sm:h-7 sm:w-7" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z" /></svg>
 );
 const SendGlyph = () => (
   <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden><path d="M3.4 20.4 21 12 3.4 3.6 3 10l12 2-12 2z" /></svg>
@@ -155,7 +155,7 @@ export function FloatingContact() {
   const dotClass = 'grid h-11 w-11 place-items-center rounded-full shadow-lg ring-2 ring-white transition group-hover:scale-110 [&>svg]:h-5 [&>svg]:w-5';
 
   return (
-    <div ref={rootRef} className="pointer-events-none fixed bottom-5 right-4 z-40 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
+    <div ref={rootRef} className="pointer-events-none fixed bottom-4 right-3 z-40 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
       {chat && ChannelIcon ? (
         <section role="dialog" aria-label={`${site.name} – ${t('chatVia', { channel: name(chat) })}`}
           style={phone && viewport ? { top: viewport.top, height: viewport.height } : undefined}
@@ -229,7 +229,7 @@ export function FloatingContact() {
         </section>
       ) : (
         <ul id="contact-channels" aria-hidden={!pillsOpen}
-          className={`flex flex-col items-end gap-2.5 pr-1.5 sm:pr-2.5 ${pillsOpen ? 'pointer-events-auto' : ''}`}>
+          className={`flex flex-col items-end gap-2.5 pr-0.5 sm:pr-2.5 ${pillsOpen ? 'pointer-events-auto' : ''}`}>
           {pills.map((p, i) => {
             // Pop up from the round button: the nearest one first, the top one last.
             const style = { transitionDelay: pillsOpen ? `${(pills.length - 1 - i) * 45}ms` : '0ms' };
@@ -256,7 +256,7 @@ export function FloatingContact() {
       <button type="button" onClick={() => (chat ? setChat(null) : setPillsOpen((o) => !o))}
         aria-expanded={chat ? true : pillsOpen} aria-controls={chat ? undefined : 'contact-channels'}
         aria-label={chat || pillsOpen ? t('chatClose') : t('chat')}
-        className={`pointer-events-auto relative h-14 w-14 ${chat && phone ? 'hidden' : 'grid'} place-items-center rounded-full text-white shadow-xl transition hover:scale-105 sm:h-16 sm:w-16 ${chat || pillsOpen ? 'bg-ink' : 'bg-accent hover:bg-accent-dark'}`}>
+        className={`pointer-events-auto relative h-12 w-12 ${chat && phone ? 'hidden' : 'grid'} place-items-center rounded-full text-white shadow-xl transition hover:scale-105 sm:h-16 sm:w-16 ${chat || pillsOpen ? 'bg-ink' : 'bg-accent hover:bg-accent-dark'}`}>
         <span aria-hidden className={`absolute transition duration-200 ${chat || pillsOpen ? 'rotate-90 scale-50 opacity-0' : 'rotate-0 scale-100 opacity-100'}`}><ChatGlyph /></span>
         <span aria-hidden className={`absolute text-2xl leading-none transition duration-200 ${chat || pillsOpen ? 'rotate-0 scale-100 opacity-100' : '-rotate-90 scale-50 opacity-0'}`}>✕</span>
         {!chat && !pillsOpen && <span aria-hidden className="absolute right-0.5 top-0.5 h-4 w-4 rounded-full border-2 border-white bg-[#ef4444]" />}
