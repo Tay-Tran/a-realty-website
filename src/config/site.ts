@@ -4,7 +4,7 @@ export const site = {
   name: 'Kurashi Homes',
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
   env: (process.env.NEXT_PUBLIC_SITE_ENV === 'production' ? 'production' : 'staging') as SiteEnv,
-  colors: { ink: '#1f2a44', accent: '#2272c9', paper: '#f3f8fd' },
+  colors: { ink: '#1f2a44', accent: '#1d3557', paper: '#f7f9fc' },
   contact: {
     phoneDisplay: '03-0000-0000',
     phoneHref: 'tel:+81300000000',

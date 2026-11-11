@@ -1,6 +1,6 @@
 const TONES = {
   neutral: 'bg-ink/5 text-ink',
-  accent: 'bg-accent/10 text-accent-dark',
+  accent: 'bg-tint text-accent-dark',
   success: 'bg-success/10 text-success',
   warn: 'bg-warn/15 text-warn',
   muted: 'bg-ink/10 text-ink-soft',

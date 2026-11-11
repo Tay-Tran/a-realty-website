@@ -10,13 +10,13 @@ export function Amenities({ listing }: { listing: Listing }) {
       <h2 className="text-xl font-bold">{t('listing.amenities')}</h2>
       <div className="mt-4 flex flex-wrap gap-2">
         {activeConditions(listing).map((k) => (
-          <span key={k} className="rounded-full bg-accent/10 px-3 py-1.5 text-sm font-medium text-accent-dark">✓ {t(`conditions.${k}`)}</span>
+          <span key={k} className="rounded-full bg-tint px-3 py-1.5 text-sm font-medium text-accent-dark">✓ {t(`conditions.${k}`)}</span>
         ))}
         {listing.amenities.map((k) => {
           const Icon = AMENITY_ICONS[k];
           return (
             <span key={k} className="inline-flex items-center gap-1.5 rounded-full border border-line bg-paper px-3 py-1.5 text-sm">
-              <Icon className="h-4 w-4 text-accent" />{t(`amenities.${k}`)}
+              <Icon className="h-4 w-4 text-sky" />{t(`amenities.${k}`)}
             </span>
           );
         })}

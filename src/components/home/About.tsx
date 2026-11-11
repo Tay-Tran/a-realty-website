@@ -13,12 +13,12 @@ export function About() {
           <Image src={ABOUT_IMAGE} alt="" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
         </div>
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-accent">{t('aboutTitle')}</p>
+          <p className="text-sm font-semibold text-sky">{t('aboutTitle')}</p>
           <h2 className="mt-2 text-2xl font-bold sm:text-3xl">{t('aboutSubtitle')}</h2>
           <p className="mt-4 text-ink-soft">{t('aboutText')}</p>
           <ul className="mt-5 space-y-2">
             {[1, 2, 3].map((n) => (
-              <li key={n} className="flex gap-2"><span aria-hidden className="text-accent">✓</span>{t(`aboutPoint${n}`)}</li>
+              <li key={n} className="flex gap-2"><span aria-hidden className="text-sky">✓</span>{t(`aboutPoint${n}`)}</li>
             ))}
           </ul>
         </div>
@@ -28,7 +28,7 @@ export function About() {
         <div className="mt-6 grid gap-4 sm:grid-cols-3">
           {[1, 2, 3].map((n) => (
             <div key={n} className="rounded-2xl border border-line bg-paper p-6 text-center">
-              <p className="text-4xl font-bold text-accent">{t(`stat${n}Value`)}</p>
+              <p className="text-4xl font-bold text-sky">{t(`stat${n}Value`)}</p>
               <p className="mt-1 text-sm text-ink-soft">{t(`stat${n}Label`)}</p>
             </div>
           ))}

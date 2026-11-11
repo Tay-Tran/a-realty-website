@@ -3,10 +3,14 @@
 @theme {
   --color-ink: #1f2a44;
   --color-ink-soft: #4a5468;
-  --color-accent: #2272c9;
-  --color-accent-dark: #185a9e;
-  --color-paper: #f3f8fd;
-  --color-line: #dbe5f0;
+  --color-accent: #1d3557;
+  --color-accent-dark: #12233b;
+  --color-sky: #2a5f96;
+  --color-tint: #e3edf8;
+  --color-mist: #e8f0f8;
+  --color-paper: #f7f9fc;
+  --color-line: #dbe4ee;
+  --color-danger: #b42318;
   --color-success: #1a7f4b;
   --color-warn: #a86a12;
   --font-sans: var(--font-noto-sans), var(--font-noto-sans-jp), var(--font-noto-sans-myanmar), ui-sans-serif, system-ui, sans-serif;

@@ -81,7 +81,7 @@ export function SearchBox({ options }: { options: SearchOptions }) {
   }
 
   const tab = (active: boolean) =>
-    `rounded-full px-6 py-2 text-sm font-semibold transition ${active ? 'bg-accent text-white shadow' : 'text-white/85 hover:text-white'}`;
+    `rounded-full px-6 py-2 text-sm font-semibold transition ${active ? 'bg-white text-accent shadow' : 'text-white/85 hover:text-white'}`;
 
   return (
     <div className="text-left">
@@ -95,8 +95,8 @@ export function SearchBox({ options }: { options: SearchOptions }) {
         </button>
       </div>
 
-      <form onSubmit={onSubmit} className="space-y-3 rounded-3xl bg-gradient-to-br from-accent to-accent-dark p-3 shadow-2xl sm:p-4">
-        {mode === 'short' && <p className="px-1 text-sm text-white">{t('shortTermNote')}</p>}
+      <form onSubmit={onSubmit} className="space-y-3 rounded-3xl bg-white p-3 shadow-2xl ring-1 ring-black/5 sm:p-4">
+        {mode === 'short' && <p className="px-1 text-sm text-ink-soft">{t('shortTermNote')}</p>}
 
         {/* Quick search */}
         <div className="relative">
@@ -104,7 +104,7 @@ export function SearchBox({ options }: { options: SearchOptions }) {
           <input type="search" value={query} placeholder={t('quickSearch')} aria-label={t('quickSearch')}
             onChange={(e) => { setQuery(e.target.value); setSuggestOpen(true); }}
             onFocus={() => setSuggestOpen(true)} onBlur={() => setTimeout(() => setSuggestOpen(false), 150)}
-            className="w-full rounded-2xl border-0 bg-white py-3 pl-10 pr-4 text-ink placeholder:text-ink-soft/70 focus:outline-none focus:ring-2 focus:ring-white/70" />
+            className="w-full rounded-2xl border border-line bg-paper py-3 pl-10 pr-4 text-ink placeholder:text-ink-soft/70 focus:border-accent focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent/15" />
           {suggestOpen && query.trim() && (
             <ul role="listbox" className="absolute inset-x-0 top-full z-30 mt-1 overflow-hidden rounded-2xl bg-white py-1 shadow-xl">
               {matches.length === 0 && <li className="px-4 py-2 text-sm text-ink-soft">{t('noMatch')}</li>}
@@ -124,7 +124,7 @@ export function SearchBox({ options }: { options: SearchOptions }) {
         </div>
 
         {/* Area · Line · Station tiles */}
-        <div className="grid divide-y divide-line rounded-2xl bg-white sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+        <div className="grid divide-y divide-line rounded-2xl border border-line bg-white sm:grid-cols-3 sm:divide-x sm:divide-y-0">
           <Picker variant="tile" icon={<PinIcon />} label={t('area')} placeholder={t('searchByArea')}
             value={area} onChange={setArea} options={options.areas} />
           <Picker variant="tile" icon={<TrainIcon />} label={t('line')} placeholder={t('searchByLine')}
@@ -159,7 +159,7 @@ export function SearchBox({ options }: { options: SearchOptions }) {
         )}
 
         <div className="flex justify-center pt-1">
-          <button type="submit" className="w-full max-w-sm rounded-full bg-white px-6 py-3 font-bold text-accent-dark shadow hover:bg-paper">
+          <button type="submit" className="w-full max-w-sm rounded-full bg-accent px-6 py-3 font-bold text-white hover:bg-accent-dark">
             <SearchIcon className="mr-2 inline h-4 w-4 align-[-2px]" />{t('submit')}
           </button>
         </div>

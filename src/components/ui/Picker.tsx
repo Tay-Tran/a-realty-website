@@ -78,7 +78,7 @@ export function Picker({
 
   const trigger = variant === 'tile' ? (
     <>
-      <span className="flex items-center gap-2 text-sm font-bold text-accent">
+      <span className="flex items-center gap-2 text-sm font-bold text-sky">
         {icon}{label}<ChevronDownIcon className={`ml-auto h-4 w-4 text-ink-soft transition ${open ? 'rotate-180' : ''}`} />
       </span>
       <span className={`mt-1 block truncate text-sm ${selected ? 'font-medium text-ink' : 'text-ink-soft'}`}>{selected?.label ?? placeholder}</span>
@@ -132,7 +132,7 @@ export function Picker({
                   <li key={o.value || '__any'} id={`${listId}-${i}`} data-index={i} role="option" aria-selected={isSelected}
                     onMouseEnter={() => setActive(i)} onClick={() => pick(o.value)}
                     className={`flex cursor-pointer items-center gap-2 px-4 py-2 text-sm ${i === active ? 'bg-paper' : ''} ${isSelected ? 'font-semibold text-accent-dark' : 'text-ink'} ${allowEmpty && i === 0 ? 'text-ink-soft' : ''}`}>
-                    <span aria-hidden className="w-4 shrink-0 text-accent">{isSelected ? '✓' : ''}</span>
+                    <span aria-hidden className="w-4 shrink-0 text-sky">{isSelected ? '✓' : ''}</span>
                     {o.dots?.map((c) => <span key={c} aria-hidden className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: c }} />)}
                     <span className="flex-1 truncate">{o.label}</span>
                     {o.hint && <span className="shrink-0 text-xs text-ink-soft">{o.hint}</span>}

@@ -29,7 +29,7 @@ export function Overview({ listing, stations }: { listing: Listing; stations: Re
               const st = stations[s.stationSlug];
               return (
                 <li key={s.stationSlug} className="flex items-center justify-between gap-3 text-sm">
-                  <span className="flex items-center gap-2"><TrainIcon className="h-4 w-4 text-accent" />{t('common.stationName', { name: st ? pickText(st.name, locale) : s.stationSlug })}</span>
+                  <span className="flex items-center gap-2"><TrainIcon className="h-4 w-4 text-sky" />{t('common.stationName', { name: st ? pickText(st.name, locale) : s.stationSlug })}</span>
                   <span className="text-ink-soft">{t('common.minWalk', { minutes: s.walkMinutes })}</span>
                 </li>
               );
@@ -46,7 +46,7 @@ export function Overview({ listing, stations }: { listing: Listing; stations: Re
         ))}
         <div className="col-span-2 rounded-xl bg-white p-3 sm:col-span-4 lg:col-span-2">
           <p className="text-xs text-ink-soft">{t('listing.initialCostEstimate')}</p>
-          <p className="text-lg font-bold text-accent"><Price yen={calcInitialCost(listing).total} /></p>
+          <p className="text-lg font-bold text-sky"><Price yen={calcInitialCost(listing).total} /></p>
         </div>
       </div>
     </section>

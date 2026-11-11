@@ -34,7 +34,7 @@ export function ListingCard({ listing, stations }: { listing: Listing; stations:
           {t('common.stationName', { name: station ? pickText(station.name, locale) : '' })} · {t('common.minWalk', { minutes: nearest.walkMinutes })}
         </p>
         <ListingStats listing={listing} />
-        <p className="mt-auto pt-1 text-xl font-bold text-accent">
+        <p className="mt-auto pt-1 text-xl font-bold text-sky">
           <Price yen={listing.rent} /><span className="text-sm font-normal text-ink-soft">{t('common.perMonth')}</span>
         </p>
       </div>

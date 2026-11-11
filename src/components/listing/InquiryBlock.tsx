@@ -22,7 +22,7 @@ export function InquiryBlock({ code }: { code: string }) {
           ))}
         </div>
         <a href={site.contact.phoneHref} className="mt-2 flex items-center justify-center gap-2 rounded-lg border border-line py-2.5 text-sm hover:border-accent">
-          <PhoneIcon className="h-4 w-4 text-accent" />{site.contact.phoneDisplay}
+          <PhoneIcon className="h-4 w-4 text-sky" />{site.contact.phoneDisplay}
         </a>
       </div>
       <InquiryForm listingCode={code} />

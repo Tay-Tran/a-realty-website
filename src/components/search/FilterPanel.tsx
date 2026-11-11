@@ -108,7 +108,7 @@ export function FilterPanel({ options, filters, onApplied }: { options: SearchOp
         <legend className={fieldLegend}>{t('search.layouts')}</legend>
         <div className="mt-2 grid grid-cols-4 gap-2">
           {LAYOUTS.map((l) => (
-            <label key={l} className={`cursor-pointer rounded-lg border px-2 py-1.5 text-center text-sm ${layouts.includes(l) ? 'border-accent bg-accent/10 text-accent-dark' : 'border-line bg-white'}`}>
+            <label key={l} className={`cursor-pointer rounded-lg border px-2 py-1.5 text-center text-sm ${layouts.includes(l) ? 'border-accent bg-tint text-accent-dark' : 'border-line bg-white'}`}>
               <input type="checkbox" className="sr-only" checked={layouts.includes(l)} onChange={() => setLayouts(toggle(layouts, l))} />{l}
             </label>
           ))}
@@ -121,7 +121,7 @@ export function FilterPanel({ options, filters, onApplied }: { options: SearchOp
           {CONDITION_KEYS.filter((c) => c !== 'foreignerOk').map((c) => {
             const on = conditions.includes(c);
             return (
-              <label key={c} className={`flex cursor-pointer items-center gap-1 rounded-lg border px-2 py-1.5 text-xs leading-tight ${on ? 'border-accent bg-accent/10 font-medium text-accent-dark' : 'border-line bg-white text-ink'}`}>
+              <label key={c} className={`flex cursor-pointer items-center gap-1 rounded-lg border px-2 py-1.5 text-xs leading-tight ${on ? 'border-accent bg-tint font-medium text-accent-dark' : 'border-line bg-white text-ink'}`}>
                 <input type="checkbox" className="sr-only" checked={on} onChange={() => setConditions(toggle(conditions, c))} />
                 <span aria-hidden className={on ? '' : 'text-line'}>✓</span>{t(`conditions.${c}`)}
               </label>
