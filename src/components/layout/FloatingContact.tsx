@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { site } from '@/config/site';
-import { whatsappLink } from '@/lib/contact';
+import { lineLink, whatsappLink } from '@/lib/contact';
 
 /* Simple channel glyphs drawn here (no external logo files). */
 const LineGlyph = () => (
@@ -28,18 +28,36 @@ const SendGlyph = () => (
   <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor" aria-hidden><path d="M3.4 20.4 21 12 3.4 3.6 3 10l12 2-12 2z" /></svg>
 );
 
-type Message = { from: 'agent' | 'me'; text: string; time: string; channels?: boolean };
+
+type Channel = 'line' | 'whatsapp' | 'messenger';
+type Message = { from: 'agent' | 'me'; text: string; time: string; handoff?: boolean };
+
+const CHANNEL_STYLE: Record<Channel, { bg: string; icon: () => React.ReactElement }> = {
+  line: { bg: 'bg-[#06c755]', icon: LineGlyph },
+  whatsapp: { bg: 'bg-[#25d366]', icon: WhatsAppGlyph },
+  messenger: { bg: 'bg-[#0084ff]', icon: MessengerGlyph },
+};
+
+/** Where "continue on …" sends the visitor; LINE and WhatsApp carry the typed message. */
+function channelHref(channel: Channel, message: string): string {
+  if (channel === 'whatsapp') return whatsappLink(site.contact.whatsapp, message);
+  if (channel === 'line') return lineLink(site.contact.lineId, message);
+  return site.contact.messenger;
+}
 
 /**
- * Floating contact widget like the reference site. Closed: channel pills (desktop) above a
- * round chat button with a red dot. Open: a chat window; the button turns into a dark ✕.
- * The demo has no chat backend: a sent message gets an auto-reply that hands the visitor to
- * WhatsApp (message pre-filled), LINE or Messenger.
+ * Floating contact widget like the reference site.
+ * - Round button: shows / hides the channel pills (open by default on desktop, closed on phones).
+ * - LINE / WhatsApp / Messenger pill: opens a chat window for that channel; Call dials directly.
+ * - While a chat is open the round button becomes a dark ✕ that closes it.
+ * The demo has no chat backend: a sent message gets an auto-reply that hands the visitor to the
+ * chosen app with the message pre-filled.
  */
 export function FloatingContact() {
   const t = useTranslations('contact');
   const locale = useLocale();
-  const [chatOpen, setChatOpen] = useState(false);
+  const [pillsOpen, setPillsOpen] = useState(false);
+  const [chat, setChat] = useState<Channel | null>(null);
   const [typing, setTyping] = useState(false);
   const [draft, setDraft] = useState('');
   const [lastSent, setLastSent] = useState('');
@@ -51,13 +69,17 @@ export function FloatingContact() {
     new Intl.DateTimeFormat(locale === 'my' ? 'en' : locale, { hour: '2-digit', minute: '2-digit' }).format(new Date());
 
   useEffect(() => {
-    if (!chatOpen) return;
+    setPillsOpen(window.matchMedia('(min-width: 768px)').matches);
+  }, []);
+
+  useEffect(() => {
+    if (!chat) return;
     if (messages.length === 0) setMessages([{ from: 'agent', text: t('chatGreeting'), time: now() }]);
     requestAnimationFrame(() => inputRef.current?.focus());
-    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setChatOpen(false); };
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setChat(null); };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [chatOpen]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [chat]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {
     listRef.current?.scrollTo({ top: listRef.current.scrollHeight, behavior: 'smooth' });
@@ -73,26 +95,24 @@ export function FloatingContact() {
     setTyping(true);
     setTimeout(() => {
       setTyping(false);
-      setMessages((m) => [...m, { from: 'agent', text: t('chatReply'), time: now(), channels: true }]);
+      setMessages((m) => [...m, { from: 'agent', text: t('chatReply'), time: now(), handoff: true }]);
     }, 900);
   }
 
-  const pills = [
-    { href: site.contact.line, label: t('line'), icon: <LineGlyph />, bg: 'bg-[#06c755]', external: true },
-    { href: site.contact.whatsapp, label: t('whatsapp'), icon: <WhatsAppGlyph />, bg: 'bg-[#25d366]', external: true },
-    { href: site.contact.messenger, label: t('messenger'), icon: <MessengerGlyph />, bg: 'bg-[#0084ff]', external: true },
-    { href: site.contact.phoneHref, label: t('call'), icon: <PhoneGlyph />, bg: 'bg-ink', external: false },
+  const name = (c: Channel) => t(c);
+  const ChannelIcon = chat ? CHANNEL_STYLE[chat].icon : null;
+  const pills: { channel?: Channel; label: string; icon: React.ReactNode; bg: string; href?: string }[] = [
+    { channel: 'line', label: t('line'), icon: <LineGlyph />, bg: CHANNEL_STYLE.line.bg },
+    { channel: 'whatsapp', label: t('whatsapp'), icon: <WhatsAppGlyph />, bg: CHANNEL_STYLE.whatsapp.bg },
+    { channel: 'messenger', label: t('messenger'), icon: <MessengerGlyph />, bg: CHANNEL_STYLE.messenger.bg },
+    { label: t('call'), icon: <PhoneGlyph />, bg: 'bg-ink', href: site.contact.phoneHref },
   ];
-  const handoff = [
-    { href: whatsappLink(site.contact.whatsapp, lastSent), label: t('whatsapp'), icon: <WhatsAppGlyph />, bg: 'bg-[#25d366]' },
-    { href: site.contact.line, label: t('line'), icon: <LineGlyph />, bg: 'bg-[#06c755]' },
-    { href: site.contact.messenger, label: t('messenger'), icon: <MessengerGlyph />, bg: 'bg-[#0084ff]' },
-  ];
+  const pillClass = 'flex items-center gap-3 rounded-full bg-white py-1.5 pl-1.5 pr-5 text-sm font-semibold text-ink shadow-lg ring-1 ring-black/5 transition hover:-translate-x-0.5 hover:shadow-xl';
 
   return (
     <div className="fixed bottom-5 right-4 z-40 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
-      {chatOpen ? (
-        <section role="dialog" aria-label={site.name}
+      {chat && ChannelIcon ? (
+        <section role="dialog" aria-label={`${site.name} – ${t('chatVia', { channel: name(chat) })}`}
           className="fixed inset-x-3 bottom-24 flex h-[min(520px,70vh)] flex-col overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-black/5 sm:static sm:inset-auto sm:h-[480px] sm:w-[360px]">
           <header className="flex items-center gap-3 bg-accent px-4 py-3 text-white">
             <span className="relative grid h-11 w-11 shrink-0 place-items-center rounded-full border-2 border-white bg-ink text-lg font-bold">
@@ -100,9 +120,12 @@ export function FloatingContact() {
             </span>
             <div className="min-w-0 flex-1">
               <p className="truncate font-bold">{site.name}</p>
-              <p className="text-xs text-white/85">{t('chatOnline')}</p>
+              <p className="flex items-center gap-1.5 text-xs text-white/90">
+                <span className={`grid h-4 w-4 place-items-center rounded-full ${CHANNEL_STYLE[chat].bg} [&>svg]:h-2.5 [&>svg]:w-2.5`}><ChannelIcon /></span>
+                {t('chatOnline')} · {t('chatVia', { channel: name(chat) })}
+              </p>
             </div>
-            <button type="button" onClick={() => setChatOpen(false)} aria-label={t('chatClose')}
+            <button type="button" onClick={() => setChat(null)} aria-label={t('chatClose')}
               className="grid h-10 w-10 place-items-center rounded-full bg-white/20 text-lg hover:bg-white/30">✕</button>
           </header>
 
@@ -112,14 +135,24 @@ export function FloatingContact() {
                 <span aria-hidden className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-ink text-sm font-bold text-white">暮</span>
                 <div className="max-w-[85%]">
                   <p className="whitespace-pre-line rounded-2xl rounded-tl-sm bg-paper px-3.5 py-2.5 text-sm text-ink">{m.text}</p>
-                  {m.channels && (
-                    <div className="mt-2 flex flex-wrap gap-1.5">
-                      {handoff.map((c) => (
-                        <a key={c.label} href={c.href} target="_blank" rel="noopener noreferrer"
-                          className="flex items-center gap-1.5 rounded-full border border-line bg-white py-1 pl-1 pr-3 text-xs font-semibold text-ink hover:border-accent">
-                          <span className={`grid h-6 w-6 place-items-center rounded-full ${c.bg} [&>svg]:h-3.5 [&>svg]:w-3.5`}>{c.icon}</span>{c.label}
-                        </a>
-                      ))}
+                  {m.handoff && (
+                    <div className="mt-2 space-y-2">
+                      <a href={channelHref(chat, lastSent)} target="_blank" rel="noopener noreferrer"
+                        className={`flex items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-semibold text-white shadow ${CHANNEL_STYLE[chat].bg} hover:brightness-95`}>
+                        <ChannelIcon />{t('chatContinue', { channel: name(chat) })}
+                      </a>
+                      <div className="flex flex-wrap items-center gap-1.5 text-xs text-ink-soft">
+                        {t('chatOthers')}
+                        {(Object.keys(CHANNEL_STYLE) as Channel[]).filter((c) => c !== chat).map((c) => {
+                          const Icon = CHANNEL_STYLE[c].icon;
+                          return (
+                            <a key={c} href={channelHref(c, lastSent)} target="_blank" rel="noopener noreferrer"
+                              className="flex items-center gap-1.5 rounded-full border border-line bg-white py-1 pl-1 pr-3 font-semibold text-ink hover:border-accent">
+                              <span className={`grid h-6 w-6 place-items-center rounded-full ${CHANNEL_STYLE[c].bg} [&>svg]:h-3.5 [&>svg]:w-3.5`}><Icon /></span>{name(c)}
+                            </a>
+                          );
+                        })}
+                      </div>
                     </div>
                   )}
                   <p className="mt-1 text-[11px] text-ink-soft">{m.time}</p>
@@ -149,23 +182,30 @@ export function FloatingContact() {
           </form>
         </section>
       ) : (
-        <ul className="hidden flex-col items-end gap-2.5 md:flex">
-          {pills.map((c) => (
-            <li key={c.label}>
-              <a href={c.href} {...(c.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                className="flex items-center gap-3 rounded-full bg-white py-1.5 pl-1.5 pr-5 text-sm font-semibold text-ink shadow-lg ring-1 ring-black/5 transition hover:-translate-x-0.5 hover:shadow-xl">
-                <span className={`grid h-9 w-9 place-items-center rounded-full ${c.bg}`}>{c.icon}</span>
-                {c.label}
-              </a>
+        <ul id="contact-channels" aria-hidden={!pillsOpen}
+          className={`flex flex-col items-end gap-2.5 transition-all duration-200 ${pillsOpen ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'}`}>
+          {pills.map((p) => (
+            <li key={p.label}>
+              {p.channel ? (
+                <button type="button" tabIndex={pillsOpen ? 0 : -1} onClick={() => setChat(p.channel!)} className={pillClass}>
+                  <span className={`grid h-9 w-9 place-items-center rounded-full ${p.bg}`}>{p.icon}</span>{p.label}
+                </button>
+              ) : (
+                <a href={p.href} tabIndex={pillsOpen ? 0 : -1} className={pillClass}>
+                  <span className={`grid h-9 w-9 place-items-center rounded-full ${p.bg}`}>{p.icon}</span>{p.label}
+                </a>
+              )}
             </li>
           ))}
         </ul>
       )}
 
-      <button type="button" onClick={() => setChatOpen((o) => !o)} aria-expanded={chatOpen} aria-label={chatOpen ? t('chatClose') : t('chatOpen')}
-        className={`relative grid h-14 w-14 place-items-center rounded-full text-white shadow-xl transition hover:scale-105 sm:h-16 sm:w-16 ${chatOpen ? 'bg-ink' : 'bg-accent hover:bg-accent-dark'}`}>
-        {chatOpen ? <span aria-hidden className="text-2xl leading-none">✕</span> : <ChatGlyph />}
-        {!chatOpen && <span aria-hidden className="absolute right-0.5 top-0.5 h-4 w-4 rounded-full border-2 border-white bg-[#ef4444]" />}
+      <button type="button" onClick={() => (chat ? setChat(null) : setPillsOpen((o) => !o))}
+        aria-expanded={chat ? true : pillsOpen} aria-controls={chat ? undefined : 'contact-channels'}
+        aria-label={chat ? t('chatClose') : t('chat')}
+        className={`relative grid h-14 w-14 place-items-center rounded-full text-white shadow-xl transition hover:scale-105 sm:h-16 sm:w-16 ${chat ? 'bg-ink' : 'bg-accent hover:bg-accent-dark'}`}>
+        {chat ? <span aria-hidden className="text-2xl leading-none">✕</span> : <ChatGlyph />}
+        {!chat && <span aria-hidden className="absolute right-0.5 top-0.5 h-4 w-4 rounded-full border-2 border-white bg-[#ef4444]" />}
       </button>
     </div>
   );

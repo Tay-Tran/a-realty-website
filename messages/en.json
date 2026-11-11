@@ -311,7 +311,10 @@
     "chatOpen": "Open chat",
     "chatClose": "Close chat",
     "chatTyping": "Typing…",
-    "chatReply": "Thanks for your message! This is a demo, so live chat is not connected yet. Continue on one of these apps and our staff will reply – your message is already filled in for WhatsApp:"
+    "chatReply": "Thanks for your message! This is a demo, so live chat is not connected yet. Tap below to continue with our staff – your message is already filled in.",
+    "chatVia": "via {channel}",
+    "chatContinue": "Continue on {channel}",
+    "chatOthers": "Or use:"
   },
   "footer": {
     "tagline": "Apartments in Tokyo for foreign residents – explained in your language.",
