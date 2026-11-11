@@ -1,6 +1,7 @@
 import { CONDITION_KEYS, type ConditionKey, type Layout, type Listing } from '@/lib/data/types';
 
-export const NEWLY_BUILT_YEARS = 3;
+/** 築浅: Japanese portals usually mean "built within 5 years". */
+export const NEWLY_BUILT_YEARS = 5;
 export const FAMILY_MIN_BEDROOMS = 2;
 export const LUXURY_MIN_RENT = 150000;
 

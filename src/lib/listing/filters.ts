@@ -102,6 +102,14 @@ export function serializeFilters(filters: Filters): string {
   return params.toString();
 }
 
+/** Turn one condition on or off while keeping every other filter (back to page 1). */
+export function toggleCondition(filters: Filters, key: ConditionKey): Filters {
+  const current = filters.conditions ?? [];
+  const conditions = current.includes(key) ? current.filter((c) => c !== key) : [...current, key];
+  const { page: _page, conditions: _old, ...rest } = filters;
+  return conditions.length ? { ...rest, conditions } : rest;
+}
+
 const SORTERS: Record<SortKey, (a: Listing, b: Listing) => number> = {
   newest: (a, b) => b.publishedAt.localeCompare(a.publishedAt) || a.code.localeCompare(b.code),
   'price-asc': (a, b) => a.rent - b.rent || a.code.localeCompare(b.code),

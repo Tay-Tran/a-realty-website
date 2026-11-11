@@ -5,10 +5,10 @@ import { activeConditions, bedroomsOf, buildingAge, hasCondition, isNewlyBuilt, 
 const NOW = new Date('2026-11-11T00:00:00Z');
 
 describe('derived values', () => {
-  it('isNewlyBuilt: within 3 years of now', () => {
-    expect(isNewlyBuilt({ builtYear: 2023 }, NOW)).toBe(true);
+  it('isNewlyBuilt: within 5 years of now (築浅 as Japanese portals use it)', () => {
+    expect(isNewlyBuilt({ builtYear: 2021 }, NOW)).toBe(true);
     expect(isNewlyBuilt({ builtYear: 2026 }, NOW)).toBe(true);
-    expect(isNewlyBuilt({ builtYear: 2022 }, NOW)).toBe(false);
+    expect(isNewlyBuilt({ builtYear: 2020 }, NOW)).toBe(false);
   });
 
   it('hasCondition reads stored flags and derived keys', () => {
