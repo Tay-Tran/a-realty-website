@@ -65,9 +65,39 @@ export function FloatingContact() {
   const listRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const rootRef = useRef<HTMLDivElement>(null);
+  // Phones get a full-screen chat sized to the visible area above the on-screen keyboard.
+  const [phone, setPhone] = useState(false);
+  const [viewport, setViewport] = useState<{ top: number; height: number } | null>(null);
 
   const now = () =>
     new Intl.DateTimeFormat(locale === 'my' ? 'en' : locale, { hour: '2-digit', minute: '2-digit' }).format(new Date());
+
+  useEffect(() => {
+    const mq = window.matchMedia('(max-width: 639px)');
+    const update = () => setPhone(mq.matches);
+    update();
+    mq.addEventListener('change', update);
+    return () => mq.removeEventListener('change', update);
+  }, []);
+
+  // While the phone chat is open: follow the visual viewport (it shrinks when the keyboard opens)
+  // and stop the page behind from scrolling.
+  useEffect(() => {
+    if (!chat || !phone) return;
+    const vv = window.visualViewport;
+    const sync = () => setViewport(vv ? { top: vv.offsetTop, height: vv.height } : { top: 0, height: window.innerHeight });
+    sync();
+    vv?.addEventListener('resize', sync);
+    vv?.addEventListener('scroll', sync);
+    const html = document.documentElement;
+    const previous = html.style.overflow;
+    html.style.overflow = 'hidden';
+    return () => {
+      vv?.removeEventListener('resize', sync);
+      vv?.removeEventListener('scroll', sync);
+      html.style.overflow = previous;
+    };
+  }, [chat, phone]);
 
   // Close the speed-dial on Escape or a click anywhere else on the page.
   useEffect(() => {
@@ -87,7 +117,8 @@ export function FloatingContact() {
   useEffect(() => {
     if (!chat) return;
     if (messages.length === 0) setMessages([{ from: 'agent', text: t('chatGreeting'), time: now() }]);
-    requestAnimationFrame(() => inputRef.current?.focus());
+    // Focus the message box with a mouse; on touch screens it would pop the keyboard over the greeting.
+    if (window.matchMedia('(pointer: fine)').matches) requestAnimationFrame(() => inputRef.current?.focus());
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setChat(null); };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -127,7 +158,8 @@ export function FloatingContact() {
     <div ref={rootRef} className="pointer-events-none fixed bottom-5 right-4 z-40 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
       {chat && ChannelIcon ? (
         <section role="dialog" aria-label={`${site.name} – ${t('chatVia', { channel: name(chat) })}`}
-          className="pointer-events-auto fixed inset-x-3 bottom-24 flex h-[min(520px,70vh)] flex-col overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-black/5 sm:static sm:inset-auto sm:h-[480px] sm:w-[360px]">
+          style={phone && viewport ? { top: viewport.top, height: viewport.height } : undefined}
+          className="pointer-events-auto fixed inset-x-0 top-0 z-50 flex h-[100dvh] flex-col overflow-hidden bg-white sm:static sm:inset-auto sm:z-auto sm:h-[480px] sm:w-[360px] sm:rounded-3xl sm:shadow-2xl sm:ring-1 sm:ring-black/5">
           <header className="flex items-center gap-3 bg-accent px-4 py-3 text-white">
             <span className="relative grid h-11 w-11 shrink-0 place-items-center rounded-full border-2 border-white bg-ink text-lg font-bold">
               暮<span aria-hidden className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-[#22c55e]" />
@@ -224,7 +256,7 @@ export function FloatingContact() {
       <button type="button" onClick={() => (chat ? setChat(null) : setPillsOpen((o) => !o))}
         aria-expanded={chat ? true : pillsOpen} aria-controls={chat ? undefined : 'contact-channels'}
         aria-label={chat || pillsOpen ? t('chatClose') : t('chat')}
-        className={`pointer-events-auto relative grid h-14 w-14 place-items-center rounded-full text-white shadow-xl transition hover:scale-105 sm:h-16 sm:w-16 ${chat || pillsOpen ? 'bg-ink' : 'bg-accent hover:bg-accent-dark'}`}>
+        className={`pointer-events-auto relative h-14 w-14 ${chat && phone ? 'hidden' : 'grid'} place-items-center rounded-full text-white shadow-xl transition hover:scale-105 sm:h-16 sm:w-16 ${chat || pillsOpen ? 'bg-ink' : 'bg-accent hover:bg-accent-dark'}`}>
         <span aria-hidden className={`absolute transition duration-200 ${chat || pillsOpen ? 'rotate-90 scale-50 opacity-0' : 'rotate-0 scale-100 opacity-100'}`}><ChatGlyph /></span>
         <span aria-hidden className={`absolute text-2xl leading-none transition duration-200 ${chat || pillsOpen ? 'rotate-0 scale-100 opacity-100' : '-rotate-90 scale-50 opacity-0'}`}>✕</span>
         {!chat && !pillsOpen && <span aria-hidden className="absolute right-0.5 top-0.5 h-4 w-4 rounded-full border-2 border-white bg-[#ef4444]" />}
