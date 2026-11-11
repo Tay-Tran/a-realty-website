@@ -4,6 +4,7 @@ import type { Area, Listing, Locale } from '@/lib/data/types';
 import { monthlyTotal } from '@/lib/listing/derived';
 import { formatSize, pickText } from '@/lib/listing/format';
 import { Container } from '@/components/ui/Container';
+import { PinIcon } from '@/components/ui/icons';
 import { Price } from '@/components/ui/Price';
 
 /** Sticky bar under the header: name, monthly total, inquiry/call, and section tabs. */
@@ -21,7 +22,7 @@ export function SummaryBar({ listing, area }: { listing: Listing; area?: Area })
     <div className="sticky top-16 z-30 border-y border-line bg-white/95 shadow-sm backdrop-blur">
       <Container className="flex flex-wrap items-center justify-between gap-3 py-3">
         <div className="min-w-0">
-          {area && <span className="text-xs font-semibold text-accent">◉ {pickText(area.name, locale)}</span>}
+          {area && <span className="inline-flex items-center gap-1 text-xs font-semibold text-accent"><PinIcon className="h-3.5 w-3.5" />{pickText(area.name, locale)}, {t('common.tokyo')}</span>}
           <p className="truncate font-bold text-ink">{pickText(listing.title, locale)}</p>
           <p className="text-xs text-ink-soft">{listing.layout} · {formatSize(listing.sizeM2)} · {t('common.code', { code: listing.code })}</p>
         </div>

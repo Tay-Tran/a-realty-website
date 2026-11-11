@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import { getAreas, getListings, getStations } from '@/lib/data';
+import { getAreas, getLines, getListings, getStations } from '@/lib/data';
 import { buildSearchOptions } from '@/lib/data/search-options';
 import type { ConditionKey } from '@/lib/data/types';
 import { isLocale, requireLocale } from '@/i18n/locale';
@@ -32,16 +32,18 @@ export default async function RentPage({ params, searchParams }: Props) {
   const locale = requireLocale((await params).locale);
   setRequestLocale(locale);
   const filters = parseFilters(await searchParams);
-  const [t, tc, result, options, stations, areas] = await Promise.all([
+  const [t, tc, result, options, stations, areas, lines] = await Promise.all([
     getTranslations('search'),
     getTranslations('categories'),
     getListings(filters),
     buildSearchOptions(locale),
     getStations(),
     getAreas(),
+    getLines(),
   ]);
   const stationMap = Object.fromEntries(stations.map((s) => [s.slug, s]));
   const areaMap = Object.fromEntries(areas.map((a) => [a.slug, a]));
+  const lineMap = Object.fromEntries(lines.map((l) => [l.slug, l]));
   const panelKey = serializeFilters({ ...filters, sort: undefined, page: undefined });
   const chipHref = (key: ConditionKey) => {
     const qs = serializeFilters(toggleCondition(filters, key));
@@ -81,7 +83,7 @@ export default async function RentPage({ params, searchParams }: Props) {
             </div>
             {result.items.length > 0 ? (
               <div className="mt-5 space-y-4">
-                {result.items.map((l) => <ListingRow key={l.code} listing={l} stations={stationMap} areas={areaMap} />)}
+                {result.items.map((l) => <ListingRow key={l.code} listing={l} stations={stationMap} areas={areaMap} lines={lineMap} />)}
               </div>
             ) : (
               <div className="mt-10 rounded-2xl border border-dashed border-line bg-white p-10 text-center">

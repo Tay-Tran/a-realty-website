@@ -27,7 +27,8 @@
     "demoNotice": "デモサイトです。掲載物件はすべてサンプルです。",
     "currency": "通貨",
     "rateNote": "参考レートで換算",
-    "bedroomsShort": "寝室{count}"
+    "bedroomsShort": "寝室{count}",
+    "tokyo": "東京都"
   },
   "hero": {
     "title": "東京のお部屋探しを、あなたの言葉で",
