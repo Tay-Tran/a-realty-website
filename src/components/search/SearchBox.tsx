@@ -81,7 +81,7 @@ export function SearchBox({ options }: { options: SearchOptions }) {
   }
 
   const tab = (active: boolean) =>
-    `rounded-full px-6 py-2 text-sm font-semibold transition ${active ? 'bg-white text-accent shadow' : 'text-white/85 hover:text-white'}`;
+    `whitespace-nowrap rounded-full px-4 py-2 text-sm font-semibold transition sm:px-6 ${active ? 'bg-white text-accent shadow' : 'text-white/85 hover:text-white'}`;
 
   return (
     <div className="text-left">
@@ -90,8 +90,8 @@ export function SearchBox({ options }: { options: SearchOptions }) {
         <button type="button" role="tab" aria-selected={mode === 'short'} onClick={() => setMode('short')} className={tab(mode === 'short')}>{t('tabShort')}</button>
         {/* Buy is phase 2 in the quote – shown as a roadmap item only. */}
         <button type="button" role="tab" aria-selected={false} disabled title={t('comingSoon')}
-          className="cursor-not-allowed rounded-full px-4 py-2 text-sm font-semibold text-white/45">
-          {t('tabBuy')} <span className="ml-1 rounded-full bg-white/15 px-2 py-0.5 text-[10px]">{t('comingSoon')}</span>
+          className="cursor-not-allowed whitespace-nowrap rounded-full px-3 py-2 text-sm font-semibold text-white/45 sm:px-4">
+          {t('tabBuy')} <span className="ml-1 hidden rounded-full bg-white/15 px-2 py-0.5 text-[10px] sm:inline">{t('comingSoon')}</span>
         </button>
       </div>
 

@@ -21,7 +21,7 @@ export function SummaryBar({ listing, area }: { listing: Listing; area?: Area })
   return (
     <div className="sticky top-16 z-30 border-y border-line bg-white/95 shadow-sm backdrop-blur">
       <Container className="flex flex-wrap items-center justify-between gap-3 py-3">
-        <div className="min-w-0">
+        <div className="hidden min-w-0 sm:block">
           {area && <span className="inline-flex items-center gap-1 text-xs font-semibold text-sky"><PinIcon className="h-3.5 w-3.5" />{pickText(area.name, locale)}, {t('common.tokyo')}</span>}
           <p className="truncate font-bold text-ink">{pickText(listing.title, locale)}</p>
           <p className="text-xs text-ink-soft">{listing.layout} · {formatSize(listing.sizeM2)} · {t('common.code', { code: listing.code })}</p>

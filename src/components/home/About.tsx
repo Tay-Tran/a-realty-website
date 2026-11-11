@@ -25,11 +25,11 @@ export function About() {
       </Container>
       <Container className="mt-12">
         <h3 className="text-center text-xl font-bold">{t('statsTitle')}</h3>
-        <div className="mt-6 grid gap-4 sm:grid-cols-3">
+        <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-4">
           {[1, 2, 3].map((n) => (
-            <div key={n} className="rounded-2xl border border-line bg-paper p-6 text-center">
-              <p className="text-4xl font-bold text-sky">{t(`stat${n}Value`)}</p>
-              <p className="mt-1 text-sm text-ink-soft">{t(`stat${n}Label`)}</p>
+            <div key={n} className="rounded-2xl border border-line bg-paper px-2 py-4 text-center sm:p-6">
+              <p className="text-2xl font-bold text-sky sm:text-4xl">{t(`stat${n}Value`)}</p>
+              <p className="mt-1 text-xs text-ink-soft sm:text-sm">{t(`stat${n}Label`)}</p>
             </div>
           ))}
         </div>
