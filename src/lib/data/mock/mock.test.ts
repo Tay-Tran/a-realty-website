@@ -24,6 +24,7 @@ describe('mock listings', () => {
       for (const s of l.stations) expect(stations.has(s.stationSlug), `${l.code}→${s.stationSlug}`).toBe(true);
       expect(l.slug.endsWith(`-${l.code.toLowerCase()}`), l.code).toBe(true);
       expect(l.title.en && l.title.my && l.title.ja && l.description.my, l.code).toBeTruthy();
+      expect(l.amenities.length, l.code).toBeGreaterThanOrEqual(4);
     }
   });
   it('gives each listing 5 distinct photos, starting with an interior', () => {

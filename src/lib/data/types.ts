@@ -18,8 +18,14 @@ export const STORED_CONDITION_KEYS = [
 export type StoredConditionKey = (typeof STORED_CONDITION_KEYS)[number];
 
 /** Stored flags plus values derived from other fields. */
-export const CONDITION_KEYS = [...STORED_CONDITION_KEYS, 'noKeyMoney', 'newlyBuilt'] as const;
+export const CONDITION_KEYS = [...STORED_CONDITION_KEYS, 'noKeyMoney', 'newlyBuilt', 'family', 'luxury'] as const;
 export type ConditionKey = (typeof CONDITION_KEYS)[number];
+
+export const AMENITY_KEYS = [
+  'aircon', 'balcony', 'deliveryBox', 'elevator', 'bikeParking', 'separateToilet',
+  'washlet', 'internet', 'systemKitchen', 'flooring', 'storage',
+] as const;
+export type AmenityKey = (typeof AMENITY_KEYS)[number];
 
 export const SORTS = ['newest', 'price-asc', 'price-desc'] as const;
 export type SortKey = (typeof SORTS)[number];
@@ -51,6 +57,7 @@ export interface Listing {
   managementFee: number;
   initialCosts: InitialCosts;
   conditions: Record<StoredConditionKey, boolean>;
+  amenities: AmenityKey[];
   images: string[];
   featured: boolean;
   publishedAt: string;

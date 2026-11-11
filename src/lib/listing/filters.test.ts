@@ -18,7 +18,10 @@ const B = makeListing({ code: 'B', rent: 90000, layout: '1K', publishedAt: '2026
   stations: [{ stationSlug: 'takadanobaba', walkMinutes: 12 }], initialCosts: { ...costs, keyMoneyMonths: 0 } });
 const C = makeListing({ code: 'C', rent: 120000, layout: '1LDK', publishedAt: '2026-10-03', areaSlug: 'nakano',
   builtYear: 2024, stations: [{ stationSlug: 'nakano', walkMinutes: 7 }], conditions: { ...base, petOk: true } });
-const ALL = [A, B, C];
+const C2 = makeListing({ ...C, sizeM2: 38 });
+const D = makeListing({ code: 'D', rent: 200000, layout: '2LDK', sizeM2: 55, publishedAt: '2026-09-01', areaSlug: 'kita',
+  builtYear: 2025, stations: [{ stationSlug: 'nakano', walkMinutes: 15 }] });
+const ALL = [A, B, C2, D];
 const run = (f: Filters) => filterListings(ALL, f, { stations: STATIONS, now: NOW }).map((l) => l.code);
 
 describe('parseFilters', () => {
@@ -58,19 +61,19 @@ describe('serializeFilters', () => {
   });
 
   it('round-trips through parseFilters', () => {
-    const f: Filters = { area: 'kita', station: 'akabane', maxWalk: 10, maxRent: 80000, layouts: ['1K'], conditions: ['studentOk'], sort: 'price-desc', page: 3 };
+    const f: Filters = { area: 'kita', station: 'akabane', maxWalk: 10, maxRent: 80000, minSize: 20, maxSize: 40, bedrooms: 2, maxAge: 10, layouts: ['1K'], conditions: ['studentOk', 'family'], sort: 'price-desc', page: 3 };
     expect(parseFilters(new URLSearchParams(serializeFilters(f)))).toEqual(f);
   });
 });
 
 describe('filterListings', () => {
-  it('defaults to newest first', () => expect(run({})).toEqual(['B', 'C', 'A']));
+  it('defaults to newest first', () => expect(run({})).toEqual(['B', 'C', 'A', 'D']));
   it('sorts by price', () => {
-    expect(run({ sort: 'price-asc' })).toEqual(['A', 'B', 'C']);
-    expect(run({ sort: 'price-desc' })).toEqual(['C', 'B', 'A']);
+    expect(run({ sort: 'price-asc' })).toEqual(['A', 'B', 'C', 'D']);
+    expect(run({ sort: 'price-desc' })).toEqual(['D', 'C', 'B', 'A']);
   });
   it('filters by area', () => expect(run({ area: 'nakano' })).toEqual(['C']));
-  it('filters by line through station data', () => expect(run({ line: 'tozai', sort: 'price-asc' })).toEqual(['B', 'C']));
+  it('filters by line through station data', () => expect(run({ line: 'tozai', sort: 'price-asc' })).toEqual(['B', 'C', 'D']));
   it('filters by station and walk time', () => {
     expect(run({ station: 'takadanobaba' })).toEqual(['B']);
     expect(run({ station: 'takadanobaba', maxWalk: 10 })).toEqual([]);
@@ -78,6 +81,14 @@ describe('filterListings', () => {
   it('filters by walk time alone', () => expect(run({ maxWalk: 7, sort: 'price-asc' })).toEqual(['A', 'C']));
   it('filters by rent range (rent only)', () => expect(run({ minRent: 60000, maxRent: 90000, sort: 'price-asc' })).toEqual(['A', 'B']));
   it('filters by layouts', () => expect(run({ layouts: ['1R', '1LDK'], sort: 'price-asc' })).toEqual(['A', 'C']));
+  it('filters by size range', () => {
+    expect(run({ minSize: 21, sort: 'price-asc' })).toEqual(['C', 'D']);
+    expect(run({ maxSize: 20, sort: 'price-asc' })).toEqual(['A', 'B']);
+  });
+  it('filters by minimum bedrooms and maximum building age', () => {
+    expect(run({ bedrooms: 2 })).toEqual(['D']);
+    expect(run({ maxAge: 5, sort: 'price-asc' })).toEqual(['C', 'D']);
+  });
   it('filters by stored and derived conditions', () => {
     expect(run({ conditions: ['studentOk'] })).toEqual(['A']);
     expect(run({ conditions: ['noKeyMoney'] })).toEqual(['B']);
