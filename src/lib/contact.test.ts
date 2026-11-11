@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { whatsappLink } from './contact';
+import { lineLink, whatsappLink } from './contact';
 
 describe('whatsappLink', () => {
   it('pre-fills the message as an encoded text parameter', () => {
@@ -11,5 +11,14 @@ describe('whatsappLink', () => {
   });
   it('trims long messages to keep the URL short', () => {
     expect(decodeURIComponent(whatsappLink('https://wa.me/1', 'x'.repeat(2000)).split('text=')[1])).toHaveLength(1000);
+  });
+});
+
+describe('lineLink', () => {
+  it('opens a LINE Official Account chat with the message pre-filled', () => {
+    expect(lineLink('@kurashi-demo', 'Hello 1K')).toBe('https://line.me/R/oaMessage/%40kurashi-demo/?Hello%201K');
+  });
+  it('falls back to the add-friend link without a message', () => {
+    expect(lineLink('@kurashi-demo', '')).toBe('https://line.me/R/ti/p/%40kurashi-demo');
   });
 });
