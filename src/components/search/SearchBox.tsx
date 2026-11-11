@@ -104,7 +104,7 @@ export function SearchBox({ options }: { options: SearchOptions }) {
           <input type="search" value={query} placeholder={t('quickSearch')} aria-label={t('quickSearch')}
             onChange={(e) => { setQuery(e.target.value); setSuggestOpen(true); }}
             onFocus={() => setSuggestOpen(true)} onBlur={() => setTimeout(() => setSuggestOpen(false), 150)}
-            className="w-full rounded-2xl border border-line bg-paper py-3 pl-10 pr-4 text-ink placeholder:text-ink-soft/70 focus:border-accent focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent/15" />
+            className="w-full text-ellipsis rounded-2xl border border-line bg-paper py-3 pl-10 pr-4 text-ink placeholder:text-ink-soft/70 focus:border-accent focus:bg-white focus:outline-none focus:ring-2 focus:ring-accent/15" />
           {suggestOpen && query.trim() && (
             <ul role="listbox" className="absolute inset-x-0 top-full z-30 mt-1 overflow-hidden rounded-2xl bg-white py-1 shadow-xl">
               {matches.length === 0 && <li className="px-4 py-2 text-sm text-ink-soft">{t('noMatch')}</li>}
