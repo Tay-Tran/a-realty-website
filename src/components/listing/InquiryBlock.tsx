@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 import { site } from '@/config/site';
 import { InquiryForm } from '@/components/forms/InquiryForm';
+import { PhoneIcon } from '@/components/ui/icons';
 
 export function InquiryBlock({ code }: { code: string }) {
   const t = useTranslations();
@@ -20,8 +21,8 @@ export function InquiryBlock({ code }: { code: string }) {
               className={`rounded-lg py-2.5 text-center text-xs font-semibold text-white ${c.className}`}>{c.label}</a>
           ))}
         </div>
-        <a href={site.contact.phoneHref} className="mt-2 block rounded-lg border border-line py-2.5 text-center text-sm">
-          📞 {site.contact.phoneDisplay}
+        <a href={site.contact.phoneHref} className="mt-2 flex items-center justify-center gap-2 rounded-lg border border-line py-2.5 text-sm hover:border-accent">
+          <PhoneIcon className="h-4 w-4 text-accent" />{site.contact.phoneDisplay}
         </a>
       </div>
       <InquiryForm listingCode={code} />

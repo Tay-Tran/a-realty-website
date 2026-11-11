@@ -4,7 +4,7 @@ import type { Area, Listing, Locale } from '@/lib/data/types';
 import { monthlyTotal } from '@/lib/listing/derived';
 import { formatSize, pickText } from '@/lib/listing/format';
 import { Container } from '@/components/ui/Container';
-import { PinIcon } from '@/components/ui/icons';
+import { PhoneIcon, PinIcon } from '@/components/ui/icons';
 import { Price } from '@/components/ui/Price';
 
 /** Sticky bar under the header: name, monthly total, inquiry/call, and section tabs. */
@@ -36,8 +36,8 @@ export function SummaryBar({ listing, area }: { listing: Listing; area?: Area })
               {t('listing.inquire')}
             </a>
           )}
-          <a href={site.contact.phoneHref} className="hidden rounded-full border border-line px-4 py-2.5 text-sm sm:inline-block">
-            📞 {site.contact.phoneDisplay}
+          <a href={site.contact.phoneHref} className="hidden items-center gap-2 rounded-full border border-line px-4 py-2.5 text-sm hover:border-accent sm:inline-flex">
+            <PhoneIcon className="h-4 w-4 text-accent" />{site.contact.phoneDisplay}
           </a>
         </div>
       </Container>

@@ -3,8 +3,8 @@ import type { Layout } from '@/lib/data/types';
 import { PLAN_HEIGHT, PLAN_WIDTH, planRooms, type RoomKind } from '@/lib/listing/floor-plan';
 
 const FILL: Record<RoomKind, string> = {
-  room: '#ffffff', kitchen: '#fdf1ea', dk: '#fdf1ea', ldk: '#fdf1ea',
-  bath: '#e9f2f9', toilet: '#e9f2f9', entrance: '#f2efe8', balcony: '#edf5e8',
+  room: '#ffffff', kitchen: '#fff7e8', dk: '#fff7e8', ldk: '#fff7e8',
+  bath: '#e9f2f9', toilet: '#e9f2f9', entrance: '#eef1f5', balcony: '#edf5e8',
 };
 
 /** Schematic plan drawn from the layout code. Works in server and client components. */
