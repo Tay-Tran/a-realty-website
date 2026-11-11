@@ -3,6 +3,9 @@
 import { useState, type FormEvent } from 'react';
 import { useTranslations } from 'next-intl';
 import { validateInquiry } from '@/lib/forms/inquiry';
+import { Picker } from '@/components/ui/Picker';
+
+const TYPES = [['rent', 'typeRent'], ['move', 'typeMove'], ['partner', 'typePartner'], ['other', 'typeOther']] as const;
 
 type Errors = Partial<Record<'name' | 'email' | 'message', 'required' | 'invalidEmail'>>;
 
@@ -10,6 +13,7 @@ export function InquiryForm({ listingCode }: { listingCode?: string }) {
   const t = useTranslations('form');
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<'idle' | 'sending' | 'sent'>('idle');
+  const [type, setType] = useState('rent');
 
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -37,14 +41,13 @@ export function InquiryForm({ listingCode }: { listingCode?: string }) {
       )}
       <input type="hidden" name="listingCode" value={listingCode ?? ''} />
       {!listingCode && (
-        <label className="block text-sm font-medium">{t('type')}
-          <select name="type" defaultValue="rent" className={field}>
-            <option value="rent">{t('typeRent')}</option>
-            <option value="move">{t('typeMove')}</option>
-            <option value="partner">{t('typePartner')}</option>
-            <option value="other">{t('typeOther')}</option>
-          </select>
-        </label>
+        <div className="text-sm font-medium">
+          <span id="inquiry-type">{t('type')}</span>
+          <div className="mt-1 font-normal">
+            <Picker name="type" allowEmpty={false} label={t('type')} placeholder={t('typeRent')} value={type} onChange={setType}
+              options={TYPES.map(([value, key]) => ({ value, label: t(key) }))} />
+          </div>
+        </div>
       )}
       <label className="block text-sm font-medium">{t('name')}<input name="name" autoComplete="name" className={field} />{error('name')}</label>
       <label className="block text-sm font-medium">{t('email')}<input name="email" type="email" autoComplete="email" className={field} />{error('email')}</label>

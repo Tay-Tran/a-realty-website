@@ -3,19 +3,18 @@
 import { useTranslations } from 'next-intl';
 import { CURRENCIES, type Currency } from '@/lib/currency';
 import { usePreferences } from '@/components/providers/PreferencesProvider';
+import { Picker } from '@/components/ui/Picker';
 
 const LABELS: Record<Currency, string> = { JPY: '¥ JPY', USD: '$ USD', EUR: '€ EUR', VND: '₫ VND' };
 
-export function CurrencySwitcher() {
+export function CurrencySwitcher({ align = 'right' }: { align?: 'left' | 'right' }) {
   const t = useTranslations('common');
   const { currency, setCurrency } = usePreferences();
   return (
-    <label className="relative inline-flex items-center" title={t('rateNote')}>
-      <span className="sr-only">{t('currency')}</span>
-      <select value={currency} onChange={(e) => setCurrency(e.target.value as Currency)}
-        className="rounded-full border border-line bg-white py-1.5 pl-3 pr-7 text-sm text-ink">
-        {CURRENCIES.map((c) => <option key={c} value={c}>{LABELS[c]}</option>)}
-      </select>
-    </label>
+    <div title={t('rateNote')}>
+      <Picker variant="pill" align={align} allowEmpty={false} label={t('currency')} placeholder={LABELS[currency]}
+        value={currency} onChange={(v) => setCurrency(v as Currency)}
+        options={CURRENCIES.map((c) => ({ value: c, label: LABELS[c] }))} />
+    </div>
   );
 }
