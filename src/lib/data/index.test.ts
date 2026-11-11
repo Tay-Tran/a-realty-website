@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   PAGE_SIZE, countListingsByArea, getFeaturedListings, getListing, getListingRefs,
-  getListings, getSimilarListings, getStations,
+  getListings, getListingsByCodes, getSimilarListings, getStations,
 } from './index';
 
 describe('data access layer', () => {
@@ -41,6 +41,11 @@ describe('data access layer', () => {
     expect(counts.shinjuku).toBe(5);
     expect(counts.shibuya).toBe(1);
     expect(counts.kita).toBe(3);
+  });
+
+  it('getListingsByCodes keeps the requested order and skips unknown codes', async () => {
+    const list = await getListingsByCodes(['A1003', 'NOPE', 'a1001']);
+    expect(list.map((l) => l.code)).toEqual(['A1003', 'A1001']);
   });
 
   it('getStations filters by line; getListingRefs covers all 24', async () => {

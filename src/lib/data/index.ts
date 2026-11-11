@@ -23,6 +23,12 @@ export async function getListing(code: string): Promise<Listing | null> {
   return LISTINGS.find((l) => l.code === code.toUpperCase()) ?? null;
 }
 
+export async function getListingsByCodes(codes: string[]): Promise<Listing[]> {
+  return codes
+    .map((code) => LISTINGS.find((l) => l.code === code.toUpperCase()))
+    .filter((l): l is Listing => l !== undefined);
+}
+
 export async function getSimilarListings(listing: Listing, limit = 4): Promise<Listing[]> {
   const stationSet = new Set(listing.stations.map((s) => s.stationSlug));
   const score = (l: Listing) =>
