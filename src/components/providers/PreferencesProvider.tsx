@@ -23,21 +23,23 @@ function write(key: string, value: string) {
   try { window.localStorage.setItem(key, value); } catch { /* keep working without persistence */ }
 }
 
-export function PreferencesProvider({ children }: { children: React.ReactNode }) {
-  // Server render always uses JPY and no favorites; stored choices apply after mount.
-  const [currency, setCurrencyState] = useState<Currency>('JPY');
+export function PreferencesProvider({ children, defaultCurrency }: { children: React.ReactNode; defaultCurrency: Currency }) {
+  // Until the visitor picks a currency, the page language decides it (so the server render
+  // already shows it); a stored choice applies after mount and wins on every language.
+  const [chosen, setChosen] = useState<Currency | null>(null);
+  const currency = chosen ?? defaultCurrency;
   const [favorites, setFavorites] = useState<string[]>([]);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const stored = read(CURRENCY_KEY);
-    if (isCurrency(stored)) setCurrencyState(stored);
+    if (isCurrency(stored)) setChosen(stored);
     setFavorites(parseFavorites(read(FAVORITES_KEY)));
     setReady(true);
   }, []);
 
   const setCurrency = useCallback((c: Currency) => {
-    setCurrencyState(c);
+    setChosen(c);
     write(CURRENCY_KEY, c);
   }, []);
 

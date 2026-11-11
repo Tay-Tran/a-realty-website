@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { formatMoney, isCurrency } from './currency';
+import { defaultCurrency, formatMoney, isCurrency } from './currency';
 
 describe('currency', () => {
   it('keeps yen formatting for JPY', () => {
@@ -14,5 +14,13 @@ describe('currency', () => {
     expect(isCurrency('USD')).toBe(true);
     expect(isCurrency('BTC')).toBe(false);
     expect(isCurrency(null)).toBe(false);
+  });
+});
+
+describe('defaultCurrency', () => {
+  it('shows English visitors US dollars and keeps yen for Japanese and Burmese', () => {
+    expect(defaultCurrency('en')).toBe('USD');
+    expect(defaultCurrency('ja')).toBe('JPY');
+    expect(defaultCurrency('my')).toBe('JPY');
   });
 });

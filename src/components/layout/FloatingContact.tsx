@@ -47,8 +47,8 @@ function channelHref(channel: Channel, message: string): string {
 
 /**
  * Floating contact widget like the reference site.
- * - Round button: shows / hides the channel pills (open by default on desktop, closed on phones).
- * - LINE / WhatsApp / Messenger pill: opens a chat window for that channel; Call dials directly.
+ * - One round button; clicking it pops up small channel buttons (speed-dial) and turns into ✕.
+ * - LINE / WhatsApp / Messenger: opens a chat window for that channel; Call dials directly.
  * - While a chat is open the round button becomes a dark ✕ that closes it.
  * The demo has no chat backend: a sent message gets an auto-reply that hands the visitor to the
  * chosen app with the message pre-filled.
@@ -64,13 +64,25 @@ export function FloatingContact() {
   const [messages, setMessages] = useState<Message[]>([]);
   const listRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   const now = () =>
     new Intl.DateTimeFormat(locale === 'my' ? 'en' : locale, { hour: '2-digit', minute: '2-digit' }).format(new Date());
 
+  // Close the speed-dial on Escape or a click anywhere else on the page.
   useEffect(() => {
-    setPillsOpen(window.matchMedia('(min-width: 768px)').matches);
-  }, []);
+    if (!pillsOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setPillsOpen(false); };
+    const onDown = (e: PointerEvent) => { if (!rootRef.current?.contains(e.target as Node)) setPillsOpen(false); };
+    window.addEventListener('keydown', onKey);
+    document.addEventListener('pointerdown', onDown);
+    return () => { window.removeEventListener('keydown', onKey); document.removeEventListener('pointerdown', onDown); };
+  }, [pillsOpen]);
+
+  function openChat(channel: Channel) {
+    setPillsOpen(false);
+    setChat(channel);
+  }
 
   useEffect(() => {
     if (!chat) return;
@@ -107,13 +119,15 @@ export function FloatingContact() {
     { channel: 'messenger', label: t('messenger'), icon: <MessengerGlyph />, bg: CHANNEL_STYLE.messenger.bg },
     { label: t('call'), icon: <PhoneGlyph />, bg: 'bg-ink', href: site.contact.phoneHref },
   ];
-  const pillClass = 'flex items-center gap-3 rounded-full bg-white py-1.5 pl-1.5 pr-5 text-sm font-semibold text-ink shadow-lg ring-1 ring-black/5 transition hover:-translate-x-0.5 hover:shadow-xl';
+  const itemClass = 'group flex items-center gap-2.5 focus:outline-none';
+  const labelClass = 'rounded-full bg-white px-3 py-1 text-xs font-semibold text-ink shadow-md ring-1 ring-black/5 transition group-hover:bg-paper group-focus-visible:ring-2 group-focus-visible:ring-accent';
+  const dotClass = 'grid h-11 w-11 place-items-center rounded-full shadow-lg ring-2 ring-white transition group-hover:scale-110 [&>svg]:h-5 [&>svg]:w-5';
 
   return (
-    <div className="fixed bottom-5 right-4 z-40 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
+    <div ref={rootRef} className="pointer-events-none fixed bottom-5 right-4 z-40 flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
       {chat && ChannelIcon ? (
         <section role="dialog" aria-label={`${site.name} – ${t('chatVia', { channel: name(chat) })}`}
-          className="fixed inset-x-3 bottom-24 flex h-[min(520px,70vh)] flex-col overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-black/5 sm:static sm:inset-auto sm:h-[480px] sm:w-[360px]">
+          className="pointer-events-auto fixed inset-x-3 bottom-24 flex h-[min(520px,70vh)] flex-col overflow-hidden rounded-3xl bg-white shadow-2xl ring-1 ring-black/5 sm:static sm:inset-auto sm:h-[480px] sm:w-[360px]">
           <header className="flex items-center gap-3 bg-accent px-4 py-3 text-white">
             <span className="relative grid h-11 w-11 shrink-0 place-items-center rounded-full border-2 border-white bg-ink text-lg font-bold">
               暮<span aria-hidden className="absolute -bottom-0.5 -right-0.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-[#22c55e]" />
@@ -183,29 +197,37 @@ export function FloatingContact() {
         </section>
       ) : (
         <ul id="contact-channels" aria-hidden={!pillsOpen}
-          className={`flex flex-col items-end gap-2.5 transition-all duration-200 ${pillsOpen ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-3 opacity-0'}`}>
-          {pills.map((p) => (
-            <li key={p.label}>
-              {p.channel ? (
-                <button type="button" tabIndex={pillsOpen ? 0 : -1} onClick={() => setChat(p.channel!)} className={pillClass}>
-                  <span className={`grid h-9 w-9 place-items-center rounded-full ${p.bg}`}>{p.icon}</span>{p.label}
-                </button>
-              ) : (
-                <a href={p.href} tabIndex={pillsOpen ? 0 : -1} className={pillClass}>
-                  <span className={`grid h-9 w-9 place-items-center rounded-full ${p.bg}`}>{p.icon}</span>{p.label}
-                </a>
-              )}
-            </li>
-          ))}
+          className={`flex flex-col items-end gap-2.5 pr-1.5 sm:pr-2.5 ${pillsOpen ? 'pointer-events-auto' : ''}`}>
+          {pills.map((p, i) => {
+            // Pop up from the round button: the nearest one first, the top one last.
+            const style = { transitionDelay: pillsOpen ? `${(pills.length - 1 - i) * 45}ms` : '0ms' };
+            const motion = `transition-all duration-200 ease-out ${pillsOpen ? 'translate-y-0 scale-100 opacity-100' : 'translate-y-4 scale-75 opacity-0'}`;
+            const inner = (
+              <>
+                <span className={labelClass}>{p.label}</span>
+                <span className={`${dotClass} ${p.bg}`}>{p.icon}</span>
+              </>
+            );
+            return (
+              <li key={p.label} style={style} className={motion}>
+                {p.channel ? (
+                  <button type="button" tabIndex={pillsOpen ? 0 : -1} onClick={() => openChat(p.channel!)} className={itemClass}>{inner}</button>
+                ) : (
+                  <a href={p.href} tabIndex={pillsOpen ? 0 : -1} className={itemClass}>{inner}</a>
+                )}
+              </li>
+            );
+          })}
         </ul>
       )}
 
       <button type="button" onClick={() => (chat ? setChat(null) : setPillsOpen((o) => !o))}
         aria-expanded={chat ? true : pillsOpen} aria-controls={chat ? undefined : 'contact-channels'}
-        aria-label={chat ? t('chatClose') : t('chat')}
-        className={`relative grid h-14 w-14 place-items-center rounded-full text-white shadow-xl transition hover:scale-105 sm:h-16 sm:w-16 ${chat ? 'bg-ink' : 'bg-accent hover:bg-accent-dark'}`}>
-        {chat ? <span aria-hidden className="text-2xl leading-none">✕</span> : <ChatGlyph />}
-        {!chat && <span aria-hidden className="absolute right-0.5 top-0.5 h-4 w-4 rounded-full border-2 border-white bg-[#ef4444]" />}
+        aria-label={chat || pillsOpen ? t('chatClose') : t('chat')}
+        className={`pointer-events-auto relative grid h-14 w-14 place-items-center rounded-full text-white shadow-xl transition hover:scale-105 sm:h-16 sm:w-16 ${chat || pillsOpen ? 'bg-ink' : 'bg-accent hover:bg-accent-dark'}`}>
+        <span aria-hidden className={`absolute transition duration-200 ${chat || pillsOpen ? 'rotate-90 scale-50 opacity-0' : 'rotate-0 scale-100 opacity-100'}`}><ChatGlyph /></span>
+        <span aria-hidden className={`absolute text-2xl leading-none transition duration-200 ${chat || pillsOpen ? 'rotate-0 scale-100 opacity-100' : '-rotate-90 scale-50 opacity-0'}`}>✕</span>
+        {!chat && !pillsOpen && <span aria-hidden className="absolute right-0.5 top-0.5 h-4 w-4 rounded-full border-2 border-white bg-[#ef4444]" />}
       </button>
     </div>
   );
