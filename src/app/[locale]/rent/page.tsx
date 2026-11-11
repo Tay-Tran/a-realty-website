@@ -54,13 +54,14 @@ export default async function RentPage({ params, searchParams }: Props) {
     <main>
       <Container className="py-8">
         <h1 className="text-2xl font-bold sm:text-3xl">{t('title')}</h1>
-        <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
-          <span className="text-ink-soft">{t('related')}</span>
+        {/* One swipeable row on phones, wrapping on wider screens. */}
+        <div className="-mx-4 mt-3 flex items-center gap-2 overflow-x-auto px-4 pb-1 text-sm [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0">
+          <span className="shrink-0 text-ink-soft">{t('related')}</span>
           {[...CATEGORY_KEYS, 'shortTermOk' as const].map((key) => {
             const active = filters.conditions?.includes(key) ?? false;
             return (
               <Link key={key} href={chipHref(key)} aria-pressed={active}
-                className={`rounded-full border px-3 py-1 ${active ? 'border-accent bg-accent text-white' : 'border-line bg-white hover:border-accent'}`}>
+                className={`shrink-0 whitespace-nowrap rounded-full border px-3 py-1 ${active ? 'border-accent bg-accent text-white' : 'border-line bg-white hover:border-accent'}`}>
                 {active && <span aria-hidden className="mr-1">✓</span>}{tc(key)}{active && <span aria-hidden className="ml-1.5">×</span>}
               </Link>
             );

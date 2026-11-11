@@ -15,10 +15,10 @@ export function AreaGrid({ areas, counts }: { areas: Area[]; counts: Record<stri
         <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">
           {areas.map((a) => (
             <Link key={a.slug} href={`/rent?area=${a.slug}`}
-              className="group flex items-start gap-3 rounded-2xl border border-line bg-white p-5 transition hover:border-sky">
-              <span aria-hidden className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-tint text-sky"><PinIcon /></span>
+              className="group flex items-start gap-3 rounded-2xl border border-line bg-white p-4 transition hover:border-sky sm:p-5">
+              <span aria-hidden className="hidden h-9 w-9 shrink-0 place-items-center rounded-full bg-tint text-sky sm:grid"><PinIcon /></span>
               <span className="min-w-0">
-                <span className="block text-lg font-semibold text-ink group-hover:text-sky">{pickText(a.name, locale)}</span>
+                <span className="block font-semibold text-ink group-hover:text-sky sm:text-lg">{pickText(a.name, locale)}</span>
                 <span className="mt-0.5 block text-sm text-ink-soft">{t('areaCount', { count: counts[a.slug] ?? 0 })}</span>
               </span>
             </Link>
