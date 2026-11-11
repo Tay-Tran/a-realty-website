@@ -36,3 +36,10 @@ html, body { overflow-x: clip; }
 }
 body { background: var(--color-paper); color: var(--color-ink); }
 html[lang="my"] body { line-height: 1.9; }
+
+/* Japanese headings: break only at punctuation / phrase boundaries (not mid-word) and balance
+   the lines; a segment too long for the line may still break anywhere. */
+html[lang="ja"] :is(h1, h2, h3, h1 + p) { word-break: keep-all; overflow-wrap: anywhere; text-wrap: balance; }
+@supports (word-break: auto-phrase) {
+  html[lang="ja"] :is(h1, h2, h3, h1 + p) { word-break: auto-phrase; }
+}

@@ -21,8 +21,7 @@ export function Reviews() {
       <Container>
         <h2 className="text-center text-2xl font-bold sm:text-3xl">{t('reviewsTitle')}</h2>
         <p className="mx-auto mt-2 max-w-2xl text-center text-sm text-ink-soft">{t('reviewsSubtitle')}</p>
-        <p className="mt-8 text-center text-lg font-semibold text-ink-soft/70">{t('reviewsKicker')}</p>
-        <div className="mt-2">
+        <div className="mt-8">
           <Carousel>
             {SAMPLES.map(({ n, daysAgo, color }) => (
               <div key={n} className="w-[85%] shrink-0 snap-start sm:w-[45%] lg:w-[31.5%]">

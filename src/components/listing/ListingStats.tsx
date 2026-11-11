@@ -19,7 +19,7 @@ export function ListingStats({ listing, className = '' }: { listing: Listing; cl
     <dl className="grid grid-cols-2 gap-px overflow-hidden rounded-xl bg-line text-center @[18rem]:grid-cols-4">
       {cells.map(([label, value]) => (
         <div key={label} className="bg-paper px-1 py-2">
-          <dt className="truncate text-[11px] text-ink-soft">{label}</dt>
+          <dt className="line-clamp-2 text-[11px] leading-tight text-ink-soft">{label}</dt>
           <dd className="text-sm font-semibold text-ink">{value}</dd>
         </div>
       ))}
