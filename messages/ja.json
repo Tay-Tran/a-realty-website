@@ -63,7 +63,8 @@
     "newlyBuilt": "築浅",
     "furnished": "家具付き",
     "family": "ファミリー向け",
-    "luxury": "高級物件"
+    "luxury": "高級物件",
+    "shortTermOk": "短期"
   },
   "conditions": {
     "foreignerOk": "外国籍の方歓迎",

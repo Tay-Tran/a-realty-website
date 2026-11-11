@@ -49,7 +49,7 @@ export default async function RentPage({ params, searchParams }: Props) {
         <h1 className="text-2xl font-bold sm:text-3xl">{t('title')}</h1>
         <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
           <span className="text-ink-soft">{t('related')}</span>
-          {CATEGORY_KEYS.map((key) => (
+          {[...CATEGORY_KEYS, 'shortTermOk' as const].map((key) => (
             <Link key={key} href={`/rent?conditions=${key}`}
               className={`rounded-full border px-3 py-1 ${activeCategory === key ? 'border-accent bg-accent text-white' : 'border-line bg-white hover:border-accent'}`}>
               {tc(key)}

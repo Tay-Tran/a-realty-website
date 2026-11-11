@@ -7,6 +7,7 @@ import { pickText } from '@/lib/listing/format';
 import { listingPath } from '@/lib/listing/paths';
 import { Price } from '@/components/ui/Price';
 import { FavoriteButton } from './FavoriteButton';
+import { FloorPlan } from './FloorPlan';
 import { ListingStats } from './ListingStats';
 import { StatusBadge } from './StatusBadge';
 
@@ -29,7 +30,13 @@ export function ListingRow({ listing, stations, areas }: {
           {listing.status !== 'available' && <span className="absolute left-2 top-2"><StatusBadge status={listing.status} /></span>}
         </Link>
         <div className="mt-2 grid grid-cols-3 gap-2">
-          {listing.images.slice(1, 4).map((src) => (
+          <div className="relative grid aspect-[4/3] place-items-center overflow-hidden rounded-lg border border-line bg-white p-1"
+            title={t('floorPlan.title')}>
+            {listing.floorPlan
+              ? <Image src={listing.floorPlan} alt={t('floorPlan.title')} fill sizes="80px" className="object-contain" />
+              : <FloorPlan layout={listing.layout} labels={false} className="h-full w-auto" />}
+          </div>
+          {listing.images.slice(1, 3).map((src) => (
             <div key={src} className="relative aspect-[4/3] overflow-hidden rounded-lg bg-ink/5">
               <Image src={src} alt="" fill sizes="80px" className="object-cover" />
             </div>

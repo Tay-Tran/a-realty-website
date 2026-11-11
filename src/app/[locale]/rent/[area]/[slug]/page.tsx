@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link, permanentRedirect } from '@/i18n/navigation';
@@ -10,6 +11,7 @@ import { buildAlternates } from '@/lib/seo';
 import { Amenities } from '@/components/listing/Amenities';
 import { Details } from '@/components/listing/Details';
 import { FavoriteButton } from '@/components/listing/FavoriteButton';
+import { FloorPlan } from '@/components/listing/FloorPlan';
 import { Gallery } from '@/components/listing/Gallery';
 import { InquiryBlock } from '@/components/listing/InquiryBlock';
 import { MapEmbed } from '@/components/listing/MapEmbed';
@@ -81,7 +83,13 @@ export default async function ListingPage({ params }: Props) {
           </div>
           <FavoriteButton code={listing.code} withLabel />
         </div>
-        <div className="mt-4"><Gallery images={listing.images} alt={title} /></div>
+        <div className="mt-4">
+          <Gallery images={listing.images} alt={title} floorPlan={
+            listing.floorPlan
+              ? <Image src={listing.floorPlan} alt={t('floorPlan.title')} width={600} height={800} className="h-full max-h-[70vh] w-full object-contain" />
+              : <FloorPlan layout={listing.layout} className="h-full max-h-[70vh] w-full" />
+          } />
+        </div>
       </Container>
 
       <div className="mt-6"><SummaryBar listing={listing} area={areaObj} /></div>

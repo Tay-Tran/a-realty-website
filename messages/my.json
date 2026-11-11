@@ -63,7 +63,8 @@
     "newlyBuilt": "ဆောက်ပြီး မကြာသေး",
     "furnished": "ပရိဘောဂ ပါဝင်",
     "family": "မိသားစုများအတွက်",
-    "luxury": "အဆင့်မြင့်"
+    "luxury": "အဆင့်မြင့်",
+    "shortTermOk": "ရေတို"
   },
   "conditions": {
     "foreignerOk": "နိုင်ငံခြားသားများ ငှားနိုင်",

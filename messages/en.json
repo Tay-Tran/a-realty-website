@@ -63,7 +63,8 @@
     "newlyBuilt": "Newly built",
     "furnished": "Furnished",
     "family": "For families",
-    "luxury": "Luxury"
+    "luxury": "Luxury",
+    "shortTermOk": "Short-term"
   },
   "conditions": {
     "foreignerOk": "Foreigners welcome",
