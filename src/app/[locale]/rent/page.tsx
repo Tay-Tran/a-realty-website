@@ -3,7 +3,8 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getAreas, getListings, getStations } from '@/lib/data';
 import { buildSearchOptions } from '@/lib/data/search-options';
-import type { ConditionKey, Locale } from '@/lib/data/types';
+import type { ConditionKey } from '@/lib/data/types';
+import { isLocale, requireLocale } from '@/i18n/locale';
 import { parseFilters, serializeFilters, toggleCondition } from '@/lib/listing/filters';
 import { buildAlternates } from '@/lib/seo';
 import { ListingRow } from '@/components/listing/ListingRow';
@@ -21,20 +22,21 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  if (!isLocale(locale)) return {};
   const t = await getTranslations({ locale, namespace: 'meta' });
   // Filtered URLs canonicalize to /rent; per-station SEO pages arrive in week 4.
-  return { title: t('rentTitle'), description: t('rentDescription'), alternates: buildAlternates(locale as Locale, '/rent') };
+  return { title: t('rentTitle'), description: t('rentDescription'), alternates: buildAlternates(locale, '/rent') };
 }
 
 export default async function RentPage({ params, searchParams }: Props) {
-  const { locale } = await params;
+  const locale = requireLocale((await params).locale);
   setRequestLocale(locale);
   const filters = parseFilters(await searchParams);
   const [t, tc, result, options, stations, areas] = await Promise.all([
     getTranslations('search'),
     getTranslations('categories'),
     getListings(filters),
-    buildSearchOptions(locale as Locale),
+    buildSearchOptions(locale),
     getStations(),
     getAreas(),
   ]);

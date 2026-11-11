@@ -1,28 +1,26 @@
 'use client';
 
-import { useState, type FormEvent } from 'react';
+import { useCallback, useState, type FormEvent } from 'react';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import { formatMoney } from '@/lib/currency';
 import type { SearchOptions } from '@/lib/data/search-options';
-import { CONDITION_KEYS, LAYOUTS, type ConditionKey, type Layout, type Locale } from '@/lib/data/types';
+import type { ConditionKey, Layout, Locale } from '@/lib/data/types';
 import { serializeFilters } from '@/lib/listing/filters';
 import { matchPlaces, type PlaceMatch } from '@/lib/search/places';
 import { usePreferences } from '@/components/providers/PreferencesProvider';
-import { ChevronDownIcon, PinIcon, SearchIcon, StationIcon, TrainIcon } from '@/components/ui/icons';
+import { PinIcon, SearchIcon, StationIcon, TrainIcon } from '@/components/ui/icons';
+import { Picker } from '@/components/ui/Picker';
 import { BEDROOM_STEPS } from './constants';
+import { DetailsDialog } from './DetailsDialog';
 
 type Range = [number, number | null];
 const PRICE_RANGES: Range[] = [[0, 60000], [60000, 80000], [80000, 100000], [100000, 150000], [150000, null]];
 const SIZE_RANGES: Range[] = [[0, 20], [20, 30], [30, 40], [40, null]];
-const DETAIL_CONDITIONS = CONDITION_KEYS.filter((c) => c !== 'foreignerOk' && c !== 'shortTermOk');
-
-const toggle = <T,>(list: T[], v: T) => (list.includes(v) ? list.filter((x) => x !== v) : [...list, v]);
 
 /** Search card modelled on the reference layout: quick search, 3 place tiles, 4 small pickers, centred button. */
 export function SearchBox({ options }: { options: SearchOptions }) {
   const t = useTranslations('hero');
-  const tc = useTranslations('conditions');
   const locale = useLocale() as Locale;
   const { currency } = usePreferences();
   const router = useRouter();
@@ -39,9 +37,11 @@ export function SearchBox({ options }: { options: SearchOptions }) {
   const [query, setQuery] = useState('');
   const [suggestOpen, setSuggestOpen] = useState(false);
   const [detailsOpen, setDetailsOpen] = useState(false);
+  const closeDetails = useCallback(() => setDetailsOpen(false), []);
 
   const matches = matchPlaces(query, options);
   const stationOptions = line ? options.stations.filter((s) => s.lines.includes(line)) : options.stations;
+  const lineColor = Object.fromEntries(options.lines.map((l) => [l.value, l.color ?? '']));
   const money = (v: number) => formatMoney(v, currency, locale);
   const rangeLabel = ([min, max]: Range, fmt: (v: number) => string) =>
     max === null ? t('rangeFrom', { min: fmt(min) }) : min === 0 ? t('rangeUpTo', { max: fmt(max) }) : t('rangeBetween', { min: fmt(min), max: fmt(max) });
@@ -82,12 +82,6 @@ export function SearchBox({ options }: { options: SearchOptions }) {
 
   const tab = (active: boolean) =>
     `rounded-full px-6 py-2 text-sm font-semibold transition ${active ? 'bg-accent text-white shadow' : 'text-white/85 hover:text-white'}`;
-  const tile = 'flex min-w-0 flex-col px-4 py-3 text-left';
-  const tileTitle = 'flex items-center gap-2 text-sm font-bold text-accent';
-  const tileSelect = 'mt-1 w-full cursor-pointer appearance-none truncate bg-transparent pr-4 text-sm text-ink-soft focus:outline-none';
-  const small = 'w-full cursor-pointer rounded-xl border border-line bg-white px-3 py-2.5 text-sm text-ink';
-  const chip = (on: boolean) =>
-    `cursor-pointer rounded-lg border px-2 py-1.5 text-center text-xs ${on ? 'border-accent bg-accent/10 font-semibold text-accent-dark' : 'border-line bg-white'}`;
 
   return (
     <div className="text-left">
@@ -131,80 +125,38 @@ export function SearchBox({ options }: { options: SearchOptions }) {
 
         {/* Area · Line · Station tiles */}
         <div className="grid divide-y divide-line rounded-2xl bg-white sm:grid-cols-3 sm:divide-x sm:divide-y-0">
-          <label className={tile}>
-            <span className={tileTitle}><PinIcon />{t('area')}<ChevronDownIcon className="ml-auto h-4 w-4 text-ink-soft" /></span>
-            <select value={area} onChange={(e) => setArea(e.target.value)} className={tileSelect}>
-              <option value="">{t('searchByArea')}</option>
-              {options.areas.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
-            </select>
-          </label>
-          <label className={tile}>
-            <span className={tileTitle}><TrainIcon />{t('line')}<ChevronDownIcon className="ml-auto h-4 w-4 text-ink-soft" /></span>
-            <select value={line} onChange={(e) => { setLine(e.target.value); setStation(''); }} className={tileSelect}>
-              <option value="">{t('searchByLine')}</option>
-              {options.lines.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
-            </select>
-          </label>
-          <label className={tile}>
-            <span className={tileTitle}><StationIcon />{t('station')}<ChevronDownIcon className="ml-auto h-4 w-4 text-ink-soft" /></span>
-            <select value={station} onChange={(e) => setStation(e.target.value)} className={tileSelect}>
-              <option value="">{t('searchByStation')}</option>
-              {stationOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
-            </select>
-          </label>
+          <Picker variant="tile" icon={<PinIcon />} label={t('area')} placeholder={t('searchByArea')}
+            value={area} onChange={setArea} options={options.areas} />
+          <Picker variant="tile" icon={<TrainIcon />} label={t('line')} placeholder={t('searchByLine')}
+            value={line} onChange={(v) => { setLine(v); setStation(''); }}
+            options={options.lines.map((o) => ({ ...o, dots: o.color ? [o.color] : undefined }))}
+            searchable searchPlaceholder={t('filterList')} noResults={t('noMatch')} />
+          <Picker variant="tile" icon={<StationIcon />} label={t('station')} placeholder={t('searchByStation')}
+            value={station} onChange={setStation} align="right"
+            options={stationOptions.map((o) => ({ value: o.value, label: o.label, dots: o.lines.map((l) => lineColor[l]).filter(Boolean) }))}
+            searchable searchPlaceholder={t('filterList')} noResults={t('noMatch')} />
         </div>
 
         {/* Price · Size · Bedrooms · Details */}
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-          <select aria-label={t('priceRange')} value={price} onChange={(e) => setPrice(e.target.value)} className={small}>
-            <option value="">{t('priceRange')}</option>
-            {PRICE_RANGES.map((r, i) => <option key={i} value={i}>{rangeLabel(r, money)}</option>)}
-          </select>
-          <select aria-label={t('sizeRange')} value={size} onChange={(e) => setSize(e.target.value)} className={small}>
-            <option value="">{t('sizeRange')}</option>
-            {SIZE_RANGES.map((r, i) => <option key={i} value={i}>{rangeLabel(r, (v) => `${v} m²`)}</option>)}
-          </select>
-          <select aria-label={t('bedrooms')} value={bedrooms} onChange={(e) => setBedrooms(e.target.value)} className={small}>
-            <option value="">{t('bedrooms')}</option>
-            {BEDROOM_STEPS.map((v) => <option key={v} value={v}>{t('bedroomsOption', { count: v })}</option>)}
-          </select>
-          <div className="relative">
-            <button type="button" onClick={() => setDetailsOpen((o) => !o)} aria-expanded={detailsOpen}
-              className={`${small} relative text-center font-medium`}>
-              {t('details')}
-              <span className={`absolute -right-1.5 -top-2 grid h-5 min-w-5 place-items-center rounded-full px-1 text-[10px] font-bold text-white ${detailCount ? 'bg-ink' : 'bg-ink/40'}`}>
-                {detailCount}
-              </span>
-            </button>
-            {detailsOpen && (
-              <>
-                <div aria-hidden className="fixed inset-0 z-20" onClick={() => setDetailsOpen(false)} />
-                <div role="dialog" aria-label={t('detailsTitle')}
-                  className="absolute right-0 top-full z-30 mt-2 w-[min(88vw,420px)] space-y-4 rounded-2xl bg-white p-4 shadow-2xl">
-                  <p className="font-semibold">{t('detailsTitle')}</p>
-                  <div>
-                    <p className="text-sm font-medium text-ink-soft">{t('layout')}</p>
-                    <div className="mt-2 grid grid-cols-4 gap-1.5">
-                      {LAYOUTS.map((l) => (
-                        <button key={l} type="button" aria-pressed={layouts.includes(l)} onClick={() => setLayouts(toggle(layouts, l))} className={chip(layouts.includes(l))}>{l}</button>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-1.5">
-                    {DETAIL_CONDITIONS.map((c) => (
-                      <button key={c} type="button" aria-pressed={conditions.includes(c)} onClick={() => setConditions(toggle(conditions, c))}
-                        className={`${chip(conditions.includes(c))} text-left leading-tight`}>{tc(c)}</button>
-                    ))}
-                  </div>
-                  <div className="flex justify-end gap-2 border-t border-line pt-3">
-                    <button type="button" onClick={() => { setLayouts([]); setConditions([]); }} className="rounded-full border border-line px-4 py-2 text-sm">{t('reset')}</button>
-                    <button type="button" onClick={() => setDetailsOpen(false)} className="rounded-full bg-ink px-5 py-2 text-sm font-semibold text-white">{t('done')}</button>
-                  </div>
-                </div>
-              </>
-            )}
-          </div>
+          <Picker label={t('priceRange')} placeholder={t('priceRange')} value={price} onChange={setPrice}
+            options={PRICE_RANGES.map((r, i) => ({ value: String(i), label: rangeLabel(r, money) }))} />
+          <Picker label={t('sizeRange')} placeholder={t('sizeRange')} value={size} onChange={setSize}
+            options={SIZE_RANGES.map((r, i) => ({ value: String(i), label: rangeLabel(r, (v) => `${v} m²`) }))} />
+          <Picker label={t('bedrooms')} placeholder={t('bedrooms')} value={bedrooms} onChange={setBedrooms} align="right"
+            options={BEDROOM_STEPS.map((v) => ({ value: String(v), label: t('bedroomsOption', { count: v }) }))} />
+          <button type="button" onClick={() => setDetailsOpen(true)} aria-haspopup="dialog" aria-expanded={detailsOpen}
+            className={`flex items-center justify-between gap-2 rounded-xl border bg-white px-3 py-2.5 text-sm ${detailCount ? 'border-ink font-semibold text-ink' : 'border-line text-ink-soft hover:border-ink/30'}`}>
+            <span className="truncate">{t('details')}</span>
+            <span className={`grid h-5 min-w-5 place-items-center rounded-full px-1.5 text-[11px] font-bold ${detailCount ? 'bg-accent text-white' : 'bg-paper text-ink-soft'}`}>
+              {detailCount}
+            </span>
+          </button>
         </div>
+        {detailsOpen && (
+          <DetailsDialog layouts={layouts} conditions={conditions} onClose={closeDetails}
+            onChange={(next) => { setLayouts(next.layouts); setConditions(next.conditions); }} />
+        )}
 
         <div className="flex justify-center pt-1">
           <button type="submit" className="w-full max-w-sm rounded-full bg-white px-6 py-3 font-bold text-accent-dark shadow hover:bg-paper">

@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link, permanentRedirect } from '@/i18n/navigation';
 import { getAreas, getListing, getListingRefs, getSimilarListings, getStations } from '@/lib/data';
-import type { Locale } from '@/lib/data/types';
+import { isLocale, requireLocale } from '@/i18n/locale';
 import { pickText } from '@/lib/listing/format';
 import { codeFromSlug, listingPath } from '@/lib/listing/paths';
 import { buildAlternates } from '@/lib/seo';
@@ -35,8 +35,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   const listing = await load(slug);
-  if (!listing) return {};
-  const l = locale as Locale;
+  if (!listing || !isLocale(locale)) return {};
+  const l = locale;
   return {
     title: pickText(listing.title, l),
     description: pickText(listing.description, l).slice(0, 155),
@@ -46,7 +46,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ListingPage({ params }: Props) {
-  const { locale, area, slug } = await params;
+  const { area, slug } = await params;
+  const locale = requireLocale((await params).locale);
   setRequestLocale(locale);
   const listing = await load(slug);
   if (!listing) notFound();
@@ -54,7 +55,7 @@ export default async function ListingPage({ params }: Props) {
     permanentRedirect({ href: listingPath(listing), locale });
   }
 
-  const l = locale as Locale;
+  const l = locale;
   const [t, similar, stations, areas] = await Promise.all([
     getTranslations(),
     getSimilarListings(listing, 4),

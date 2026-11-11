@@ -8,6 +8,7 @@ import { CONDITION_KEYS, LAYOUTS, type ConditionKey, type Layout, type Locale } 
 import { formatMoney } from '@/lib/currency';
 import { serializeFilters, type Filters } from '@/lib/listing/filters';
 import { usePreferences } from '@/components/providers/PreferencesProvider';
+import { Picker } from '@/components/ui/Picker';
 import { AGE_STEPS, BEDROOM_STEPS, RENT_STEPS, SIZE_STEPS, WALK_STEPS } from './constants';
 
 const toggle = <T,>(list: T[], value: T) => (list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
@@ -49,76 +50,62 @@ export function FilterPanel({ options, filters, onApplied }: { options: SearchOp
     });
   }
 
-  const select = 'mt-1 w-full rounded-lg border border-line bg-white px-3 py-2 text-sm text-ink';
-  const legend = 'text-sm font-semibold text-ink';
+  const legend = 'mb-1 block text-sm font-semibold text-ink';
+  const fieldLegend = 'text-sm font-semibold text-ink';
+  const lineColor = Object.fromEntries(options.lines.map((l) => [l.value, l.color ?? '']));
+  const money = (v: number) => ({ value: String(v), label: formatMoney(v, currency, locale) });
+  const m2 = (v: number) => ({ value: String(v), label: `${v} m²` });
   return (
     <form onSubmit={onSubmit} className="space-y-5">
-      <label className={`block ${legend}`}>{t('hero.area')}
-        <select value={area} onChange={(e) => setArea(e.target.value)} className={select}>
-          <option value="">{t('hero.anyArea')}</option>
-          {options.areas.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
-        </select>
-      </label>
-      <label className={`block ${legend}`}>{t('hero.line')}
-        <select value={line} onChange={(e) => { setLine(e.target.value); setStation(''); }} className={select}>
-          <option value="">{t('hero.anyLine')}</option>
-          {options.lines.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
-        </select>
-      </label>
-      <label className={`block ${legend}`}>{t('hero.station')}
-        <select value={station} onChange={(e) => setStation(e.target.value)} className={select}>
-          <option value="">{t('hero.anyStation')}</option>
-          {stationOptions.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
-        </select>
-      </label>
-      <label className={`block ${legend}`}>{t('search.maxWalk')}
-        <select value={maxWalk} onChange={(e) => setMaxWalk(e.target.value)} className={select}>
-          <option value="">{t('search.anyWalk')}</option>
-          {WALK_STEPS.map((m) => <option key={m} value={m}>{t('search.walkOption', { minutes: m })}</option>)}
-        </select>
-      </label>
-      <fieldset>
-        <legend className={legend}>{t('search.rent')}</legend>
-        <div className="mt-1 grid grid-cols-2 gap-2">
-          <select aria-label={t('search.min')} value={minRent} onChange={(e) => setMinRent(e.target.value)} className={select}>
-            <option value="">{t('search.min')}</option>
-            {RENT_STEPS.map((v) => <option key={v} value={v}>{formatMoney(v, currency, locale)}</option>)}
-          </select>
-          <select aria-label={t('search.max')} value={maxRent} onChange={(e) => setMaxRent(e.target.value)} className={select}>
-            <option value="">{t('search.max')}</option>
-            {RENT_STEPS.map((v) => <option key={v} value={v}>{formatMoney(v, currency, locale)}</option>)}
-          </select>
+      <div>
+        <span className={legend}>{t('hero.area')}</span>
+        <Picker label={t('hero.area')} placeholder={t('hero.anyArea')} value={area} onChange={setArea} options={options.areas} />
+      </div>
+      <div>
+        <span className={legend}>{t('hero.line')}</span>
+        <Picker label={t('hero.line')} placeholder={t('hero.anyLine')} value={line} onChange={(v) => { setLine(v); setStation(''); }}
+          options={options.lines.map((o) => ({ ...o, dots: o.color ? [o.color] : undefined }))}
+          searchable searchPlaceholder={t('hero.filterList')} noResults={t('hero.noMatch')} />
+      </div>
+      <div>
+        <span className={legend}>{t('hero.station')}</span>
+        <Picker label={t('hero.station')} placeholder={t('hero.anyStation')} value={station} onChange={setStation}
+          options={stationOptions.map((o) => ({ value: o.value, label: o.label, dots: o.lines.map((l) => lineColor[l]).filter(Boolean) }))}
+          searchable searchPlaceholder={t('hero.filterList')} noResults={t('hero.noMatch')} />
+      </div>
+      <div>
+        <span className={legend}>{t('search.maxWalk')}</span>
+        <Picker label={t('search.maxWalk')} placeholder={t('search.anyWalk')} value={maxWalk} onChange={setMaxWalk}
+          options={WALK_STEPS.map((m) => ({ value: String(m), label: t('search.walkOption', { minutes: m }) }))} />
+      </div>
+      <div>
+        <span className={legend}>{t('search.rent')}</span>
+        <div className="grid grid-cols-2 gap-2">
+          <Picker label={`${t('search.rent')} ${t('search.min')}`} placeholder={t('search.min')} value={minRent} onChange={setMinRent} options={RENT_STEPS.map(money)} />
+          <Picker label={`${t('search.rent')} ${t('search.max')}`} placeholder={t('search.max')} value={maxRent} onChange={setMaxRent} options={RENT_STEPS.map(money)} align="right" />
         </div>
-      </fieldset>
-      <fieldset>
-        <legend className={legend}>{t('search.size')}</legend>
-        <div className="mt-1 grid grid-cols-2 gap-2">
-          <select aria-label={`${t('search.size')} ${t('search.min')}`} value={minSize} onChange={(e) => setMinSize(e.target.value)} className={select}>
-            <option value="">{t('search.min')}</option>
-            {SIZE_STEPS.map((v) => <option key={v} value={v}>{v} m²</option>)}
-          </select>
-          <select aria-label={`${t('search.size')} ${t('search.max')}`} value={maxSize} onChange={(e) => setMaxSize(e.target.value)} className={select}>
-            <option value="">{t('search.max')}</option>
-            {SIZE_STEPS.map((v) => <option key={v} value={v}>{v} m²</option>)}
-          </select>
+      </div>
+      <div>
+        <span className={legend}>{t('search.size')}</span>
+        <div className="grid grid-cols-2 gap-2">
+          <Picker label={`${t('search.size')} ${t('search.min')}`} placeholder={t('search.min')} value={minSize} onChange={setMinSize} options={SIZE_STEPS.map(m2)} />
+          <Picker label={`${t('search.size')} ${t('search.max')}`} placeholder={t('search.max')} value={maxSize} onChange={setMaxSize} options={SIZE_STEPS.map(m2)} align="right" />
         </div>
-      </fieldset>
+      </div>
       <div className="grid grid-cols-2 gap-2">
-        <label className={`block ${legend}`}>{t('search.bedrooms')}
-          <select value={bedrooms} onChange={(e) => setBedrooms(e.target.value)} className={select}>
-            <option value="">{t('hero.anyBedrooms')}</option>
-            {BEDROOM_STEPS.map((v) => <option key={v} value={v}>{t('hero.bedroomsOption', { count: v })}</option>)}
-          </select>
-        </label>
-        <label className={`block ${legend}`}>{t('search.maxAge')}
-          <select value={maxAge} onChange={(e) => setMaxAge(e.target.value)} className={select}>
-            <option value="">{t('search.anyAge')}</option>
-            {AGE_STEPS.map((v) => <option key={v} value={v}>{t('search.ageOption', { years: v })}</option>)}
-          </select>
-        </label>
+        <div>
+          <span className={legend}>{t('search.bedrooms')}</span>
+          <Picker label={t('search.bedrooms')} placeholder={t('hero.anyBedrooms')} value={bedrooms} onChange={setBedrooms}
+            options={BEDROOM_STEPS.map((v) => ({ value: String(v), label: t('hero.bedroomsOption', { count: v }) }))} />
+        </div>
+        <div>
+          <span className={legend}>{t('search.maxAge')}</span>
+          <Picker label={t('search.maxAge')} placeholder={t('search.anyAge')} value={maxAge} onChange={setMaxAge} align="right"
+            options={AGE_STEPS.map((v) => ({ value: String(v), label: t('search.ageOption', { years: v }) }))} />
+        </div>
       </div>
       <fieldset>
-        <legend className={legend}>{t('search.layouts')}</legend>
+        <legend className={fieldLegend}>{t('search.layouts')}</legend>
         <div className="mt-2 grid grid-cols-4 gap-2">
           {LAYOUTS.map((l) => (
             <label key={l} className={`cursor-pointer rounded-lg border px-2 py-1.5 text-center text-sm ${layouts.includes(l) ? 'border-accent bg-accent/10 text-accent-dark' : 'border-line bg-white'}`}>
@@ -128,7 +115,7 @@ export function FilterPanel({ options, filters, onApplied }: { options: SearchOp
         </div>
       </fieldset>
       <fieldset>
-        <legend className={legend}>{t('search.conditions')}</legend>
+        <legend className={fieldLegend}>{t('search.conditions')}</legend>
         {/* Every listing accepts foreigners, so that flag is not offered as a filter. */}
         <div className="mt-2 grid grid-cols-2 gap-1.5">
           {CONDITION_KEYS.filter((c) => c !== 'foreignerOk').map((c) => {
