@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "siteDescription": "外国人向けの東京の賃貸物件。駅から探せて、初期費用をすべて事前に確認でき、英語・ミャンマー語・日本語でサポートします。",
+    "homeTitle": "外国人向け 東京の賃貸物件",
+    "rentTitle": "東京の賃貸物件を探す",
+    "rentDescription": "エリア・路線・駅・家賃・間取りから東京の賃貸物件を検索。外国人歓迎の物件を初期費用つきで掲載しています。",
+    "notFoundTitle": "ページが見つかりません"
+  },
+  "nav": { "findRoom": "部屋を探す", "areas": "エリア", "howItWorks": "ご契約の流れ", "contact": "お問い合わせ", "menu": "メニュー", "close": "閉じる" },
+  "lang": { "label": "言語" },
+  "common": {
+    "perMonth": "/月",
+    "minWalk": "徒歩{minutes}分",
+    "stationName": "{name}駅",
+    "viewDetails": "詳細を見る",
+    "code": "物件番号 {code}",
+    "demoNotice": "デモサイトです。掲載物件はすべてサンプルです。"
+  },
+  "hero": {
+    "title": "東京のお部屋探しを、あなたの言葉で",
+    "subtitle": "外国人歓迎の物件だけを掲載。初期費用をすべて事前に表示し、母国語でサポートします。",
+    "area": "エリア", "anyArea": "すべてのエリア",
+    "line": "路線", "anyLine": "すべての路線",
+    "station": "駅", "anyStation": "すべての駅",
+    "maxRent": "家賃上限", "noLimit": "上限なし",
+    "layout": "間取り", "anyLayout": "すべての間取り",
+    "submit": "物件を検索"
+  },
+  "categories": {
+    "title": "人気の条件",
+    "studentOk": "学生向け", "noKeyMoney": "礼金なし", "noGuarantor": "保証人不要",
+    "petOk": "ペット可", "newlyBuilt": "築浅", "furnished": "家具付き"
+  },
+  "conditions": {
+    "foreignerOk": "外国籍の方歓迎", "noGuarantor": "保証人不要", "studentOk": "学生可",
+    "petOk": "ペット可", "furnished": "家具付き", "overseasApplication": "海外から申込可",
+    "autoLock": "オートロック", "noKeyMoney": "礼金なし", "newlyBuilt": "築浅"
+  },
+  "status": {
+    "available": "募集中", "applied": "申込あり", "rented": "成約済み",
+    "appliedNote": "この物件には申込が入っています。2番手でのお申込みも可能です。",
+    "rentedNote": "この物件は成約済みです。募集中の似た物件をご覧ください。"
+  },
+  "home": {
+    "featuredTitle": "おすすめ物件", "viewAll": "すべての物件を見る",
+    "areasTitle": "人気のエリア", "areaCount": "{count}件",
+    "stepsTitle": "ご契約までの流れ", "stepsSubtitle": "日本語ができなくても、すべてのステップをサポートします。",
+    "step1Title": "ご希望をお聞かせください", "step1Text": "エリア・予算・入居時期をLINE、WhatsApp、Messengerでお送りください。",
+    "step2Title": "物件を選ぶ", "step2Text": "条件に合う物件を、初期費用の内訳つきでご提案します。",
+    "step3Title": "内見", "step3Text": "現地での内見のほか、海外からはビデオ通話で内見できます。",
+    "step4Title": "申込・審査", "step4Text": "申込書の記入や保証会社とのやり取りをお手伝いします。",
+    "step5Title": "契約・入居", "step5Text": "契約後に鍵をお渡しし、電気・ガス・水道の手続きもサポートします。"
+  },
+  "faq": {
+    "title": "よくある質問",
+    "q1": "外国人でも日本で部屋を借りられますか？",
+    "a1": "はい。当サイトの物件はすべて外国籍の方が入居できます。在留カード（海外からの場合はビザ）と、収入または在学を証明する書類が必要です。",
+    "q2": "日本人の保証人がいません。どうすればいいですか？",
+    "a2": "多くの物件は個人の保証人ではなく保証会社を利用します。「保証人不要」で絞り込むと該当物件を表示できます。",
+    "q3": "初期費用には何が含まれますか？",
+    "a3": "一般的に前家賃、敷金、礼金、仲介手数料、保証会社利用料、火災保険料、鍵交換費用です。各物件ページで内訳と合計を確認できます。",
+    "q4": "来日前に申し込めますか？",
+    "a4": "「海外から申込可」の物件なら可能です。内見はビデオ通話で行えます。",
+    "q5": "入居までどのくらいかかりますか？",
+    "a5": "審査状況によりますが、申込から鍵のお渡しまで通常2〜4週間です。"
+  },
+  "search": {
+    "title": "東京の賃貸物件",
+    "results": "{count}件",
+    "filters": "絞り込み", "apply": "結果を表示", "clear": "すべてクリア",
+    "sort": "並び替え", "sortNewest": "新着順", "sortPriceAsc": "家賃が安い順", "sortPriceDesc": "家賃が高い順",
+    "maxWalk": "駅徒歩", "anyWalk": "指定なし", "walkOption": "{minutes}分以内",
+    "rent": "家賃（円/月）", "min": "下限", "max": "上限",
+    "layouts": "間取り", "conditions": "条件",
+    "noResults": "条件に合う物件がありません。", "noResultsHint": "条件を減らすか、家賃の範囲を広げてください。",
+    "prev": "前へ", "next": "次へ", "pageOf": "{page} / {pageCount}ページ"
+  },
+  "listing": {
+    "rent": "家賃", "managementFee": "管理費", "monthlyTotal": "月額合計",
+    "layout": "間取り", "size": "専有面積", "floor": "階", "floorValue": "{floor}階",
+    "built": "築年", "builtValue": "{year}年",
+    "stations": "最寄り駅", "address": "所在地",
+    "initialCostTitle": "初期費用",
+    "initialCostNote": "入居前にかかる費用の目安です。最終的な金額は契約時に確定します。",
+    "months": "家賃{months}ヶ月分", "free": "なし", "total": "合計",
+    "features": "条件・設備", "map": "地図", "similar": "似た物件",
+    "inquire": "この物件について問い合わせる",
+    "photo": "写真 {index} / {count}", "openGallery": "すべての写真を見る", "closeGallery": "閉じる",
+    "prevPhoto": "前の写真", "nextPhoto": "次の写真",
+    "costs": {
+      "advanceRent": "前家賃（管理費込み）", "deposit": "敷金", "keyMoney": "礼金",
+      "brokerage": "仲介手数料", "guaranteeFee": "保証会社利用料", "insurance": "火災保険料",
+      "keyExchange": "鍵交換費用", "cleaning": "クリーニング費用"
+    }
+  },
+  "form": {
+    "title": "無料相談",
+    "subtitle": "ご希望の条件をお知らせください。1営業日以内にご連絡します。",
+    "name": "お名前", "email": "メールアドレス", "phone": "電話番号（任意）",
+    "message": "メッセージ", "messagePlaceholder": "エリア、予算、入居時期など",
+    "listingCode": "物件", "submit": "送信する", "sending": "送信中…",
+    "success": "お問い合わせありがとうございます。担当者よりご連絡します。（デモのため実際には送信されていません）",
+    "required": "この項目は必須です。", "invalidEmail": "正しいメールアドレスを入力してください。"
+  },
+  "contact": { "line": "LINE", "whatsapp": "WhatsApp", "messenger": "Messenger", "call": "電話" },
+  "footer": {
+    "tagline": "外国籍の方のための東京の賃貸物件。あなたの言葉でご案内します。",
+    "links": "リンク", "contactTitle": "お問い合わせ", "rights": "© {year} {name}. All rights reserved."
+  },
+  "notFound": { "title": "ページが見つかりません", "text": "お探しのページは存在しないか、移動しました。", "backHome": "ホームへ戻る" }
+}

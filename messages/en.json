@@ -1,0 +1,111 @@
+{
+  "meta": {
+    "siteDescription": "Apartments for rent in Tokyo for foreigners. Search by station, see every move-in cost upfront, and get help in English, Burmese and Japanese.",
+    "homeTitle": "Apartments for rent in Tokyo for foreigners",
+    "rentTitle": "Find an apartment in Tokyo",
+    "rentDescription": "Search apartments for rent in Tokyo by area, train line, station, rent and layout. Foreigner-friendly listings with clear move-in costs.",
+    "notFoundTitle": "Page not found"
+  },
+  "nav": { "findRoom": "Find a room", "areas": "Areas", "howItWorks": "How it works", "contact": "Contact", "menu": "Menu", "close": "Close" },
+  "lang": { "label": "Language" },
+  "common": {
+    "perMonth": "/month",
+    "minWalk": "{minutes} min walk",
+    "stationName": "{name} Sta.",
+    "viewDetails": "View details",
+    "code": "Listing {code}",
+    "demoNotice": "Demo site – all listings are sample data."
+  },
+  "hero": {
+    "title": "Find your home in Tokyo",
+    "subtitle": "Foreigner-friendly apartments, every move-in cost shown upfront, support in your language.",
+    "area": "Area", "anyArea": "Any area",
+    "line": "Train line", "anyLine": "Any line",
+    "station": "Station", "anyStation": "Any station",
+    "maxRent": "Max rent", "noLimit": "No limit",
+    "layout": "Layout", "anyLayout": "Any layout",
+    "submit": "Search apartments"
+  },
+  "categories": {
+    "title": "Popular searches",
+    "studentOk": "For students", "noKeyMoney": "No key money", "noGuarantor": "No guarantor",
+    "petOk": "Pet friendly", "newlyBuilt": "Newly built", "furnished": "Furnished"
+  },
+  "conditions": {
+    "foreignerOk": "Foreigners welcome", "noGuarantor": "No guarantor needed", "studentOk": "Students welcome",
+    "petOk": "Pets allowed", "furnished": "Furnished", "overseasApplication": "Apply from overseas",
+    "autoLock": "Auto-lock entrance", "noKeyMoney": "No key money", "newlyBuilt": "Newly built"
+  },
+  "status": {
+    "available": "Available", "applied": "Application pending", "rented": "Rented",
+    "appliedNote": "Someone has applied for this apartment. You can still send a backup application.",
+    "rentedNote": "This apartment has been rented. Here are similar apartments that are still available."
+  },
+  "home": {
+    "featuredTitle": "Featured apartments", "viewAll": "See all apartments",
+    "areasTitle": "Popular areas in Tokyo", "areaCount": "{count, plural, one {# apartment} other {# apartments}}",
+    "stepsTitle": "How renting works", "stepsSubtitle": "We guide you through every step – no Japanese needed.",
+    "step1Title": "Tell us what you need", "step1Text": "Area, budget and move-in date. Message us on LINE, WhatsApp or Messenger.",
+    "step2Title": "Choose apartments", "step2Text": "We send matching apartments with every cost listed upfront.",
+    "step3Title": "Viewing", "step3Text": "Visit in person, or join a video viewing from overseas.",
+    "step4Title": "Apply & screening", "step4Text": "We help you fill in the application and talk to the guarantor company.",
+    "step5Title": "Sign & move in", "step5Text": "Sign the contract, get your keys, and we help set up electricity, gas and water."
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "q1": "Can foreigners rent apartments in Japan?",
+    "a1": "Yes. Every apartment on this site accepts foreign residents. You need a residence card (or a visa if applying from overseas) and proof of income or school enrollment.",
+    "q2": "I don't have a Japanese guarantor. What can I do?",
+    "a2": "Most apartments use a guarantor company instead of a personal guarantor. Filter by “No guarantor needed” to see them.",
+    "q3": "What are the initial costs?",
+    "a3": "Usually the first month's rent, deposit, key money, agency fee, guarantor company fee, fire insurance and key exchange. Each listing shows them line by line with the total.",
+    "q4": "Can I apply before I arrive in Japan?",
+    "a4": "Yes, for apartments marked “Apply from overseas”. Viewings can be done by video call.",
+    "q5": "How long does it take to move in?",
+    "a5": "Usually 2–4 weeks from application to receiving the keys, depending on screening."
+  },
+  "search": {
+    "title": "Apartments for rent in Tokyo",
+    "results": "{count, plural, =0 {No apartments} one {# apartment} other {# apartments}}",
+    "filters": "Filters", "apply": "Show results", "clear": "Clear all",
+    "sort": "Sort", "sortNewest": "Newest", "sortPriceAsc": "Rent: low to high", "sortPriceDesc": "Rent: high to low",
+    "maxWalk": "Walk to station", "anyWalk": "Any", "walkOption": "Within {minutes} min",
+    "rent": "Rent (¥/month)", "min": "Min", "max": "Max",
+    "layouts": "Layout", "conditions": "Conditions",
+    "noResults": "No apartments match these filters.", "noResultsHint": "Try removing a filter or widening the rent range.",
+    "prev": "Previous", "next": "Next", "pageOf": "Page {page} of {pageCount}"
+  },
+  "listing": {
+    "rent": "Rent", "managementFee": "Management fee", "monthlyTotal": "Total per month",
+    "layout": "Layout", "size": "Size", "floor": "Floor", "floorValue": "{floor}F",
+    "built": "Built", "builtValue": "{year}",
+    "stations": "Nearest stations", "address": "Address",
+    "initialCostTitle": "Initial costs",
+    "initialCostNote": "Estimated amounts before move-in. Final amounts are confirmed in the contract.",
+    "months": "{months} × rent", "free": "Free", "total": "Total",
+    "features": "Conditions & features", "map": "Map", "similar": "Similar apartments",
+    "inquire": "Ask about this apartment",
+    "photo": "Photo {index} of {count}", "openGallery": "View all photos", "closeGallery": "Close",
+    "prevPhoto": "Previous photo", "nextPhoto": "Next photo",
+    "costs": {
+      "advanceRent": "First month's rent + fee", "deposit": "Deposit (shikikin)", "keyMoney": "Key money (reikin)",
+      "brokerage": "Agency fee", "guaranteeFee": "Guarantor company fee", "insurance": "Fire insurance",
+      "keyExchange": "Key exchange", "cleaning": "Cleaning fee"
+    }
+  },
+  "form": {
+    "title": "Get free advice",
+    "subtitle": "Tell us what you are looking for. We reply within one business day.",
+    "name": "Your name", "email": "Email", "phone": "Phone (optional)",
+    "message": "Message", "messagePlaceholder": "Area, budget, move-in date…",
+    "listingCode": "Listing", "submit": "Send", "sending": "Sending…",
+    "success": "Thank you! We received your message and will contact you soon. (Demo: no message was actually sent.)",
+    "required": "Please fill in this field.", "invalidEmail": "Please enter a valid email address."
+  },
+  "contact": { "line": "LINE", "whatsapp": "WhatsApp", "messenger": "Messenger", "call": "Call" },
+  "footer": {
+    "tagline": "Apartments in Tokyo for foreign residents – explained in your language.",
+    "links": "Links", "contactTitle": "Contact", "rights": "© {year} {name}. All rights reserved."
+  },
+  "notFound": { "title": "Page not found", "text": "The page you are looking for does not exist or has moved.", "backHome": "Back to home" }
+}
