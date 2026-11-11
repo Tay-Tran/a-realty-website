@@ -21,7 +21,7 @@ export function MobileMenu({ links, menuLabel, closeLabel }: { links: NavItem[];
               {l.label}
             </Link>
           ))}
-          <div className="pt-3 md:hidden"><CurrencySwitcher /></div>
+          <div className="pt-3 md:hidden"><CurrencySwitcher align="left" /></div>
         </nav>
       )}
     </div>

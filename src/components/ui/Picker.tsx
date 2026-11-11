@@ -14,12 +14,17 @@ interface Props {
   placeholder: string;
   /** Accessible name; also the tile title in the "tile" variant. */
   label: string;
-  variant?: 'tile' | 'field';
+  /** tile: hero search tile · field: form/filter box · pill: compact rounded control (header, sort). */
+  variant?: 'tile' | 'field' | 'pill';
   icon?: ReactNode;
   searchable?: boolean;
   searchPlaceholder?: string;
   noResults?: string;
   align?: 'left' | 'right';
+  /** Adds the placeholder as a first "any" row; off for controls that always hold a value. */
+  allowEmpty?: boolean;
+  /** Submits the value with a surrounding form under this name. */
+  name?: string;
 }
 
 /**
@@ -28,7 +33,7 @@ interface Props {
  */
 export function Picker({
   value, onChange, options, placeholder, label, variant = 'field', icon,
-  searchable = false, searchPlaceholder, noResults = '—', align = 'left',
+  searchable = false, searchPlaceholder, noResults = '—', align = 'left', allowEmpty = true, name,
 }: Props) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
@@ -38,7 +43,8 @@ export function Picker({
   const listRef = useRef<HTMLUListElement>(null);
   const listId = useId();
 
-  const rows: PickerOption[] = [{ value: '', label: placeholder }, ...filterByLabel(options, query)];
+  const head: PickerOption[] = allowEmpty ? [{ value: '', label: placeholder }] : [];
+  const rows: PickerOption[] = [...head, ...filterByLabel(options, query)];
   const selected = options.find((o) => o.value === value);
 
   function openWith(seed = '') {
@@ -48,7 +54,7 @@ export function Picker({
 
   useEffect(() => {
     if (!open) return;
-    setActive(Math.max(0, [{ value: '' }, ...options].findIndex((o) => o.value === value)));
+    setActive(Math.max(0, [...head, ...options].findIndex((o) => o.value === value)));
     // Focus the search box (or the list) so the keyboard works immediately.
     requestAnimationFrame(() => (searchable ? searchRef.current : listRef.current)?.focus());
   }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
@@ -86,6 +92,7 @@ export function Picker({
 
   return (
     <div className="relative min-w-0">
+      {name && <input type="hidden" name={name} value={value} />}
       <button ref={triggerRef} type="button" aria-haspopup="listbox" aria-expanded={open} aria-controls={listId}
         aria-label={`${label}: ${selected?.label ?? placeholder}`}
         onClick={() => (open ? setOpen(false) : openWith())}
@@ -100,20 +107,20 @@ export function Picker({
         }}
         className={variant === 'tile'
           ? 'block w-full px-4 py-3 text-left'
-          : `block w-full rounded-xl border bg-white px-3 py-2.5 text-sm ${open ? 'border-accent ring-2 ring-accent/20' : 'border-line hover:border-ink/30'}`}>
+          : `block w-full border bg-white text-sm focus:outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 ${variant === 'pill' ? 'rounded-full py-1.5 pl-3.5 pr-2.5' : 'rounded-xl px-3 py-2.5'} ${open ? 'border-accent ring-2 ring-accent/20' : 'border-line hover:border-ink/30'}`}>
         {trigger}
       </button>
 
       {open && (
         <>
           <div aria-hidden className="fixed inset-0 z-40" onClick={() => setOpen(false)} />
-          <div className={`absolute top-full z-50 mt-2 w-full min-w-[240px] overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-line ${align === 'right' ? 'right-0' : 'left-0'}`}>
+          <div className={`absolute top-full z-50 mt-2 w-full ${variant === 'pill' ? 'min-w-[180px]' : 'min-w-[240px]'} overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-line ${align === 'right' ? 'right-0' : 'left-0'}`}>
             {searchable && (
               <div className="relative border-b border-line p-2">
                 <SearchIcon className="pointer-events-none absolute left-5 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-soft" />
                 <input ref={searchRef} type="text" value={query} placeholder={searchPlaceholder} aria-label={searchPlaceholder}
                   aria-controls={listId} aria-activedescendant={`${listId}-${active}`}
-                  onChange={(e) => { setQuery(e.target.value); setActive(e.target.value ? 1 : 0); }} onKeyDown={onKey}
+                  onChange={(e) => { setQuery(e.target.value); setActive(e.target.value ? head.length : 0); }} onKeyDown={onKey}
                   className="w-full rounded-lg bg-paper py-2 pl-9 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent/30" />
               </div>
             )}
@@ -124,7 +131,7 @@ export function Picker({
                 return (
                   <li key={o.value || '__any'} id={`${listId}-${i}`} data-index={i} role="option" aria-selected={isSelected}
                     onMouseEnter={() => setActive(i)} onClick={() => pick(o.value)}
-                    className={`flex cursor-pointer items-center gap-2 px-4 py-2 text-sm ${i === active ? 'bg-paper' : ''} ${isSelected ? 'font-semibold text-accent-dark' : 'text-ink'} ${i === 0 ? 'text-ink-soft' : ''}`}>
+                    className={`flex cursor-pointer items-center gap-2 px-4 py-2 text-sm ${i === active ? 'bg-paper' : ''} ${isSelected ? 'font-semibold text-accent-dark' : 'text-ink'} ${allowEmpty && i === 0 ? 'text-ink-soft' : ''}`}>
                     <span aria-hidden className="w-4 shrink-0 text-accent">{isSelected ? '✓' : ''}</span>
                     {o.dots?.map((c) => <span key={c} aria-hidden className="h-2.5 w-2.5 shrink-0 rounded-full" style={{ background: c }} />)}
                     <span className="flex-1 truncate">{o.label}</span>
@@ -132,7 +139,7 @@ export function Picker({
                   </li>
                 );
               })}
-              {rows.length === 1 && query && <li className="px-4 py-3 text-sm text-ink-soft">{noResults}</li>}
+              {rows.length === head.length && query && <li className="px-4 py-3 text-sm text-ink-soft">{noResults}</li>}
             </ul>
           </div>
         </>
