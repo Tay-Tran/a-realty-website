@@ -29,7 +29,7 @@
 ## 3. Các trang
 
 ### Thành phần chung
-- **Header:** logo, menu (Tìm phòng · Khu vực · Về chúng tôi · Liên hệ), nút đổi ngôn ngữ EN / မြန်မာ / 日本語. Đổi ngôn ngữ giữ nguyên trang đang xem.
+- **Header:** logo, menu (Tìm phòng · Khu vực · Quy trình thuê · Liên hệ – demo chưa có trang "Về chúng tôi" nên menu trỏ tới các phần trên trang chủ), nút đổi ngôn ngữ EN / မြန်မာ / 日本語. Đổi ngôn ngữ giữ nguyên trang đang xem.
 - **Thanh liên hệ cố định ở đáy màn hình trên mobile:** LINE, WhatsApp, Messenger, gọi điện.
 - **Footer:** thông tin công ty (tạm), liên kết, mạng xã hội.
 
@@ -117,13 +117,14 @@ interface Listing {
 - `noKeyMoney = initialCosts.keyMoneyMonths === 0`
 - `newlyBuilt = năm hiện tại - builtYear <= 3`
 - `monthlyTotal = rent + managementFee`
+- Dòng **tiền thuê tháng đầu (前家賃)** = `rent + managementFee`, luôn có trong bảng chi phí ban đầu (ở Nhật khoản này luôn trả trước khi vào ở; bỏ đi sẽ làm tổng thấp hơn thực tế).
 
 ### 4.3. Lớp truy cập dữ liệu (`src/lib/data/index.ts`)
 Các trang **chỉ** gọi các hàm sau (đều là `async` để sau này đổi sang Payload không phải sửa nơi gọi):
 
 | Hàm | Mô tả |
 |---|---|
-| `getListings(filters, { page, sort })` | Trả `{ items, total, page, pageCount }`. Loại căn `rented`. |
+| `getListings(filters)` | `page` và `sort` nằm trong `filters`. Trả `{ items, total, page, pageCount }`. Loại căn `rented`. |
 | `getListing(code)` | Trả căn hoặc `null`. Gồm cả căn `rented`. |
 | `getSimilarListings(listing, limit)` | Căn tương tự, không gồm `rented` và chính căn đó. |
 | `getFeaturedListings(limit)` | Căn nổi bật, không gồm `rented`. |
@@ -132,7 +133,8 @@ Các trang **chỉ** gọi các hàm sau (đều là `async` để sau này đ�
 Hiện tại các hàm đọc từ `src/lib/data/mock/*`. Tuần 2 thay bằng Payload Local API.
 
 ### 4.4. Logic thuần (có unit test)
-- `src/lib/listing/initial-cost.ts` – `calcInitialCost(listing)` → `{ items: { key, amount }[], total }`. Tiền cọc/tiền lễ/phí môi giới = số tháng × `rent`. Các khoản tính bằng yên giữ nguyên. Khoản bằng 0 vẫn trả về (để hiện "0 yên – miễn phí"). Tổng là số nguyên.
+- `src/lib/listing/derived.ts` – `isNewlyBuilt`, `hasCondition`, `monthlyTotal`.
+- `src/lib/listing/initial-cost.ts` – `calcInitialCost(listing)` → `{ items: { key, amount, months? }[], total }`. Dòng đầu là tiền thuê tháng đầu (`rent + managementFee`). Tiền cọc/tiền lễ/phí môi giới = số tháng × `rent`. Các khoản tính bằng yên giữ nguyên. Khoản bằng 0 vẫn trả về (để hiện "0 yên – miễn phí"). Tổng là số nguyên.
 - `src/lib/listing/filters.ts`
   - `Filters` (zod schema): `area?`, `line?`, `station?`, `maxWalk?`, `minRent?`, `maxRent?`, `layouts?: Layout[]`, `conditions?: ConditionKey[]` (gồm cả `noKeyMoney`, `newlyBuilt`), `sort?: 'price-asc' | 'price-desc' | 'newest'`, `page?`.
   - `parseFilters(searchParams)`: giá trị sai bị bỏ qua, không ném lỗi.
@@ -142,14 +144,14 @@ Hiện tại các hàm đọc từ `src/lib/data/mock/*`. Tuần 2 thay bằng P
 
 ### 4.5. Dữ liệu mẫu
 - 8 khu vực Tokyo: Shinjuku, Toshima, Shibuya, Nakano, Bunkyo, Taito, Sumida, Kita.
-- ~10 tuyến, ~25 ga (Shin-Okubo, Takadanobaba, Ikebukuro, Shinjuku, Nakano, Ueno, Akabane…), nhập tay.
+- 10 tuyến, 25 ga (Shin-Okubo, Takadanobaba, Ikebukuro, Shinjuku, Nakano, Ueno, Akabane…), nhập tay. Tên ga, tuyến, khu vực ở bản `my` dùng chữ Latin như bản `en` (người Myanmar tại Nhật đọc tên ga theo romaji; phiên âm sang chữ Myanmar dễ sai).
 - 24 căn, trải đều khu vực, giá 45.000–180.000 yên, nhiều loại phòng. Trạng thái: 20 `available`, 2 `applied`, 2 `rented`. 6 căn `featured`.
 - Ảnh: Unsplash (giấy phép miễn phí), dùng URL từ `images.unsplash.com` qua `next/image` (`remotePatterns`). Kiểm tra từng URL trả về 200 trước khi dùng.
 - Nội dung tiếng Myanmar và tiếng Nhật do Claude viết, **là bản nháp chờ người bản ngữ bên khách duyệt.**
 
 ## 5. Đa ngôn ngữ
 
-- Thư viện: `next-intl`, routing theo prefix luôn có (`/en`, `/my`, `/ja`). Middleware chuyển `/` → `/en`.
+- Thư viện: `next-intl`, routing theo prefix luôn có (`/en`, `/my`, `/ja`). `src/proxy.ts` (Next.js 16 đổi tên `middleware.ts` thành `proxy.ts`) chuyển `/` → `/en`.
 - Chữ giao diện: `messages/{en,my,ja}.json`. Nội dung căn hộ: trường `LocalizedText`.
 - Thiếu bản dịch → hiện tiếng Anh.
 - Font qua `next/font/google`: Noto Sans (en), Noto Sans Myanmar (my), Noto Sans JP (ja). Thẻ `<html lang>` đúng theo ngôn ngữ. Với `my`, `line-height` tăng lên (≈1.9) để không đè dấu.
@@ -166,11 +168,11 @@ Hiện tại các hàm đọc từ `src/lib/data/mock/*`. Tuần 2 thay bằng P
 - Ngôn ngữ không hỗ trợ trong URL → 404.
 - Search params sai → bỏ qua giá trị đó (do `parseFilters`).
 - `page` vượt quá số trang → hiển thị trang cuối.
-- Ảnh lỗi → ảnh thay thế trong `public/`.
+- Ảnh lỗi: **chưa xử lý ở demo** – mọi ảnh mẫu đã được kiểm tra trước. Sẽ thêm ảnh thay thế khi có ảnh upload thật qua Payload (tuần 2).
 
 ## 8. Công nghệ
 
-- Next.js (App Router) + TypeScript (strict). **Chọn phiên bản Next.js mà Payload 3 hỗ trợ** – kiểm tra peer dependency của `payload`/`@payloadcms/next` lúc cài.
+- Next.js **16.4.6** (App Router) + TypeScript (strict). Đã kiểm tra: `@payloadcms/next@3.93.0` hỗ trợ `next >=16.3.3 <17`.
 - Tailwind CSS, `next-intl`, `zod`.
 - Vitest cho unit test.
 - Không dùng thư viện UI nặng; component tự viết, gọn.
@@ -192,10 +194,11 @@ src/
     forms/    InquiryForm
     ui/       Button, Badge, Container…
   lib/data/        types.ts, index.ts, mock/{areas,lines,stations,listings}.ts
-  lib/listing/     initial-cost.ts, filters.ts, format.ts (+ *.test.ts)
-  i18n/            routing.ts, request.ts, navigation.ts
+  lib/listing/     derived.ts, initial-cost.ts, filters.ts, format.ts (+ *.test.ts)
+  lib/seo.ts
+  i18n/            routing.ts, request.ts, navigation.ts, merge.ts
   config/site.ts
-  middleware.ts
+  proxy.ts
 messages/          en.json, my.json, ja.json
 ```
 
