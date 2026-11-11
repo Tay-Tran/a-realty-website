@@ -70,7 +70,13 @@
     "typeLine": "Line",
     "typeStation": "Station",
     "noMatch": "No matching station, area or line",
-    "shortTermNote": "Short-term: furnished apartments with flexible contracts."
+    "shortTermNote": "Short-term: furnished apartments with flexible contracts.",
+    "filterList": "Type to filter…",
+    "groupContract": "Contract terms",
+    "groupBuilding": "Building",
+    "groupRoom": "Room & lifestyle",
+    "apply": "Apply",
+    "close": "Close"
   },
   "categories": {
     "title": "Popular searches",

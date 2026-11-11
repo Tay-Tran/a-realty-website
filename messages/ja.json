@@ -70,7 +70,13 @@
     "typeLine": "路線",
     "typeStation": "駅",
     "noMatch": "該当する駅・エリア・路線がありません",
-    "shortTermNote": "短期：家具付きで契約期間が柔軟な物件です。"
+    "shortTermNote": "短期：家具付きで契約期間が柔軟な物件です。",
+    "filterList": "入力して絞り込み…",
+    "groupContract": "契約条件",
+    "groupBuilding": "建物",
+    "groupRoom": "部屋・暮らし",
+    "apply": "適用する",
+    "close": "閉じる"
   },
   "categories": {
     "title": "人気の条件",

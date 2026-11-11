@@ -4,7 +4,7 @@ import { site } from '@/config/site';
 import { Link } from '@/i18n/navigation';
 import { countListingsByArea, getAreas, getFeaturedListings, getStations } from '@/lib/data';
 import { buildSearchOptions } from '@/lib/data/search-options';
-import type { Locale } from '@/lib/data/types';
+import { isLocale, requireLocale } from '@/i18n/locale';
 import { buildAlternates } from '@/lib/seo';
 import { About } from '@/components/home/About';
 import { AreaGrid } from '@/components/home/AreaGrid';
@@ -23,16 +23,17 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  if (!isLocale(locale)) return {};
   const t = await getTranslations({ locale, namespace: 'meta' });
-  return { title: { absolute: `${t('homeTitle')} | ${site.name}` }, alternates: buildAlternates(locale as Locale) };
+  return { title: { absolute: `${t('homeTitle')} | ${site.name}` }, alternates: buildAlternates(locale) };
 }
 
 export default async function HomePage({ params }: Props) {
-  const { locale } = await params;
+  const locale = requireLocale((await params).locale);
   setRequestLocale(locale);
   const [t, options, featured, areas, counts, stations] = await Promise.all([
     getTranslations('home'),
-    buildSearchOptions(locale as Locale),
+    buildSearchOptions(locale),
     getFeaturedListings(6),
     getAreas(),
     countListingsByArea(),

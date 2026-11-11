@@ -1,6 +1,18 @@
 import { describe, expect, it } from 'vitest';
 import type { SearchOptions } from '@/lib/data/search-options';
-import { matchPlaces } from './places';
+import { filterByLabel, matchPlaces } from './places';
+
+describe('filterByLabel', () => {
+  const items = [{ label: 'JR Yamanote Line' }, { label: 'Tokyo Metro Tozai Line' }, { label: 'Shin-Okubo' }];
+  it('returns everything for an empty query', () => {
+    expect(filterByLabel(items, ' ')).toHaveLength(3);
+  });
+  it('matches anywhere in the label, ignoring case, spaces and hyphens', () => {
+    expect(filterByLabel(items, 'tozai').map((i) => i.label)).toEqual(['Tokyo Metro Tozai Line']);
+    expect(filterByLabel(items, 'shinokubo').map((i) => i.label)).toEqual(['Shin-Okubo']);
+    expect(filterByLabel(items, 'line')).toHaveLength(2);
+  });
+});
 
 const OPTIONS: SearchOptions = {
   areas: [{ value: 'shinjuku', label: 'Shinjuku' }, { value: 'kita', label: 'Kita (Akabane)' }],

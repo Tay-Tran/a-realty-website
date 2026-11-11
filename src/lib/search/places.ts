@@ -8,6 +8,12 @@ const TYPE_ORDER: Record<PlaceType, number> = { station: 0, area: 1, line: 2 };
 /** Lower-case and drop spaces, hyphens and brackets: "Shin-Okubo" → "shinokubo". */
 const normalize = (s: string) => s.toLowerCase().replace(/[\s\-‐ー・()（）]/g, '');
 
+/** Filter a picker list by a typed query (substring, normalized). */
+export function filterByLabel<T extends { label: string }>(items: T[], query: string): T[] {
+  const q = normalize(query);
+  return q ? items.filter((i) => normalize(i.label).includes(q)) : items;
+}
+
 /** Quick-search matcher: prefix matches before substring matches, stations before areas before lines. */
 export function matchPlaces(query: string, options: SearchOptions, limit = 6): PlaceMatch[] {
   const q = normalize(query);

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
-import type { Locale } from '@/lib/data/types';
+import { isLocale, requireLocale } from '@/i18n/locale';
 import { buildAlternates } from '@/lib/seo';
 import { FavoritesList } from '@/components/listing/FavoritesList';
 import { Container } from '@/components/ui/Container';
@@ -9,13 +9,14 @@ type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  if (!isLocale(locale)) return {};
   const t = await getTranslations({ locale, namespace: 'favorites' });
   // Personal list: never indexed, even in production.
-  return { title: t('title'), alternates: buildAlternates(locale as Locale, '/favorites'), robots: { index: false, follow: true } };
+  return { title: t('title'), alternates: buildAlternates(locale, '/favorites'), robots: { index: false, follow: true } };
 }
 
 export default async function FavoritesPage({ params }: Props) {
-  const { locale } = await params;
+  const locale = requireLocale((await params).locale);
   setRequestLocale(locale);
   const t = await getTranslations('favorites');
   return (
