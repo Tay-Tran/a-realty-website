@@ -27,7 +27,8 @@
     "demoNotice": "Demo site – all listings are sample data.",
     "currency": "Currency",
     "rateNote": "Converted at reference rates",
-    "bedroomsShort": "{count} BR"
+    "bedroomsShort": "{count} BR",
+    "tokyo": "Tokyo"
   },
   "hero": {
     "title": "Find your home in Tokyo",

@@ -3,6 +3,7 @@ import type { Listing, Locale, Station } from '@/lib/data/types';
 import { bedroomsOf } from '@/lib/listing/derived';
 import { formatSize, pickText } from '@/lib/listing/format';
 import { calcInitialCost } from '@/lib/listing/initial-cost';
+import { TrainIcon } from '@/components/ui/icons';
 import { Price } from '@/components/ui/Price';
 
 export function Overview({ listing, stations }: { listing: Listing; stations: Record<string, Station> }) {
@@ -28,8 +29,8 @@ export function Overview({ listing, stations }: { listing: Listing; stations: Re
               const st = stations[s.stationSlug];
               return (
                 <li key={s.stationSlug} className="flex items-center justify-between gap-3 text-sm">
-                  <span><span aria-hidden className="mr-2">🚉</span>{t('common.stationName', { name: st ? pickText(st.name, locale) : s.stationSlug })}</span>
-                  <span className="text-ink-soft">🚶 {t('common.minWalk', { minutes: s.walkMinutes })}</span>
+                  <span className="flex items-center gap-2"><TrainIcon className="h-4 w-4 text-accent" />{t('common.stationName', { name: st ? pickText(st.name, locale) : s.stationSlug })}</span>
+                  <span className="text-ink-soft">{t('common.minWalk', { minutes: s.walkMinutes })}</span>
                 </li>
               );
             })}
