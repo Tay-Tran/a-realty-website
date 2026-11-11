@@ -303,7 +303,15 @@
     "whatsapp": "WhatsApp",
     "messenger": "Messenger",
     "call": "電話",
-    "chat": "チャットで相談"
+    "chat": "チャットで相談",
+    "chatOnline": "オンライン",
+    "chatGreeting": "こんにちは 👋\n東京でのお部屋探しをどのようにお手伝いできますか？",
+    "chatPlaceholder": "メッセージを入力…",
+    "chatSend": "送信",
+    "chatOpen": "チャットを開く",
+    "chatClose": "チャットを閉じる",
+    "chatTyping": "入力中…",
+    "chatReply": "メッセージありがとうございます。デモのため、チャットはまだ接続されていません。以下のアプリで続けていただければスタッフが返信します（WhatsAppにはメッセージが入力済みです）："
   },
   "footer": {
     "tagline": "外国籍の方のための東京の賃貸物件。あなたの言葉でご案内します。",

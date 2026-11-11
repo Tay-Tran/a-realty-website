@@ -303,7 +303,15 @@
     "whatsapp": "WhatsApp",
     "messenger": "Messenger",
     "call": "Call",
-    "chat": "Chat with us"
+    "chat": "Chat with us",
+    "chatOnline": "Online",
+    "chatGreeting": "Hello 👋\nHow can we help you find an apartment in Tokyo?",
+    "chatPlaceholder": "Type a message…",
+    "chatSend": "Send",
+    "chatOpen": "Open chat",
+    "chatClose": "Close chat",
+    "chatTyping": "Typing…",
+    "chatReply": "Thanks for your message! This is a demo, so live chat is not connected yet. Continue on one of these apps and our staff will reply – your message is already filled in for WhatsApp:"
   },
   "footer": {
     "tagline": "Apartments in Tokyo for foreign residents – explained in your language.",
