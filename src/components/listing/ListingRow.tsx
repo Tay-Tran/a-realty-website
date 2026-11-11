@@ -10,6 +10,7 @@ import { Price } from '@/components/ui/Price';
 import { FavoriteButton } from './FavoriteButton';
 import { FloorPlan } from './FloorPlan';
 import { ListingStats } from './ListingStats';
+import { RowPhotos } from './RowPhotos';
 import { StatusBadge } from './StatusBadge';
 
 /** Horizontal result card for the search page, laid out like the reference: photos | details | price. */
@@ -25,28 +26,19 @@ export function ListingRow({ listing, stations, areas, lines }: {
 
   return (
     <article className="grid gap-4 rounded-2xl border border-line bg-white p-4 shadow-sm transition hover:shadow-md md:grid-cols-[240px_1fr_auto]">
-      <div>
-        <Link href={href} className="relative block aspect-[4/3] overflow-hidden rounded-xl bg-ink/5">
-          <Image src={listing.images[0]} alt={title} fill sizes="(min-width: 768px) 240px, 100vw" className="object-cover" />
+      <RowPhotos images={listing.images} alt={title}
+        overlay={<>
           {listing.status !== 'available' && <span className="absolute left-2 top-2"><StatusBadge status={listing.status} /></span>}
           <span className="absolute right-2 top-2 rounded-full bg-white/95 px-2.5 py-0.5 text-xs font-semibold text-accent-dark shadow-sm">
             {t('hero.tabRent')}
           </span>
-        </Link>
-        <div className="mt-2 grid grid-cols-3 gap-2">
-          <div className="relative grid aspect-[4/3] place-items-center overflow-hidden rounded-lg border border-line bg-white p-1"
-            title={t('floorPlan.title')}>
-            {listing.floorPlan
-              ? <Image src={listing.floorPlan} alt={t('floorPlan.title')} fill sizes="80px" className="object-contain" />
-              : <FloorPlan layout={listing.layout} labels={false} className="h-full w-auto" />}
-          </div>
-          {listing.images.slice(1, 3).map((src) => (
-            <div key={src} className="relative aspect-[4/3] overflow-hidden rounded-lg bg-ink/5">
-              <Image src={src} alt="" fill sizes="80px" className="object-cover" />
-            </div>
-          ))}
-        </div>
-      </div>
+        </>}
+        planThumb={listing.floorPlan
+          ? <Image src={listing.floorPlan} alt="" fill sizes="80px" className="object-contain" />
+          : <FloorPlan layout={listing.layout} labels={false} className="h-full w-auto" />}
+        planFull={listing.floorPlan
+          ? <Image src={listing.floorPlan} alt={t('floorPlan.title')} width={600} height={800} className="object-contain" />
+          : <FloorPlan layout={listing.layout} />} />
 
       <div className="min-w-0 space-y-2.5 md:pr-2">
         {area && (
