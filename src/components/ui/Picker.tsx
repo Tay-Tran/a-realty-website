@@ -114,7 +114,7 @@ export function Picker({
       {open && (
         <>
           <div aria-hidden className="fixed inset-0 z-40" onClick={() => setOpen(false)} />
-          <div className={`absolute top-full z-50 mt-2 w-full ${variant === 'pill' ? 'min-w-[180px]' : 'min-w-[240px]'} overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-line ${align === 'right' ? 'right-0' : 'left-0'}`}>
+          <div className={`absolute top-full z-50 mt-2 w-full max-w-[calc(100vw-2rem)] ${variant === 'pill' ? 'min-w-[180px]' : 'sm:min-w-[240px]'} overflow-hidden rounded-2xl bg-white shadow-2xl ring-1 ring-line ${align === 'right' ? 'right-0' : 'left-0'}`}>
             {searchable && (
               <div className="relative border-b border-line p-2">
                 <SearchIcon className="pointer-events-none absolute left-5 top-1/2 h-4 w-4 -translate-y-1/2 text-ink-soft" />

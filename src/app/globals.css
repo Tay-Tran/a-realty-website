@@ -18,6 +18,14 @@
 
 html { scroll-behavior: smooth; }
 
+/* Nothing may push the page wider than the screen (clip, unlike hidden, keeps sticky headers working). */
+html, body { overflow-x: clip; }
+
+/* iOS zooms the page when a field under 16px gets focus; keep fields at 16px on touch screens. */
+@media (pointer: coarse) {
+  input, textarea, select { font-size: max(16px, 1em); }
+}
+
 /* Tailwind v4 resets buttons to the arrow cursor; show the hand on everything clickable. */
 @layer base {
   a[href], button:not(:disabled), [role="button"], [role="option"], [role="tab"]:not(:disabled),
