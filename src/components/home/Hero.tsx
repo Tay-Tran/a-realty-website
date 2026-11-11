@@ -11,11 +11,11 @@ export function Hero({ options }: { options: SearchOptions }) {
   const t = useTranslations('hero');
   return (
     <section className="relative isolate overflow-hidden bg-ink">
-      <Image src={HERO_IMAGE} alt="" fill priority sizes="100vw" className="-z-10 object-cover opacity-40" />
-      <Container className="py-16 sm:py-24">
-        <h1 className="max-w-2xl text-3xl font-bold text-white sm:text-5xl">{t('title')}</h1>
-        <p className="mt-4 max-w-xl text-white/85 sm:text-lg">{t('subtitle')}</p>
-        <div className="mt-8"><SearchBox options={options} /></div>
+      <Image src={HERO_IMAGE} alt="" fill priority sizes="100vw" className="-z-10 object-cover opacity-45" />
+      <Container className="py-14 text-center sm:py-20">
+        <h1 className="mx-auto max-w-3xl text-3xl font-bold text-white sm:text-5xl">{t('title')}</h1>
+        <p className="mx-auto mt-4 max-w-2xl text-white/85 sm:text-lg">{t('subtitle')}</p>
+        <div className="mx-auto mt-8 max-w-4xl"><SearchBox options={options} /></div>
       </Container>
     </section>
   );

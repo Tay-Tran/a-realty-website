@@ -6,12 +6,16 @@ import { countListingsByArea, getAreas, getFeaturedListings, getStations } from 
 import { buildSearchOptions } from '@/lib/data/search-options';
 import type { Locale } from '@/lib/data/types';
 import { buildAlternates } from '@/lib/seo';
+import { About } from '@/components/home/About';
 import { AreaGrid } from '@/components/home/AreaGrid';
-import { CategoryTiles } from '@/components/home/CategoryTiles';
+import { Carousel } from '@/components/home/Carousel';
+import { CategoriesAndContact } from '@/components/home/CategoriesAndContact';
 import { Faq } from '@/components/home/Faq';
 import { Hero } from '@/components/home/Hero';
-import { InquirySection } from '@/components/home/InquirySection';
+import { PartnerCta } from '@/components/home/PartnerCta';
 import { RentalSteps } from '@/components/home/RentalSteps';
+import { Reviews } from '@/components/home/Reviews';
+import { Services } from '@/components/home/Services';
 import { ListingCard } from '@/components/listing/ListingCard';
 import { Container } from '@/components/ui/Container';
 
@@ -39,20 +43,34 @@ export default async function HomePage({ params }: Props) {
   return (
     <main>
       <Hero options={options} />
-      <CategoryTiles />
-      <Container className="py-12">
-        <div className="flex items-end justify-between gap-4">
-          <h2 className="text-2xl font-bold">{t('featuredTitle')}</h2>
-          <Link href="/rent" className="text-sm font-semibold text-accent hover:underline">{t('viewAll')} →</Link>
-        </div>
-        <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((l) => <ListingCard key={l.code} listing={l} stations={stationMap} />)}
-        </div>
-      </Container>
+      <CategoriesAndContact />
+      <section className="bg-white py-14">
+        <Container>
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <h2 className="text-2xl font-bold">{t('featuredTitle')}</h2>
+              <p className="mt-1 text-sm text-ink-soft">{t('featuredSubtitle')}</p>
+            </div>
+            <Link href="/rent" className="shrink-0 text-sm font-semibold text-accent hover:underline">{t('viewAll')} →</Link>
+          </div>
+          <div className="mt-4">
+            <Carousel>
+              {featured.map((l) => (
+                <div key={l.code} className="w-[80%] shrink-0 snap-start sm:w-[45%] lg:w-[31%]">
+                  <ListingCard listing={l} stations={stationMap} />
+                </div>
+              ))}
+            </Carousel>
+          </div>
+        </Container>
+      </section>
       <AreaGrid areas={areas} counts={counts} />
+      <Services />
       <RentalSteps />
+      <About />
+      <PartnerCta />
+      <Reviews />
       <Faq />
-      <InquirySection />
     </main>
   );
 }

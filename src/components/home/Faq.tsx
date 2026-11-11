@@ -4,7 +4,7 @@ import { Container } from '@/components/ui/Container';
 export function Faq() {
   const t = useTranslations('faq');
   return (
-    <section id="faq" className="scroll-mt-20 bg-white py-12">
+    <section id="faq" className="scroll-mt-20 py-14">
       <Container className="max-w-3xl">
         <h2 className="text-2xl font-bold">{t('title')}</h2>
         <div className="mt-6 divide-y divide-line rounded-2xl border border-line">

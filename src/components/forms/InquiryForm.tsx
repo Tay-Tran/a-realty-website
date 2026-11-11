@@ -36,6 +36,16 @@ export function InquiryForm({ listingCode }: { listingCode?: string }) {
         <p className="text-sm text-ink-soft">{t('listingCode')}: <strong className="text-ink">{listingCode}</strong></p>
       )}
       <input type="hidden" name="listingCode" value={listingCode ?? ''} />
+      {!listingCode && (
+        <label className="block text-sm font-medium">{t('type')}
+          <select name="type" defaultValue="rent" className={field}>
+            <option value="rent">{t('typeRent')}</option>
+            <option value="move">{t('typeMove')}</option>
+            <option value="partner">{t('typePartner')}</option>
+            <option value="other">{t('typeOther')}</option>
+          </select>
+        </label>
+      )}
       <label className="block text-sm font-medium">{t('name')}<input name="name" autoComplete="name" className={field} />{error('name')}</label>
       <label className="block text-sm font-medium">{t('email')}<input name="email" type="email" autoComplete="email" className={field} />{error('email')}</label>
       <label className="block text-sm font-medium">{t('phone')}<input name="phone" type="tel" autoComplete="tel" className={field} /></label>
