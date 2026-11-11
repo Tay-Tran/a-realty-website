@@ -24,3 +24,10 @@ export function formatMoney(yen: number, currency: Currency, locale: Locale): st
     style: 'currency', currency, maximumFractionDigits: 0,
   }).format(Math.round(yen * YEN_TO[currency]));
 }
+
+/** Currency shown until the visitor picks one: English readers think in dollars, the others in yen. */
+const LOCALE_CURRENCY: Record<Locale, Currency> = { en: 'USD', ja: 'JPY', my: 'JPY' };
+
+export function defaultCurrency(locale: Locale): Currency {
+  return LOCALE_CURRENCY[locale];
+}

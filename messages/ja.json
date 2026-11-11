@@ -210,7 +210,7 @@
     "maxWalk": "駅徒歩",
     "anyWalk": "指定なし",
     "walkOption": "{minutes}分以内",
-    "rent": "家賃（円/月）",
+    "rent": "家賃（月額）",
     "min": "下限",
     "max": "上限",
     "layouts": "間取り",

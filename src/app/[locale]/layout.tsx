@@ -6,6 +6,7 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { FloatingContact } from '@/components/layout/FloatingContact';
 import { Footer } from '@/components/layout/Footer';
 import { PreferencesProvider } from '@/components/providers/PreferencesProvider';
+import { defaultCurrency } from '@/lib/currency';
 import { Header } from '@/components/layout/Header';
 import { site } from '@/config/site';
 import { routing } from '@/i18n/routing';
@@ -51,7 +52,7 @@ export default async function LocaleLayout({ children, params }: {
     <html lang={locale} className={`${notoSans.variable} ${notoSansJP.variable} ${notoSansMyanmar.variable}`} style={brandVars}>
       <body className="min-h-screen font-sans antialiased">
         <NextIntlClientProvider>
-          <PreferencesProvider>
+          <PreferencesProvider defaultCurrency={defaultCurrency(locale)}>
             <Header />
             {children}
             <Footer />

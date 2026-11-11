@@ -210,7 +210,7 @@
     "maxWalk": "Walk to station",
     "anyWalk": "Any",
     "walkOption": "Within {minutes} min",
-    "rent": "Rent (¥/month)",
+    "rent": "Rent per month",
     "min": "Min",
     "max": "Max",
     "layouts": "Layout",
