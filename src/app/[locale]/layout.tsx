@@ -7,7 +7,6 @@ import { FloatingContact } from '@/components/layout/FloatingContact';
 import { Footer } from '@/components/layout/Footer';
 import { PreferencesProvider } from '@/components/providers/PreferencesProvider';
 import { Header } from '@/components/layout/Header';
-import { MobileContactBar } from '@/components/layout/MobileContactBar';
 import { site } from '@/config/site';
 import { routing } from '@/i18n/routing';
 import { isIndexable } from '@/lib/seo';
@@ -50,13 +49,12 @@ export default async function LocaleLayout({ children, params }: {
 
   return (
     <html lang={locale} className={`${notoSans.variable} ${notoSansJP.variable} ${notoSansMyanmar.variable}`} style={brandVars}>
-      <body className="min-h-screen pb-16 font-sans antialiased md:pb-0">
+      <body className="min-h-screen font-sans antialiased">
         <NextIntlClientProvider>
           <PreferencesProvider>
             <Header />
             {children}
             <Footer />
-            <MobileContactBar />
             <FloatingContact />
           </PreferencesProvider>
         </NextIntlClientProvider>
