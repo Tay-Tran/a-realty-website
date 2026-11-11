@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
-import { getListings, getStations } from '@/lib/data';
+import { getAreas, getListings, getStations } from '@/lib/data';
 import { buildSearchOptions } from '@/lib/data/search-options';
 import type { Locale } from '@/lib/data/types';
 import { parseFilters, serializeFilters } from '@/lib/listing/filters';
 import { buildAlternates } from '@/lib/seo';
-import { ListingCard } from '@/components/listing/ListingCard';
+import { ListingRow } from '@/components/listing/ListingRow';
+import { CATEGORY_KEYS } from '@/components/search/constants';
 import { FilterPanel } from '@/components/search/FilterPanel';
 import { FilterSheet } from '@/components/search/FilterSheet';
 import { Pagination } from '@/components/search/Pagination';
@@ -29,22 +30,35 @@ export default async function RentPage({ params, searchParams }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const filters = parseFilters(await searchParams);
-  const [t, result, options, stations] = await Promise.all([
+  const [t, tc, result, options, stations, areas] = await Promise.all([
     getTranslations('search'),
+    getTranslations('categories'),
     getListings(filters),
     buildSearchOptions(locale as Locale),
     getStations(),
+    getAreas(),
   ]);
   const stationMap = Object.fromEntries(stations.map((s) => [s.slug, s]));
+  const areaMap = Object.fromEntries(areas.map((a) => [a.slug, a]));
   const panelKey = serializeFilters({ ...filters, sort: undefined, page: undefined });
+  const activeCategory = filters.conditions?.length === 1 ? filters.conditions[0] : undefined;
 
   return (
     <main>
       <Container className="py-8">
         <h1 className="text-2xl font-bold sm:text-3xl">{t('title')}</h1>
+        <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
+          <span className="text-ink-soft">{t('related')}</span>
+          {CATEGORY_KEYS.map((key) => (
+            <Link key={key} href={`/rent?conditions=${key}`}
+              className={`rounded-full border px-3 py-1 ${activeCategory === key ? 'border-accent bg-accent text-white' : 'border-line bg-white hover:border-accent'}`}>
+              {tc(key)}
+            </Link>
+          ))}
+        </div>
         <div className="mt-6 grid gap-8 lg:grid-cols-[280px_1fr]">
           <aside className="hidden lg:block">
-            <div className="sticky top-24 rounded-2xl border border-line bg-white p-5">
+            <div className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto rounded-2xl border border-line bg-white p-5">
               <FilterPanel key={panelKey} options={options} filters={filters} />
             </div>
           </aside>
@@ -57,8 +71,8 @@ export default async function RentPage({ params, searchParams }: Props) {
               </div>
             </div>
             {result.items.length > 0 ? (
-              <div className="mt-5 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-                {result.items.map((l) => <ListingCard key={l.code} listing={l} stations={stationMap} />)}
+              <div className="mt-5 space-y-4">
+                {result.items.map((l) => <ListingRow key={l.code} listing={l} stations={stationMap} areas={areaMap} />)}
               </div>
             ) : (
               <div className="mt-10 rounded-2xl border border-dashed border-line bg-white p-10 text-center">

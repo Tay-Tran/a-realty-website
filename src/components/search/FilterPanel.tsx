@@ -5,9 +5,10 @@ import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/navigation';
 import type { SearchOptions } from '@/lib/data/search-options';
 import { CONDITION_KEYS, LAYOUTS, type ConditionKey, type Layout, type Locale } from '@/lib/data/types';
+import { formatMoney } from '@/lib/currency';
 import { serializeFilters, type Filters } from '@/lib/listing/filters';
-import { formatYen } from '@/lib/listing/format';
-import { RENT_STEPS, WALK_STEPS } from './constants';
+import { usePreferences } from '@/components/providers/PreferencesProvider';
+import { AGE_STEPS, BEDROOM_STEPS, RENT_STEPS, SIZE_STEPS, WALK_STEPS } from './constants';
 
 const toggle = <T,>(list: T[], value: T) => (list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
 
@@ -21,6 +22,11 @@ export function FilterPanel({ options, filters, onApplied }: { options: SearchOp
   const [maxWalk, setMaxWalk] = useState(filters.maxWalk ? String(filters.maxWalk) : '');
   const [minRent, setMinRent] = useState(filters.minRent ? String(filters.minRent) : '');
   const [maxRent, setMaxRent] = useState(filters.maxRent ? String(filters.maxRent) : '');
+  const [minSize, setMinSize] = useState(filters.minSize ? String(filters.minSize) : '');
+  const [maxSize, setMaxSize] = useState(filters.maxSize ? String(filters.maxSize) : '');
+  const [bedrooms, setBedrooms] = useState(filters.bedrooms ? String(filters.bedrooms) : '');
+  const [maxAge, setMaxAge] = useState(filters.maxAge !== undefined ? String(filters.maxAge) : '');
+  const { currency } = usePreferences();
   const [layouts, setLayouts] = useState<Layout[]>(filters.layouts ?? []);
   const [conditions, setConditions] = useState<ConditionKey[]>(filters.conditions ?? []);
   const stationOptions = line ? options.stations.filter((s) => s.lines.includes(line)) : options.stations;
@@ -37,6 +43,8 @@ export function FilterPanel({ options, filters, onApplied }: { options: SearchOp
       area: area || undefined, line: line || undefined, station: station || undefined,
       maxWalk: maxWalk ? Number(maxWalk) : undefined,
       minRent: minRent ? Number(minRent) : undefined, maxRent: maxRent ? Number(maxRent) : undefined,
+      minSize: minSize ? Number(minSize) : undefined, maxSize: maxSize ? Number(maxSize) : undefined,
+      bedrooms: bedrooms ? Number(bedrooms) : undefined, maxAge: maxAge ? Number(maxAge) : undefined,
       layouts, conditions, sort: filters.sort,
     });
   }
@@ -74,14 +82,41 @@ export function FilterPanel({ options, filters, onApplied }: { options: SearchOp
         <div className="mt-1 grid grid-cols-2 gap-2">
           <select aria-label={t('search.min')} value={minRent} onChange={(e) => setMinRent(e.target.value)} className={select}>
             <option value="">{t('search.min')}</option>
-            {RENT_STEPS.map((v) => <option key={v} value={v}>{formatYen(v, locale)}</option>)}
+            {RENT_STEPS.map((v) => <option key={v} value={v}>{formatMoney(v, currency, locale)}</option>)}
           </select>
           <select aria-label={t('search.max')} value={maxRent} onChange={(e) => setMaxRent(e.target.value)} className={select}>
             <option value="">{t('search.max')}</option>
-            {RENT_STEPS.map((v) => <option key={v} value={v}>{formatYen(v, locale)}</option>)}
+            {RENT_STEPS.map((v) => <option key={v} value={v}>{formatMoney(v, currency, locale)}</option>)}
           </select>
         </div>
       </fieldset>
+      <fieldset>
+        <legend className={legend}>{t('search.size')}</legend>
+        <div className="mt-1 grid grid-cols-2 gap-2">
+          <select aria-label={`${t('search.size')} ${t('search.min')}`} value={minSize} onChange={(e) => setMinSize(e.target.value)} className={select}>
+            <option value="">{t('search.min')}</option>
+            {SIZE_STEPS.map((v) => <option key={v} value={v}>{v} m²</option>)}
+          </select>
+          <select aria-label={`${t('search.size')} ${t('search.max')}`} value={maxSize} onChange={(e) => setMaxSize(e.target.value)} className={select}>
+            <option value="">{t('search.max')}</option>
+            {SIZE_STEPS.map((v) => <option key={v} value={v}>{v} m²</option>)}
+          </select>
+        </div>
+      </fieldset>
+      <div className="grid grid-cols-2 gap-2">
+        <label className={`block ${legend}`}>{t('search.bedrooms')}
+          <select value={bedrooms} onChange={(e) => setBedrooms(e.target.value)} className={select}>
+            <option value="">{t('hero.anyBedrooms')}</option>
+            {BEDROOM_STEPS.map((v) => <option key={v} value={v}>{t('hero.bedroomsOption', { count: v })}</option>)}
+          </select>
+        </label>
+        <label className={`block ${legend}`}>{t('search.maxAge')}
+          <select value={maxAge} onChange={(e) => setMaxAge(e.target.value)} className={select}>
+            <option value="">{t('search.anyAge')}</option>
+            {AGE_STEPS.map((v) => <option key={v} value={v}>{t('search.ageOption', { years: v })}</option>)}
+          </select>
+        </label>
+      </div>
       <fieldset>
         <legend className={legend}>{t('search.layouts')}</legend>
         <div className="mt-2 grid grid-cols-4 gap-2">
