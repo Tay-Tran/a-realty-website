@@ -17,7 +17,7 @@ export function Header() {
   ];
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper/95 backdrop-blur">
-      <Container className="relative flex h-16 items-center justify-between gap-3">
+      <Container className="relative flex h-16 items-center justify-between gap-2">
         <Link href="/" className="flex shrink-0 items-center gap-2 font-semibold text-ink">
           <span aria-hidden className="grid h-8 w-8 place-items-center rounded-lg bg-accent text-sm font-bold text-white">暮</span>
           <span className="whitespace-nowrap text-base sm:text-lg">{site.name}</span>
@@ -25,9 +25,9 @@ export function Header() {
         <nav className="hidden items-center gap-6 text-sm lg:flex">
           {links.map((l) => <Link key={l.label} href={l.href} className="text-ink-soft hover:text-ink">{l.label}</Link>)}
         </nav>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
           <FavoritesLink />
-          <CurrencySwitcher className="hidden md:inline-flex" />
+          <div className="hidden md:block"><CurrencySwitcher /></div>
           <LanguageSwitcher />
           <MobileMenu links={links} menuLabel={t('menu')} closeLabel={t('close')} />
         </div>
