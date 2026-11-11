@@ -9,6 +9,8 @@ interface Preferences {
   setCurrency: (c: Currency) => void;
   favorites: string[];
   toggleFavorite: (code: string) => void;
+  /** False until stored preferences have been read on the client. */
+  ready: boolean;
 }
 
 const PreferencesContext = createContext<Preferences | null>(null);
@@ -25,11 +27,13 @@ export function PreferencesProvider({ children }: { children: React.ReactNode })
   // Server render always uses JPY and no favorites; stored choices apply after mount.
   const [currency, setCurrencyState] = useState<Currency>('JPY');
   const [favorites, setFavorites] = useState<string[]>([]);
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const stored = read(CURRENCY_KEY);
     if (isCurrency(stored)) setCurrencyState(stored);
     setFavorites(parseFavorites(read(FAVORITES_KEY)));
+    setReady(true);
   }, []);
 
   const setCurrency = useCallback((c: Currency) => {
@@ -45,7 +49,10 @@ export function PreferencesProvider({ children }: { children: React.ReactNode })
     });
   }, []);
 
-  const value = useMemo(() => ({ currency, setCurrency, favorites, toggleFavorite: toggle }), [currency, setCurrency, favorites, toggle]);
+  const value = useMemo(
+    () => ({ currency, setCurrency, favorites, toggleFavorite: toggle, ready }),
+    [currency, setCurrency, favorites, toggle, ready],
+  );
   return <PreferencesContext.Provider value={value}>{children}</PreferencesContext.Provider>;
 }
 
