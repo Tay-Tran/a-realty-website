@@ -13,5 +13,14 @@
 }
 
 html { scroll-behavior: smooth; }
+
+/* Tailwind v4 resets buttons to the arrow cursor; show the hand on everything clickable. */
+@layer base {
+  a[href], button:not(:disabled), [role="button"], [role="option"], [role="tab"]:not(:disabled),
+  summary, select, label:has(> input[type="checkbox"]), label:has(> input[type="radio"]) {
+    cursor: pointer;
+  }
+  button:disabled { cursor: not-allowed; }
+}
 body { background: var(--color-paper); color: var(--color-ink); }
 html[lang="my"] body { line-height: 1.9; }
