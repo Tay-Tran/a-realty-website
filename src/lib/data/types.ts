@@ -13,7 +13,7 @@ export const LISTING_STATUSES = ['available', 'applied', 'rented'] as const;
 export type ListingStatus = (typeof LISTING_STATUSES)[number];
 
 export const STORED_CONDITION_KEYS = [
-  'foreignerOk', 'noGuarantor', 'studentOk', 'petOk', 'furnished', 'overseasApplication', 'autoLock',
+  'foreignerOk', 'noGuarantor', 'studentOk', 'petOk', 'furnished', 'overseasApplication', 'autoLock', 'shortTermOk',
 ] as const;
 export type StoredConditionKey = (typeof STORED_CONDITION_KEYS)[number];
 
@@ -59,6 +59,8 @@ export interface Listing {
   conditions: Record<StoredConditionKey, boolean>;
   amenities: AmenityKey[];
   images: string[];
+  /** Real floor-plan image; when missing the site draws a schematic from the layout. */
+  floorPlan?: string;
   featured: boolean;
   publishedAt: string;
 }
