@@ -21,6 +21,7 @@ export function SearchBox({ options }: { options: SearchOptions }) {
   const [maxRent, setMaxRent] = useState('');
   const [minSize, setMinSize] = useState('');
   const [bedrooms, setBedrooms] = useState('');
+  const [mode, setMode] = useState<'rent' | 'short'>('rent');
   const stationOptions = line ? options.stations.filter((s) => s.lines.includes(line)) : options.stations;
 
   function onSubmit(e: FormEvent) {
@@ -32,13 +33,26 @@ export function SearchBox({ options }: { options: SearchOptions }) {
       maxRent: maxRent ? Number(maxRent) : undefined,
       minSize: minSize ? Number(minSize) : undefined,
       bedrooms: bedrooms ? Number(bedrooms) : undefined,
+      conditions: mode === 'short' ? ['shortTermOk'] : undefined,
     });
     router.push(qs ? `/rent?${qs}` : '/rent');
   }
 
   const select = 'mt-1 w-full rounded-xl border border-line bg-white px-3 py-2.5 text-ink';
   const label = 'text-sm font-medium text-ink';
+  const tab = (active: boolean) =>
+    `rounded-full px-5 py-2 text-sm font-semibold transition ${active ? 'bg-accent text-white shadow' : 'text-white/90 hover:bg-white/15'}`;
   return (
+    <div>
+      <div role="tablist" className="mb-3 inline-flex gap-1 rounded-full bg-black/35 p-1 backdrop-blur">
+        <button type="button" role="tab" aria-selected={mode === 'rent'} onClick={() => setMode('rent')} className={tab(mode === 'rent')}>{t('tabRent')}</button>
+        <button type="button" role="tab" aria-selected={mode === 'short'} onClick={() => setMode('short')} className={tab(mode === 'short')}>{t('tabShort')}</button>
+        {/* Buy is phase 2 in the quote – shown as a roadmap item only. */}
+        <button type="button" role="tab" aria-selected={false} disabled title={t('comingSoon')}
+          className="cursor-not-allowed rounded-full px-4 py-2 text-sm font-semibold text-white/50">
+          {t('tabBuy')} <span className="ml-1 rounded-full bg-white/20 px-2 py-0.5 text-[10px]">{t('comingSoon')}</span>
+        </button>
+      </div>
     <form onSubmit={onSubmit} className="space-y-3 rounded-3xl bg-white/95 p-4 text-left shadow-2xl backdrop-blur sm:p-5">
       <div className="grid gap-3 sm:grid-cols-3">
         <label className={label}>{t('area')}
@@ -84,5 +98,6 @@ export function SearchBox({ options }: { options: SearchOptions }) {
         </button>
       </div>
     </form>
+    </div>
   );
 }
