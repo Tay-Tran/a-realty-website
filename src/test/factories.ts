@@ -22,7 +22,7 @@ export function makeListing(overrides: Partial<Listing> = {}): Listing {
     },
     conditions: {
       foreignerOk: true, noGuarantor: false, studentOk: false, petOk: false,
-      furnished: false, overseasApplication: false, autoLock: false,
+      furnished: false, overseasApplication: false, autoLock: false, shortTermOk: false,
     },
     amenities: [],
     images: ['https://images.unsplash.com/photo-1502672260266-1c1ef2d93688'],

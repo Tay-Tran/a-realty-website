@@ -34,6 +34,11 @@ describe('mock listings', () => {
       expect(INTERIORS.includes(l.images[0]), l.code).toBe(true);
     }
   });
+  it('marks some listings as available for short-term stays', () => {
+    const shortTerm = LISTINGS.filter((l) => l.conditions.shortTermOk);
+    expect(shortTerm.length).toBeGreaterThanOrEqual(4);
+    expect(shortTerm.every((l) => l.conditions.furnished)).toBe(true);
+  });
   it('keeps rents within 45,000–180,000 yen', () => {
     for (const l of LISTINGS) {
       expect(l.rent).toBeGreaterThanOrEqual(45000);

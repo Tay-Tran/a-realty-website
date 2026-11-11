@@ -9,6 +9,7 @@ const PHRASES: Record<StoredConditionKey, LocalizedText> = {
   furnished: { en: 'Comes furnished.', my: 'ပရိဘောဂ ပါဝင်သည်။', ja: '家具付き。' },
   overseasApplication: { en: 'You can apply from overseas.', my: 'နိုင်ငံခြားမှ လျှောက်ထားနိုင်သည်။', ja: '海外からのお申込み可。' },
   autoLock: { en: 'Auto-lock entrance.', my: 'အလိုအလျောက်သော့ (auto-lock) တံခါး ပါသည်။', ja: 'オートロック付き。' },
+  shortTermOk: { en: 'Short-term stays welcome.', my: 'ရေတိုငှားရမ်းနိုင်သည်။', ja: '短期入居可。' },
 };
 
 export function buildTitle(layout: Layout, station: Station, walk: number): LocalizedText {

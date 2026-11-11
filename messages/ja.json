@@ -48,7 +48,11 @@
     "sizeOption": "{size}㎡以上",
     "bedrooms": "寝室",
     "anyBedrooms": "指定なし",
-    "bedroomsOption": "{count}以上"
+    "bedroomsOption": "{count}以上",
+    "tabRent": "賃貸",
+    "tabShort": "短期",
+    "tabBuy": "購入",
+    "comingSoon": "近日公開"
   },
   "categories": {
     "title": "人気の条件",
@@ -72,7 +76,8 @@
     "noKeyMoney": "礼金なし",
     "newlyBuilt": "築浅",
     "family": "ファミリー向け（寝室2以上）",
-    "luxury": "高級物件"
+    "luxury": "高級物件",
+    "shortTermOk": "短期入居可"
   },
   "status": {
     "available": "募集中",
@@ -288,5 +293,18 @@
     "empty": "まだお気に入りの物件がありません。",
     "emptyHint": "物件の♡を押すとここに保存されます（この端末のみ）。",
     "browse": "物件を探す"
+  },
+  "floorPlan": {
+    "title": "間取り図",
+    "note": "イメージ図です（縮尺は正確ではありません）。実際の間取り図は物件ごとに掲載します。",
+    "room": "洋室",
+    "roomN": "洋室{index}",
+    "kitchen": "キッチン",
+    "dk": "DK",
+    "ldk": "LDK",
+    "bath": "浴室",
+    "toilet": "トイレ",
+    "entrance": "玄関",
+    "balcony": "バルコニー"
   }
 }

@@ -48,7 +48,11 @@
     "sizeOption": "From {size} m²",
     "bedrooms": "Bedrooms",
     "anyBedrooms": "Any",
-    "bedroomsOption": "{count}+"
+    "bedroomsOption": "{count}+",
+    "tabRent": "Rent",
+    "tabShort": "Short-term",
+    "tabBuy": "Buy",
+    "comingSoon": "Coming soon"
   },
   "categories": {
     "title": "Popular searches",
@@ -72,7 +76,8 @@
     "noKeyMoney": "No key money",
     "newlyBuilt": "Newly built",
     "family": "Family size (2+ bedrooms)",
-    "luxury": "Luxury"
+    "luxury": "Luxury",
+    "shortTermOk": "Short-term OK"
   },
   "status": {
     "available": "Available",
@@ -288,5 +293,18 @@
     "empty": "You have not saved any apartments yet.",
     "emptyHint": "Tap ♡ on any apartment to keep it here. Saved on this device only.",
     "browse": "Browse apartments"
+  },
+  "floorPlan": {
+    "title": "Floor plan",
+    "note": "Illustrative layout – not to scale. The real floor plan is added with each listing.",
+    "room": "Room",
+    "roomN": "Room {index}",
+    "kitchen": "Kitchen",
+    "dk": "Dining kitchen",
+    "ldk": "Living / dining / kitchen",
+    "bath": "Bath",
+    "toilet": "Toilet",
+    "entrance": "Entrance",
+    "balcony": "Balcony"
   }
 }
