@@ -8,7 +8,7 @@ export function AreaGrid({ areas, counts }: { areas: Area[]; counts: Record<stri
   const t = useTranslations('home');
   const locale = useLocale() as Locale;
   return (
-    <section id="areas" className="scroll-mt-20 bg-white py-12">
+    <section id="areas" className="scroll-mt-20 py-14">
       <Container>
         <h2 className="text-2xl font-bold">{t('areasTitle')}</h2>
         <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4">

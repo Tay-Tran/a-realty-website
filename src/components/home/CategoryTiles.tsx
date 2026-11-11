@@ -1,22 +1,26 @@
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/navigation';
-import { Container } from '@/components/ui/Container';
-import { CATEGORY_ICONS, CATEGORY_KEYS } from '@/components/search/constants';
+import { CATEGORY_IMAGES, CATEGORY_KEYS } from '@/components/search/constants';
 
+/** Photo tiles; rendered next to the inquiry form on the home page. */
 export function CategoryTiles() {
   const t = useTranslations('categories');
   return (
-    <Container className="py-12">
+    <div>
       <h2 className="text-2xl font-bold">{t('title')}</h2>
-      <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+      <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-2">
         {CATEGORY_KEYS.map((key) => (
           <Link key={key} href={`/rent?conditions=${key}`}
-            className="flex flex-col items-center gap-2 rounded-2xl border border-line bg-white p-4 text-center font-medium hover:border-accent">
-            <span aria-hidden className="text-3xl">{CATEGORY_ICONS[key]}</span>
-            <span className="text-sm">{t(key)}</span>
+            className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-ink">
+            <Image src={CATEGORY_IMAGES[key]!} alt="" fill sizes="(min-width: 1024px) 25vw, 50vw"
+              className="object-cover opacity-80 transition duration-300 group-hover:scale-105 group-hover:opacity-90" />
+            <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3 text-base font-semibold text-white">
+              {t(key)}
+            </span>
           </Link>
         ))}
       </div>
-    </Container>
+    </div>
   );
 }
