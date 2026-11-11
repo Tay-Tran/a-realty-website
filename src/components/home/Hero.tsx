@@ -10,7 +10,9 @@ const HERO_IMAGE = 'https://images.unsplash.com/photo-1540959733332-eab4deabeeaf
 export function Hero({ options }: { options: SearchOptions }) {
   const t = useTranslations('hero');
   return (
-    <section className="relative isolate overflow-hidden bg-ink">
+    // No overflow-hidden: it made the hero a hidden scroll container, so focusing inside the
+    // Details popover scrolled the background up. z-10 keeps the popover above the next section.
+    <section className="relative isolate z-10 bg-ink">
       <Image src={HERO_IMAGE} alt="" fill priority sizes="100vw" className="-z-10 object-cover opacity-45" />
       <Container className="py-14 text-center sm:py-20">
         <h1 className="mx-auto max-w-3xl text-3xl font-bold text-white sm:text-5xl">{t('title')}</h1>
