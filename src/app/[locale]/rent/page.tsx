@@ -57,7 +57,10 @@ export default async function RentPage({ params, searchParams }: Props) {
         {/* One swipeable row on phones, wrapping on wider screens. */}
         <div className="-mx-4 mt-3 flex items-center gap-2 overflow-x-auto px-4 pb-1 text-sm [scrollbar-width:none] sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0 sm:pb-0">
           <span className="shrink-0 text-ink-soft">{t('related')}</span>
-          {[...CATEGORY_KEYS, 'shortTermOk' as const].map((key) => {
+          {/* Active chips first, so on a phone the one you picked is not hidden off-screen. */}
+          {[...CATEGORY_KEYS, 'shortTermOk' as const]
+            .sort((a, b) => Number(filters.conditions?.includes(b) ?? false) - Number(filters.conditions?.includes(a) ?? false))
+            .map((key) => {
             const active = filters.conditions?.includes(key) ?? false;
             return (
               <Link key={key} href={chipHref(key)} aria-pressed={active}

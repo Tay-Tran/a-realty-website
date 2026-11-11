@@ -56,7 +56,9 @@ export function Picker({
     if (!open) return;
     setActive(Math.max(0, [...head, ...options].findIndex((o) => o.value === value)));
     // Focus the search box (or the list) so the keyboard works immediately.
-    requestAnimationFrame(() => (searchable ? searchRef.current : listRef.current)?.focus());
+    // On touch screens focusing the filter box would pop the keyboard over the list.
+    const typeToFilter = searchable && window.matchMedia('(pointer: fine)').matches;
+    requestAnimationFrame(() => (typeToFilter ? searchRef.current : listRef.current)?.focus());
   }, [open]); // eslint-disable-line react-hooks/exhaustive-deps
 
   useEffect(() => {

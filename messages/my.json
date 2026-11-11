@@ -28,7 +28,7 @@
     "currency": "ငွေကြေး",
     "rateNote": "ရည်ညွှန်းငွေလဲနှုန်းဖြင့် တွက်ချက်ထားသည်",
     "bedroomsShort": "အိပ်ခန်း {count}",
-    "tokyo": "Tokyo"
+    "tokyo": "တိုကျို"
   },
   "hero": {
     "title": "တိုကျိုတွင် သင့်အိမ်ကို ရှာဖွေပါ",
@@ -168,7 +168,6 @@
     "review3Name": "Dewi",
     "review3From": "အင်ဒိုနီးရှား · မိသားစု",
     "review3Text": "ဂျပန်အာမခံသူ မလိုဘဲ ဘူတာနားက 2LDK ကို ရှာပေးခဲ့ပါတယ်။",
-    "reviewsKicker": "What Our Customers Say",
     "reviewSample": "နမူနာ",
     "readMore": "ဆက်ဖတ်ရန်",
     "readLess": "ချုံ့ရန်",
