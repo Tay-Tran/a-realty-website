@@ -1,6 +1,6 @@
 import {
-  STORED_CONDITION_KEYS,
-  type Layout, type Listing, type ListingStatus, type StoredConditionKey,
+  AMENITY_KEYS, STORED_CONDITION_KEYS,
+  type AmenityKey, type Layout, type Listing, type ListingStatus, type StoredConditionKey,
 } from '../types';
 import { photosFor } from './photos';
 import { STATIONS } from './stations';
@@ -24,6 +24,16 @@ interface Input {
   status?: ListingStatus;
   featured?: boolean;
   published: string;
+}
+
+/** Plausible amenities from building age, floor and size – mock data only. */
+function amenitiesFor(input: Input, index: number): AmenityKey[] {
+  const list: AmenityKey[] = ['aircon', 'flooring', 'separateToilet', 'internet'];
+  if (input.built >= 2015) list.push('washlet', 'deliveryBox', 'systemKitchen');
+  if (input.floor >= 4) list.push('elevator');
+  if (input.size >= 30) list.push('storage', 'balcony');
+  if (index % 2 === 0) list.push('bikeParking');
+  return AMENITY_KEYS.filter((k) => list.includes(k));
 }
 
 function make(input: Input, index: number): Listing {
@@ -61,6 +71,7 @@ function make(input: Input, index: number): Listing {
       cleaning: input.cleaning ?? 33000,
     },
     conditions,
+    amenities: amenitiesFor(input, index),
     images: photosFor(index),
     featured: input.featured ?? false,
     publishedAt: input.published,

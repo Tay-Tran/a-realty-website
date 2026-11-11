@@ -3,7 +3,7 @@ import {
   CONDITION_KEYS, LAYOUTS, SORTS,
   type ConditionKey, type Layout, type Listing, type SortKey, type Station,
 } from '@/lib/data/types';
-import { hasCondition } from './derived';
+import { bedroomsOf, buildingAge, hasCondition } from './derived';
 
 export interface Filters {
   area?: string;
@@ -12,6 +12,10 @@ export interface Filters {
   maxWalk?: number;
   minRent?: number;
   maxRent?: number;
+  minSize?: number;
+  maxSize?: number;
+  bedrooms?: number;
+  maxAge?: number;
   layouts?: Layout[];
   conditions?: ConditionKey[];
   sort?: SortKey;
@@ -20,7 +24,10 @@ export interface Filters {
 
 export type SearchParamsInput = URLSearchParams | Record<string, string | string[] | undefined>;
 
-const KEY_ORDER = ['area', 'line', 'station', 'maxWalk', 'minRent', 'maxRent', 'layouts', 'conditions', 'sort', 'page'] as const;
+const KEY_ORDER = [
+  'area', 'line', 'station', 'maxWalk', 'minRent', 'maxRent', 'minSize', 'maxSize',
+  'bedrooms', 'maxAge', 'layouts', 'conditions', 'sort', 'page',
+] as const;
 
 const slug = z.string().regex(/^[a-z0-9-]{1,40}$/).optional().catch(undefined);
 const int = (min: number, max: number) => z.coerce.number().int().min(min).max(max).optional().catch(undefined);
@@ -32,6 +39,10 @@ const scalarSchema = z.object({
   maxWalk: int(1, 60),
   minRent: int(0, 10_000_000),
   maxRent: int(0, 10_000_000),
+  minSize: int(1, 500),
+  maxSize: int(1, 500),
+  bedrooms: int(1, 5),
+  maxAge: int(0, 100),
   sort: z.enum(SORTS).optional().catch(undefined),
   page: int(1, 1000),
 });
@@ -56,6 +67,10 @@ export function parseFilters(input: SearchParamsInput): Filters {
     maxWalk: readParam(input, 'maxWalk'),
     minRent: readParam(input, 'minRent'),
     maxRent: readParam(input, 'maxRent'),
+    minSize: readParam(input, 'minSize'),
+    maxSize: readParam(input, 'maxSize'),
+    bedrooms: readParam(input, 'bedrooms'),
+    maxAge: readParam(input, 'maxAge'),
     sort: readParam(input, 'sort'),
     page: readParam(input, 'page'),
   });
@@ -66,6 +81,9 @@ export function parseFilters(input: SearchParamsInput): Filters {
   };
   if (filters.minRent !== undefined && filters.maxRent !== undefined && filters.minRent > filters.maxRent) {
     [filters.minRent, filters.maxRent] = [filters.maxRent, filters.minRent];
+  }
+  if (filters.minSize !== undefined && filters.maxSize !== undefined && filters.minSize > filters.maxSize) {
+    [filters.minSize, filters.maxSize] = [filters.maxSize, filters.minSize];
   }
   return Object.fromEntries(Object.entries(filters).filter(([, v]) => v !== undefined)) as Filters;
 }
@@ -110,6 +128,10 @@ export function filterListings(
     }
     if (filters.minRent !== undefined && l.rent < filters.minRent) return false;
     if (filters.maxRent !== undefined && l.rent > filters.maxRent) return false;
+    if (filters.minSize !== undefined && l.sizeM2 < filters.minSize) return false;
+    if (filters.maxSize !== undefined && l.sizeM2 > filters.maxSize) return false;
+    if (filters.bedrooms !== undefined && bedroomsOf(l.layout) < filters.bedrooms) return false;
+    if (filters.maxAge !== undefined && buildingAge(l, now) > filters.maxAge) return false;
     if (filters.layouts?.length && !filters.layouts.includes(l.layout)) return false;
     if (filters.conditions?.some((c) => !hasCondition(l, c, now))) return false;
     return true;

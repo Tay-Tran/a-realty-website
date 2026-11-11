@@ -213,3 +213,27 @@ messages/          en.json, my.json, ja.json
 
 - Git khởi tạo trong thư mục dự án, commit theo từng bước.
 - Đẩy lên GitHub và deploy Vercel (link xem thử): **cần tài khoản của bạn hoặc Thuận – hỏi trước khi làm.**
+
+---
+
+## 12. Bổ sung 11/11/2026 – bám bố cục arealty.jp và báo giá của Thuận
+
+Sau khi so sánh trực tiếp với arealty.jp (trang chủ, trang danh mục, trang chi tiết). Giữ màu thương hiệu riêng, không dùng lại ảnh, chữ hay số liệu của họ.
+
+**A. Bố cục**
+- Trang chủ: tiêu đề banner căn giữa; ô tìm kiếm 2 hàng (Khu vực · Tuyến · Ga / Giá · Diện tích · Phòng ngủ · Tìm); danh mục dạng thẻ ảnh 2×3 đặt cạnh form liên hệ; căn nổi bật dạng băng trượt ngang.
+- Trang danh sách: thẻ nằm ngang (ảnh + 3 hình nhỏ | khu vực, tên, 2 ga, bảng Loại phòng/Diện tích/Tầng/Phòng ngủ, nhãn | giá, nút, ♡); chip danh mục liên quan ở đầu trang.
+- Trang chi tiết: lưới ảnh mosaic (1 lớn + 4 nhỏ, "Xem tất cả"); thanh dính (tên, tổng/tháng, nút Hỏi thuê, điện thoại); thanh mục lục Tổng quan · Tiện ích · Chi tiết · Bản đồ; phần Chi tiết 3 cột (tòa nhà / hằng tháng / ban đầu + tổng); form hỏi thuê ở cuối trang thay cho khung giá bên phải.
+
+**B. Theo báo giá**
+- Số phòng ngủ tính từ loại phòng (R/K/DK/LDK theo số đầu). Điều kiện tự tính mới: `family` (≥ 2 phòng ngủ), `luxury` (giá thuê ≥ ¥150,000).
+- Bộ lọc mới: `minSize`, `maxSize` (m²), `bedrooms` (tối thiểu), `maxAge` (tuổi nhà, năm).
+- Trường mới `amenities` (điều hòa, ban công, tủ nhận hàng, thang máy, bãi xe đạp, toilet riêng, washlet, wifi, bếp hệ thống, sàn gỗ, tủ âm tường).
+- Yêu thích: lưu mã căn trong localStorage; trang `/[locale]/favorites`; dữ liệu lấy qua route `/api/listings?codes=…`.
+- Đổi tiền tệ: JPY / USD / EUR / VND, tỷ giá cố định "tham khảo" (1 USD = ¥156, 1 EUR ≈ ¥170, ¥1 ≈ 168₫), lựa chọn lưu localStorage, mặc định JPY.
+
+**C. Trang chủ**: dịch vụ (4 thẻ), giới thiệu, con số thống kê, kêu gọi đối tác, 3 đánh giá khách hàng – nội dung tạm. Form liên hệ có ô loại yêu cầu (Thuê / Hỗ trợ chuyển nhà / Hợp tác đối tác / Khác).
+
+**D.** Nút LINE / WhatsApp / Messenger nổi góc phải trên desktop.
+
+**Chưa làm**: sơ đồ phòng (chưa có ảnh hợp lệ), tab Mua / Ngắn hạn (ngoài Giai đoạn 1).

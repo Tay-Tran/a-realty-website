@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { makeListing } from '@/test/factories';
-import { activeConditions, hasCondition, isNewlyBuilt, monthlyTotal } from './derived';
+import { activeConditions, bedroomsOf, buildingAge, hasCondition, isNewlyBuilt, monthlyTotal } from './derived';
 
 const NOW = new Date('2026-11-11T00:00:00Z');
 
@@ -29,6 +29,24 @@ describe('derived values', () => {
       initialCosts: { ...makeListing().initialCosts, keyMoneyMonths: 0 },
     });
     expect(activeConditions(l, NOW)).toEqual(['foreignerOk', 'noGuarantor', 'autoLock', 'noKeyMoney']);
+  });
+
+  it('bedroomsOf reads the leading digit of the layout', () => {
+    expect(bedroomsOf('1R')).toBe(1);
+    expect(bedroomsOf('1LDK')).toBe(1);
+    expect(bedroomsOf('2DK')).toBe(2);
+    expect(bedroomsOf('3LDK')).toBe(3);
+  });
+
+  it('family = 2+ bedrooms, luxury = rent from ¥150,000', () => {
+    expect(hasCondition(makeListing({ layout: '2LDK' }), 'family', NOW)).toBe(true);
+    expect(hasCondition(makeListing({ layout: '1LDK' }), 'family', NOW)).toBe(false);
+    expect(hasCondition(makeListing({ rent: 150000 }), 'luxury', NOW)).toBe(true);
+    expect(hasCondition(makeListing({ rent: 149999 }), 'luxury', NOW)).toBe(false);
+  });
+
+  it('buildingAge counts whole years since built', () => {
+    expect(buildingAge({ builtYear: 2016 }, NOW)).toBe(10);
   });
 
   it('monthlyTotal = rent + management fee', () => {
