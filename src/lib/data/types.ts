@@ -1,0 +1,59 @@
+export const LOCALES = ['en', 'my', 'ja'] as const;
+export type Locale = (typeof LOCALES)[number];
+export type LocalizedText = Record<Locale, string>;
+
+export interface Area { slug: string; name: LocalizedText }
+export interface Line { slug: string; name: LocalizedText; color: string }
+export interface Station { slug: string; name: LocalizedText; lineSlugs: string[]; areaSlug: string }
+
+export const LAYOUTS = ['1R', '1K', '1DK', '1LDK', '2K', '2DK', '2LDK', '3LDK'] as const;
+export type Layout = (typeof LAYOUTS)[number];
+
+export const LISTING_STATUSES = ['available', 'applied', 'rented'] as const;
+export type ListingStatus = (typeof LISTING_STATUSES)[number];
+
+export const STORED_CONDITION_KEYS = [
+  'foreignerOk', 'noGuarantor', 'studentOk', 'petOk', 'furnished', 'overseasApplication', 'autoLock',
+] as const;
+export type StoredConditionKey = (typeof STORED_CONDITION_KEYS)[number];
+
+/** Stored flags plus values derived from other fields. */
+export const CONDITION_KEYS = [...STORED_CONDITION_KEYS, 'noKeyMoney', 'newlyBuilt'] as const;
+export type ConditionKey = (typeof CONDITION_KEYS)[number];
+
+export const SORTS = ['newest', 'price-asc', 'price-desc'] as const;
+export type SortKey = (typeof SORTS)[number];
+
+export interface InitialCosts {
+  depositMonths: number;   // 敷金
+  keyMoneyMonths: number;  // 礼金
+  brokerageMonths: number; // 仲介手数料
+  guaranteeFee: number;    // yen
+  insurance: number;       // yen
+  keyExchange: number;     // yen
+  cleaning: number;        // yen
+}
+
+export interface Listing {
+  code: string;
+  slug: string;
+  status: ListingStatus;
+  title: LocalizedText;
+  description: LocalizedText;
+  areaSlug: string;
+  address: string;
+  stations: { stationSlug: string; walkMinutes: number }[];
+  layout: Layout;
+  sizeM2: number;
+  floor: number;
+  builtYear: number;
+  rent: number;
+  managementFee: number;
+  initialCosts: InitialCosts;
+  conditions: Record<StoredConditionKey, boolean>;
+  images: string[];
+  featured: boolean;
+  publishedAt: string;
+}
+
+export interface ListingPage { items: Listing[]; total: number; page: number; pageCount: number }
