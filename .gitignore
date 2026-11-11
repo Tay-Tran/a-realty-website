@@ -5,3 +5,8 @@ out/
 next-env.d.ts
 .env*.local
 .vercel/
+
+# Local-only files (quotes, editor config)
+.claude/
+bao-gia/
+chao-gia-*.md
