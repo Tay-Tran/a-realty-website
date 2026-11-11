@@ -6,11 +6,11 @@ import { usePreferences } from '@/components/providers/PreferencesProvider';
 
 const LABELS: Record<Currency, string> = { JPY: '¥ JPY', USD: '$ USD', EUR: '€ EUR', VND: '₫ VND' };
 
-export function CurrencySwitcher({ className = '' }: { className?: string }) {
+export function CurrencySwitcher() {
   const t = useTranslations('common');
   const { currency, setCurrency } = usePreferences();
   return (
-    <label className={`relative inline-flex items-center ${className}`} title={t('rateNote')}>
+    <label className="relative inline-flex items-center" title={t('rateNote')}>
       <span className="sr-only">{t('currency')}</span>
       <select value={currency} onChange={(e) => setCurrency(e.target.value as Currency)}
         className="rounded-full border border-line bg-white py-1.5 pl-3 pr-7 text-sm text-ink">
