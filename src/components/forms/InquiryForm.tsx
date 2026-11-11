@@ -32,7 +32,7 @@ export function InquiryForm({ listingCode }: { listingCode?: string }) {
   }
 
   const field = 'mt-1 w-full rounded-lg border border-line bg-white px-3 py-2 text-ink focus:border-ink focus:outline-none';
-  const error = (k: keyof Errors) => errors[k] && <p className="mt-1 text-xs text-accent-dark">{t(errors[k]!)}</p>;
+  const error = (k: keyof Errors) => errors[k] && <p className="mt-1 text-xs text-danger">{t(errors[k]!)}</p>;
 
   return (
     <form onSubmit={onSubmit} noValidate className="space-y-3">

@@ -48,7 +48,7 @@ export function ListingRow({ listing, stations, areas, lines }: {
           </span>
         )}
         <h3 className="line-clamp-2 text-lg font-bold leading-snug text-ink">
-          <Link href={href} className="hover:text-accent">{title}</Link>
+          <Link href={href} className="hover:text-sky">{title}</Link>
         </h3>
         <ul className="space-y-1 text-sm text-ink-soft">
           {listing.stations.slice(0, 2).map((s) => {
@@ -75,7 +75,7 @@ export function ListingRow({ listing, stations, areas, lines }: {
       <div className="flex flex-row items-end justify-between gap-3 md:flex-col md:items-end md:justify-between">
         <FavoriteButton code={listing.code} className="order-last md:order-first" />
         <div className="md:text-right">
-          <p className="text-2xl font-bold text-accent"><Price yen={listing.rent} /></p>
+          <p className="text-2xl font-bold text-sky"><Price yen={listing.rent} /></p>
           <p className="text-xs text-ink-soft">{t('listing.managementFee')} <Price yen={listing.managementFee} /></p>
         </div>
         <Link href={href} className="inline-block whitespace-nowrap rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white hover:bg-accent">

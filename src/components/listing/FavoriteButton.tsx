@@ -11,7 +11,7 @@ export function FavoriteButton({ code, withLabel = false, className = '' }: { co
     <button type="button" aria-pressed={saved} aria-label={saved ? t('saved') : t('save')}
       onClick={(e) => { e.preventDefault(); e.stopPropagation(); toggleFavorite(code); }}
       className={`inline-flex items-center gap-1.5 rounded-full border border-line bg-white/95 text-sm shadow-sm transition hover:border-accent ${withLabel ? 'px-4 py-2' : 'h-9 w-9 justify-center'} ${className}`}>
-      <span aria-hidden className={saved ? 'text-accent' : 'text-ink-soft'}>{saved ? '♥' : '♡'}</span>
+      <span aria-hidden className={saved ? 'text-sky' : 'text-ink-soft'}>{saved ? '♥' : '♡'}</span>
       {withLabel && <span>{saved ? t('saved') : t('save')}</span>}
     </button>
   );

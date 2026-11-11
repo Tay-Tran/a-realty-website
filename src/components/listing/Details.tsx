@@ -21,7 +21,7 @@ function Column({ title, rows, total }: { title: string; rows: Row[]; total?: Ro
         {total && (
           <div className="flex justify-between gap-3 pt-3 text-base">
             <dt className="font-bold">{total[0]}</dt>
-            <dd className="font-bold text-accent">{total[1]}</dd>
+            <dd className="font-bold text-sky">{total[1]}</dd>
           </div>
         )}
       </dl>

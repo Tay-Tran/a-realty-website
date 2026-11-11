@@ -52,7 +52,7 @@ export default async function HomePage({ params }: Props) {
               <h2 className="text-2xl font-bold">{t('featuredTitle')}</h2>
               <p className="mt-1 text-sm text-ink-soft">{t('featuredSubtitle')}</p>
             </div>
-            <Link href="/rent" className="shrink-0 text-sm font-semibold text-accent hover:underline">{t('viewAll')} →</Link>
+            <Link href="/rent" className="shrink-0 text-sm font-semibold text-sky hover:underline">{t('viewAll')} →</Link>
           </div>
           <div className="mt-4">
             <Carousel>

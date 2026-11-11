@@ -35,7 +35,7 @@ export function TagScroller({ tags, className = '' }: { tags: string[]; classNam
     ? '[mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]'
     : canRight ? '[mask-image:linear-gradient(to_right,black_85%,transparent)]'
       : canLeft ? '[mask-image:linear-gradient(to_right,transparent,black_15%)]' : '';
-  const arrow = 'grid h-7 w-7 shrink-0 place-items-center rounded-full border border-line bg-white text-sm text-ink-soft shadow-sm hover:border-accent hover:text-accent';
+  const arrow = 'grid h-7 w-7 shrink-0 place-items-center rounded-full border border-line bg-white text-sm text-ink-soft shadow-sm hover:border-accent hover:text-sky';
 
   return (
     <div className={`flex items-center gap-1.5 ${className}`}>
