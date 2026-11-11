@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { Station } from '@/lib/data/types';
 import { makeListing } from '@/test/factories';
-import { filterListings, parseFilters, serializeFilters, type Filters } from './filters';
+import { filterListings, parseFilters, serializeFilters, toggleCondition, type Filters } from './filters';
 
 const NOW = new Date('2026-11-11T00:00:00Z');
 const STATIONS: Station[] = [
@@ -63,6 +63,16 @@ describe('serializeFilters', () => {
   it('round-trips through parseFilters', () => {
     const f: Filters = { area: 'kita', station: 'akabane', maxWalk: 10, maxRent: 80000, minSize: 20, maxSize: 40, bedrooms: 2, maxAge: 10, layouts: ['1K'], conditions: ['studentOk', 'family'], sort: 'price-desc', page: 3 };
     expect(parseFilters(new URLSearchParams(serializeFilters(f)))).toEqual(f);
+  });
+});
+
+describe('toggleCondition', () => {
+  it('adds a condition and keeps the other filters, resetting the page', () => {
+    expect(toggleCondition({ area: 'kita', maxRent: 80000, conditions: ['petOk'], page: 3 }, 'newlyBuilt'))
+      .toEqual({ area: 'kita', maxRent: 80000, conditions: ['petOk', 'newlyBuilt'] });
+  });
+  it('removes an active condition and drops the empty list', () => {
+    expect(toggleCondition({ area: 'kita', conditions: ['newlyBuilt'] }, 'newlyBuilt')).toEqual({ area: 'kita' });
   });
 });
 

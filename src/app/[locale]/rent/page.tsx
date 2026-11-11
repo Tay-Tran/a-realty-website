@@ -3,8 +3,8 @@ import { getTranslations, setRequestLocale } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
 import { getAreas, getListings, getStations } from '@/lib/data';
 import { buildSearchOptions } from '@/lib/data/search-options';
-import type { Locale } from '@/lib/data/types';
-import { parseFilters, serializeFilters } from '@/lib/listing/filters';
+import type { ConditionKey, Locale } from '@/lib/data/types';
+import { parseFilters, serializeFilters, toggleCondition } from '@/lib/listing/filters';
 import { buildAlternates } from '@/lib/seo';
 import { ListingRow } from '@/components/listing/ListingRow';
 import { CATEGORY_KEYS } from '@/components/search/constants';
@@ -41,7 +41,10 @@ export default async function RentPage({ params, searchParams }: Props) {
   const stationMap = Object.fromEntries(stations.map((s) => [s.slug, s]));
   const areaMap = Object.fromEntries(areas.map((a) => [a.slug, a]));
   const panelKey = serializeFilters({ ...filters, sort: undefined, page: undefined });
-  const activeCategory = filters.conditions?.length === 1 ? filters.conditions[0] : undefined;
+  const chipHref = (key: ConditionKey) => {
+    const qs = serializeFilters(toggleCondition(filters, key));
+    return qs ? `/rent?${qs}` : '/rent';
+  };
 
   return (
     <main>
@@ -49,12 +52,15 @@ export default async function RentPage({ params, searchParams }: Props) {
         <h1 className="text-2xl font-bold sm:text-3xl">{t('title')}</h1>
         <div className="mt-3 flex flex-wrap items-center gap-2 text-sm">
           <span className="text-ink-soft">{t('related')}</span>
-          {[...CATEGORY_KEYS, 'shortTermOk' as const].map((key) => (
-            <Link key={key} href={`/rent?conditions=${key}`}
-              className={`rounded-full border px-3 py-1 ${activeCategory === key ? 'border-accent bg-accent text-white' : 'border-line bg-white hover:border-accent'}`}>
-              {tc(key)}
-            </Link>
-          ))}
+          {[...CATEGORY_KEYS, 'shortTermOk' as const].map((key) => {
+            const active = filters.conditions?.includes(key) ?? false;
+            return (
+              <Link key={key} href={chipHref(key)} aria-pressed={active}
+                className={`rounded-full border px-3 py-1 ${active ? 'border-accent bg-accent text-white' : 'border-line bg-white hover:border-accent'}`}>
+                {active && <span aria-hidden className="mr-1">✓</span>}{tc(key)}{active && <span aria-hidden className="ml-1.5">×</span>}
+              </Link>
+            );
+          })}
         </div>
         <div className="mt-6 grid gap-8 lg:grid-cols-[280px_1fr]">
           <aside className="hidden lg:block">

@@ -129,13 +129,17 @@ export function FilterPanel({ options, filters, onApplied }: { options: SearchOp
       </fieldset>
       <fieldset>
         <legend className={legend}>{t('search.conditions')}</legend>
-        <div className="mt-2 space-y-2">
-          {CONDITION_KEYS.map((c) => (
-            <label key={c} className="flex items-center gap-2 text-sm">
-              <input type="checkbox" checked={conditions.includes(c)} onChange={() => setConditions(toggle(conditions, c))} className="h-4 w-4 accent-[var(--color-accent)]" />
-              {t(`conditions.${c}`)}
-            </label>
-          ))}
+        {/* Every listing accepts foreigners, so that flag is not offered as a filter. */}
+        <div className="mt-2 grid grid-cols-2 gap-1.5">
+          {CONDITION_KEYS.filter((c) => c !== 'foreignerOk').map((c) => {
+            const on = conditions.includes(c);
+            return (
+              <label key={c} className={`flex cursor-pointer items-center gap-1 rounded-lg border px-2 py-1.5 text-xs leading-tight ${on ? 'border-accent bg-accent/10 font-medium text-accent-dark' : 'border-line bg-white text-ink'}`}>
+                <input type="checkbox" className="sr-only" checked={on} onChange={() => setConditions(toggle(conditions, c))} />
+                <span aria-hidden className={on ? '' : 'text-line'}>✓</span>{t(`conditions.${c}`)}
+              </label>
+            );
+          })}
         </div>
       </fieldset>
       <div className="sticky bottom-0 -mx-5 flex gap-2 border-t border-line bg-white px-5 py-3">
