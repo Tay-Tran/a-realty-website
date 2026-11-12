@@ -271,8 +271,16 @@
       "guaranteeFee": "အာမခံကုမ္ပဏီကြေး",
       "insurance": "မီးအာမခံ",
       "keyExchange": "သော့လဲခ",
-      "cleaning": "သန့်ရှင်းရေးခ"
+      "cleaning": "သန့်ရှင်းရေးခ",
+      "environmentFee": "Environment maintenance fee",
+      "supportFee": "Support service fee",
+      "fixedFee": "Other fixed fee",
+      "residentSupport": "Resident support plan",
+      "antibacterial": "Antibacterial treatment"
     },
+    "optionalCostsTitle": "Optional services (not in the total)",
+    "toConfirmTitle": "Not stated by the listing – ask us",
+    "costsFromSource": "Amounts as published by {name} for this room, plus our agency fee. Final amounts are confirmed in the contract.",
     "bedrooms": "အိပ်ခန်း",
     "amenities": "အထောက်အကူပစ္စည်းများ",
     "overview": "အကျဉ်းချုပ်",

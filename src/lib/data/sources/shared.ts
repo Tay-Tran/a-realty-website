@@ -3,7 +3,7 @@ import { STATIONS } from '../mock/stations';
 import { buildDescription, buildTitle } from '../mock/text';
 import {
   LAYOUTS, STORED_CONDITION_KEYS,
-  type AmenityKey, type InitialCosts, type Layout, type Listing, type ListingSource, type ListingStatus,
+  type AmenityKey, type CostBreakdown, type InitialCosts, type Layout, type Listing, type ListingSource, type ListingStatus,
   type Station, type StoredConditionKey,
 } from '../types';
 
@@ -43,6 +43,7 @@ export interface SourceInput {
   rent: number;
   managementFee: number;
   initialCosts: InitialCosts;
+  costs: CostBreakdown;
   conditions: StoredConditionKey[];
   amenities: AmenityKey[];
   images: string[];
@@ -81,5 +82,6 @@ export function toListing(i: SourceInput): Listing {
     featured: i.featured,
     publishedAt: i.publishedAt,
     source: i.source,
+    costs: i.costs,
   };
 }

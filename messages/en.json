@@ -271,8 +271,16 @@
       "guaranteeFee": "Guarantor company fee",
       "insurance": "Fire insurance",
       "keyExchange": "Key exchange",
-      "cleaning": "Cleaning fee"
+      "cleaning": "Cleaning fee",
+      "environmentFee": "Environment maintenance fee",
+      "supportFee": "Support service fee",
+      "fixedFee": "Other fixed fee",
+      "residentSupport": "Resident support plan",
+      "antibacterial": "Antibacterial treatment"
     },
+    "optionalCostsTitle": "Optional services (not in the total)",
+    "toConfirmTitle": "Not stated by the listing – ask us",
+    "costsFromSource": "Amounts as published by {name} for this room, plus our agency fee. Final amounts are confirmed in the contract.",
     "bedrooms": "Bedrooms",
     "amenities": "Amenities",
     "overview": "Overview",

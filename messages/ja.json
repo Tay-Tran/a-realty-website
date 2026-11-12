@@ -271,8 +271,16 @@
       "guaranteeFee": "保証会社利用料",
       "insurance": "火災保険料",
       "keyExchange": "鍵交換費用",
-      "cleaning": "クリーニング費用"
+      "cleaning": "クリーニング費用",
+      "environmentFee": "環境維持費",
+      "supportFee": "安心サポート費",
+      "fixedFee": "その他固定費",
+      "residentSupport": "入居者サポート",
+      "antibacterial": "抗菌施工費"
     },
+    "optionalCostsTitle": "オプション（合計に含まず）",
+    "toConfirmTitle": "掲載元に記載なし・お問い合わせください",
+    "costsFromSource": "{name}がこの部屋について掲載している金額に、当社の仲介手数料を加えたものです。最終金額は契約時に確定します。",
     "bedrooms": "寝室",
     "amenities": "設備",
     "overview": "概要",

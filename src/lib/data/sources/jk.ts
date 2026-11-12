@@ -1,4 +1,5 @@
 import type { AmenityKey, Listing, ListingStatus, StoredConditionKey } from '../types';
+import { jkCosts } from './costs';
 import { asLayout, findAreaSlug, findStation, toListing } from './shared';
 import type { JkRecord, JkRoom } from './types';
 
@@ -76,15 +77,9 @@ export function mapJk(room: JkRoom, code: string, publishedAt: string, featured 
     builtYear: parseBuiltYear(r.築年数),
     rent,
     managementFee: fee,
-    initialCosts: {
-      depositMonths: deposit,
-      keyMoneyMonths: keyMoney,
-      brokerageMonths: 1.1,
-      guaranteeFee: Math.round((rent + fee) * 0.85),
-      insurance: 22000,
-      keyExchange: 16500,
-      cleaning: 33000, // J&K does not publish it; same estimate as the mock rooms
-    },
+    // Only deposit/key months are read from here (search filters); the cost table uses `costs`.
+    initialCosts: { depositMonths: deposit, keyMoneyMonths: keyMoney, brokerageMonths: 0, guaranteeFee: 0, insurance: 0, keyExchange: 0, cleaning: 0 },
+    costs: jkCosts(r, rent, fee, deposit, keyMoney),
     conditions,
     amenities,
     images: (r.図面＿外観 ?? []).map((f) => jkFileUrl(r.$id, f.fileKey)),

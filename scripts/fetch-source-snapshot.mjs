@@ -1,8 +1,9 @@
 // Pulls a handful of real rooms from Leopalace21 and J&K (kViewer) for the demo.
-// Usage: node scripts/fetch-source-snapshot.mjs
+// Usage: node scripts/fetch-source-snapshot.mjs            refresh the rooms already in the snapshot
+//        node scripts/fetch-source-snapshot.mjs --repick   choose the rooms again
 // Writes src/lib/data/sources/snapshot.json. Requests run one at a time with a pause in between.
 
-import { writeFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 
 const OUT = new URL('../src/lib/data/sources/snapshot.json', import.meta.url);
 const PAUSE_MS = 600;
@@ -33,7 +34,13 @@ const JK_FIELDS = [
   '$id', '物件名', '部屋番号', '都道府県', '住所', '交通＿線', '交通＿駅', '交通＿徒歩バス', '賃料', '管理費',
   '間取り', '占有面積_', '築年数', '条件1＿_敷金・礼金について', 'ペット', 'エアコン', 'バス・トイレ',
   'エレベーター', '駐輪場', '申込の有無', '部屋の現況', '図面＿間取り', '図面＿外観',
+  // Cost conditions, used for the initial-cost breakdown.
+  '条件2＿保証会社の加入条件', '条件3＿_更新料・解約予告・違約金', '安心サポート費',
+  '固定費項目＿1', '固定費＿1', '固定費項目＿2', '固定費＿2',
 ];
+/** Leopalace21 optional services, asked once with everything switched on to learn their prices. */
+const LEO_OPTIONS = ['hasLeopalaceInsurance', 'hasBasicCleaningFee', 'hasResidentSupportSystem', 'hasAntibacterialConstructionService']
+  .map((k) => `&${k}=true`).join('');
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 async function getJson(url) {
@@ -62,6 +69,9 @@ async function leopalaceRoom(propertyNo, areaSlug) {
   const d = await getJson(`${LEO}/properties/${propertyNo}?contractType=chintai&language=en`);
   const ja = await getJson(`${LEO}/properties/${propertyNo}?contractType=chintai&language=ja`);
   const img = await getJson(`${LEO}/properties/${propertyNo}/image?language=en`);
+  // Leopalace21's own initial-cost calculator: required items, then the same with optional services.
+  const cost = await getJson(`${LEO}/properties/${propertyNo}/cost?contractType=chintai&isCorporate=false`);
+  const costWithOptions = await getJson(`${LEO}/properties/${propertyNo}/cost?contractType=chintai&isCorporate=false${LEO_OPTIONS}`);
   return {
     source: 'leopalace21',
     areaSlug,
@@ -76,10 +86,11 @@ async function leopalaceRoom(propertyNo, areaSlug) {
       prefectureNameParam: d.prefecture?.prefectureNameParam, updateDate: d.updateDate,
     },
     images: img.propertyImages,
+    cost: { required: cost.rentContractFee, monthly: cost.rentUsageFeePerMonth, withOptions: costWithOptions.rentContractFee },
   };
 }
 
-async function jkRooms() {
+async function jkRooms(keepIds) {
   const records = [];
   for (let page = 1; ; page++) {
     const data = await getJson(`${JK}/${page}`);
@@ -91,6 +102,13 @@ async function jkRooms() {
   const usable = (r) => LAYOUTS.includes(v(r, '間取り').toUpperCase()) && /^徒歩\d+分/.test(v(r, '交通＿徒歩バス'))
     && !/バス/.test(v(r, '交通＿線')) && !/停留所$/.test(v(r, '交通＿駅'))
     && (r['図面＿外観']?.value ?? []).length > 0 && JK_PREFECTURES.includes(v(r, '都道府県'));
+  if (keepIds) {
+    return keepIds.flatMap((id) => {
+      const r = records.find((x) => x.$id.value === id);
+      if (!r) console.warn(`J&K room ${id} is no longer listed – left out`);
+      return r ? [jkEntry(r)] : [];
+    });
+  }
   const pinned = JK_IDS.map((id) => {
     const r = records.find((x) => x.$id.value === id);
     if (!r) throw new Error(`J&K room ${id} is no longer listed`);
@@ -103,21 +121,37 @@ async function jkRooms() {
     .sort((a, b) => JK_PREFECTURES.indexOf(v(a, '都道府県')) - JK_PREFECTURES.indexOf(v(b, '都道府県')) || Number(b.$id.value) - Number(a.$id.value))
     .filter((r) => !buildings.has(v(r, '物件名')) && buildings.add(v(r, '物件名')))
     .slice(0, JK_COUNT - pinned.length);
-  return [...pinned, ...extra].map((r) => {
-    const record = Object.fromEntries(JK_FIELDS.map((k) => [k, r[k]?.value ?? null]));
-    // kViewer's key for the room's own page: /public/{view}/detail/{recordCode}
-    return { source: 'jk', record: { ...record, recordCode: r.__kviewer_record_code__ } };
-  });
+  return [...pinned, ...extra].map(jkEntry);
 }
 
-// Round-robin over the areas, so the first room of every area keeps its place (and its demo code).
-const picks = [];
-for (const [code, slug, count] of LEO_AREAS) picks.push({ slug, nos: await leopalacePicks(code, count) });
-const leopalace = [];
-for (let round = 0; round < Math.max(...picks.map((p) => p.nos.length)); round++) {
-  for (const { slug, nos } of picks) if (nos[round]) leopalace.push(await leopalaceRoom(nos[round], slug));
+function jkEntry(r) {
+  const record = Object.fromEntries(JK_FIELDS.map((k) => [k, r[k]?.value ?? null]));
+  // kViewer's key for the room's own page: /public/{view}/detail/{recordCode}
+  return { source: 'jk', record: { ...record, recordCode: r.__kviewer_record_code__ } };
 }
-const jk = await jkRooms();
+
+const previous = process.argv.includes('--repick') ? null : await readFile(OUT, 'utf8').then(JSON.parse).catch(() => null);
+const leopalace = [];
+let jk;
+if (previous) {
+  // Same rooms in the same order, so every room keeps its demo code.
+  for (const room of previous.leopalace) {
+    try {
+      leopalace.push(await leopalaceRoom(room.detail.propertyNo, room.areaSlug));
+    } catch (e) {
+      console.warn(`Leopalace21 room ${room.detail.propertyNo} failed (${e.message}) – left out`);
+    }
+  }
+  jk = await jkRooms(previous.jk.map((room) => room.record.$id));
+} else {
+  // Round-robin over the areas, so the first room of every area keeps its place (and its demo code).
+  const picks = [];
+  for (const [code, slug, count] of LEO_AREAS) picks.push({ slug, nos: await leopalacePicks(code, count) });
+  for (let round = 0; round < Math.max(...picks.map((p) => p.nos.length)); round++) {
+    for (const { slug, nos } of picks) if (nos[round]) leopalace.push(await leopalaceRoom(nos[round], slug));
+  }
+  jk = await jkRooms();
+}
 
 await writeFile(OUT, JSON.stringify({ fetchedAt: new Date().toISOString(), leopalace, jk }, null, 2) + '\n');
 console.log(`Saved ${leopalace.length} Leopalace21 + ${jk.length} J&K rooms`);
