@@ -13,4 +13,12 @@ export const LINES: Line[] = [
   line('namboku', 'Tokyo Metro Namboku Line', '東京メトロ南北線', '#00ada9'),
   line('oedo', 'Toei Oedo Line', '都営大江戸線', '#b6007a'),
   line('seibu-shinjuku', 'Seibu Shinjuku Line', '西武新宿線', '#0e9ad7'),
+  // Lines added for the rooms pulled from Leopalace21 and J&K (see ../sources).
+  line('toei-mita', 'Toei Mita Line', '都営三田線', '#0079c2'),
+  line('keisei-oshiage', 'Keisei Oshiage Line', '京成押上線', '#005aaa'),
+  line('tobu-skytree', 'Tobu Skytree Line', '東武スカイツリーライン', '#0f6cc3'),
+  line('tokyu-oimachi', 'Tokyu Oimachi Line', '東急大井町線', '#f18c43'),
+  line('keio', 'Keio Line', '京王線', '#dd0077'),
+  line('jr-yokohama', 'JR Yokohama Line', 'JR横浜線', '#7fc342'),
+  line('tama-monorail', 'Tama Monorail', '多摩都市モノレール', '#e97119'),
 ];

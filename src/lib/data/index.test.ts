@@ -1,19 +1,24 @@
-import { describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
   PAGE_SIZE, countListingsByArea, getFeaturedListings, getListing, getListingRefs,
   getListings, getListingsByCodes, getSimilarListings, getStations,
 } from './index';
+import { checkJk, checkLeopalace } from './sources/live';
+
+// Never call the real sites in tests: by default the sources "cannot be reached", so snapshot statuses apply.
+vi.mock('./sources/live', () => ({ checkLeopalace: vi.fn(async () => null), checkJk: vi.fn(async () => null) }));
+afterEach(() => { vi.mocked(checkLeopalace).mockImplementation(async () => null); vi.mocked(checkJk).mockImplementation(async () => null); });
 
 describe('data access layer', () => {
   it('getListings excludes rented and paginates', async () => {
     const page1 = await getListings({});
-    expect(page1.total).toBe(22);
-    expect(page1.pageCount).toBe(2);
+    expect(page1.total).toBe(32);
+    expect(page1.pageCount).toBe(3);
     expect(page1.items).toHaveLength(PAGE_SIZE);
     expect(page1.items.every((l) => l.status !== 'rented')).toBe(true);
     const last = await getListings({ page: 99 });
-    expect(last.page).toBe(2);
-    expect(last.items).toHaveLength(10);
+    expect(last.page).toBe(3);
+    expect(last.items).toHaveLength(8);
   });
 
   it('getListing is case-insensitive and returns rented listings', async () => {
@@ -38,9 +43,10 @@ describe('data access layer', () => {
 
   it('countListingsByArea ignores rented', async () => {
     const counts = await countListingsByArea();
-    expect(counts.shinjuku).toBe(5);
+    expect(counts.shinjuku).toBe(6);
     expect(counts.shibuya).toBe(1);
-    expect(counts.kita).toBe(3);
+    expect(counts.kita).toBe(4);
+    expect(counts.hachioji).toBe(3);
   });
 
   it('getListingsByCodes keeps the requested order and skips unknown codes', async () => {
@@ -48,8 +54,21 @@ describe('data access layer', () => {
     expect(list.map((l) => l.code)).toEqual(['A1003', 'A1001']);
   });
 
-  it('getStations filters by line; getListingRefs covers all 24', async () => {
+  it('getStations filters by line; getListingRefs covers all 34', async () => {
     expect((await getStations('tozai')).map((s) => s.slug).sort()).toEqual(['nakano', 'takadanobaba']);
-    expect(await getListingRefs()).toHaveLength(24);
+    expect(await getListingRefs()).toHaveLength(34);
+  });
+
+  it('applies the live status from the source: a room the source reports rented leaves the list', async () => {
+    vi.mocked(checkLeopalace).mockImplementation(async (no) =>
+      no === '0000024433204' ? { status: 'rented', checkedAt: '2026-11-12T05:00:00.000Z' } : null);
+    const page = await getListings({});
+    expect(page.total).toBe(31);
+    expect((await getListing('L5001'))?.status).toBe('rented');
+    expect((await getFeaturedListings(6)).some((l) => l.code === 'L5001')).toBe(false);
+  });
+
+  it('puts the source rooms first among featured listings', async () => {
+    expect((await getFeaturedListings(6)).slice(0, 2).map((l) => l.code)).toEqual(['L5001', 'J6001']);
   });
 });

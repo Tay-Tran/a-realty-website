@@ -1,0 +1,902 @@
+{
+  "fetchedAt": "2026-11-12T06:47:04.432Z",
+  "leopalace": [
+    {
+      "source": "leopalace21",
+      "areaSlug": "nakano",
+      "detail": {
+        "propertyNo": "0000024433204",
+        "propertyName": "leopalace G Forest Numabukuro",
+        "propertyNameJa": "レオパレスＧフォレスト沼袋",
+        "propertyNameParam": "g-forest-numabukuro",
+        "roomNo": "204",
+        "address": "Numabukuro 1-30-16,Nakano-ku,Tokyo-to",
+        "addressJa": "東京都中野区沼袋１−３０−１６",
+        "rentFee": 75000,
+        "maintenanceFee": 6500,
+        "shikikin": 0,
+        "reikin": 1,
+        "layout": "1K",
+        "size": 22.35,
+        "floor": 2,
+        "buildDay": 200511,
+        "routes": [
+          {
+            "lineName": "Seibu railway shinjuku line",
+            "stationName": "Numabukuro",
+            "stationWalkingTime": 7,
+            "viewFlg": true
+          },
+          {
+            "lineName": "Seibu railway shinjuku line",
+            "stationName": "Araiyakushi-mae",
+            "stationWalkingTime": 9,
+            "viewFlg": false
+          }
+        ],
+        "station": {
+          "stationName": "Numabukuro",
+          "stationNameJa": "沼袋",
+          "stationNameParam": "numabukuro",
+          "stationCode": "2284060"
+        },
+        "area": {
+          "areaName": "Nakano-ku",
+          "areaNameJa": "中野区",
+          "areaNameParam": "nakano-ku",
+          "areaCode": "13114"
+        },
+        "point": [
+          "No deposit required",
+          "Furnished with Appliances",
+          "TV door phone",
+          "Separated bath and toilet",
+          "Bathroom dryer",
+          "Delivery boxes/lockers",
+          "Washlet with warm water",
+          "Smartlock",
+          "security camera",
+          "Air conditioner",
+          "Internet Compatible",
+          "Corner room"
+        ],
+        "furnitureFlg": true,
+        "keyExchangeFee": 16500,
+        "basicCleaningFee": 52250,
+        "status": "Vacant",
+        "isRecruitment": true,
+        "brokerageFee": 0,
+        "prefectureNameParam": "tokyo",
+        "updateDate": "20261113"
+      },
+      "images": [
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/ArFEP2QQf5nk4ttBjyzLZ8",
+          "title": "Exterior",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/ReDJYA579JBKfpmBFCn4fM",
+          "title": "Floor plan",
+          "isMadoriImage": true
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/APjjbN6aujcNkD3kws5H7W",
+          "title": "Living room",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/EW6uTbJsXWCZSpELBPh9UL",
+          "title": "Living room",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/CiCjWbYeUtz2yF9BmdKC58",
+          "title": "Storage",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/vxSRzvGJpRba2AzDvJdjq7",
+          "title": "Bedroom",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/cQgdrPPob27CK3WWBz63RL",
+          "title": "Floor plan layout diagram",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/g7RGPhruuBZfZNG5hwNhDH",
+          "title": "Layout diagram",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/5svX5iA4mnNosbFFFLJ6z8",
+          "title": "Exterior",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/8bjhwxvN2aQCXBoPWsaaaA",
+          "title": "Entrance",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/GKkWNtqyKvYtcrApZv7SQA",
+          "title": "Shared spaces",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/dMegz7hn6juv4Tgn9J3CSV",
+          "title": "Shared spaces",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/vjVbccdEZP5xtx3ceFqJiF",
+          "title": "Shared spaces",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/yEiAftoFVgVbNZ4PULj6FB",
+          "title": "Shared spaces",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/UFujai2YpFCquuqPBozYV8",
+          "title": "Surrounding area",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/3vGBqxWRE2QKEEvHqY6EsY",
+          "title": "Surrounding area",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/kAF4wzVvk4RUUsvwbBRMcE",
+          "title": "Surrounding area",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/QqLJB3kJxqPbh2XVwUer3G",
+          "title": "Surrounding area",
+          "isMadoriImage": false
+        }
+      ]
+    },
+    {
+      "source": "leopalace21",
+      "areaSlug": "shinjuku",
+      "detail": {
+        "propertyNo": "0000020407204",
+        "propertyName": "leopalace Gonosaka",
+        "propertyNameJa": "レオパレス五ノ坂",
+        "propertyNameParam": "gonosaka",
+        "roomNo": "204",
+        "address": "Nakaochiai 4-22-3,Shinjuku-ku,Tokyo-to",
+        "addressJa": "東京都新宿区中落合４−２２−３",
+        "rentFee": 83000,
+        "maintenanceFee": 6500,
+        "shikikin": 0,
+        "reikin": 1,
+        "layout": "1K",
+        "size": 26.08,
+        "floor": 2,
+        "buildDay": 200309,
+        "routes": [
+          {
+            "lineName": "Toeioedo line",
+            "stationName": "Nakai",
+            "stationWalkingTime": 9,
+            "viewFlg": true
+          },
+          {
+            "lineName": "Seibu railway shinjuku line",
+            "stationName": "Nakai",
+            "stationWalkingTime": 11,
+            "viewFlg": false
+          }
+        ],
+        "station": {
+          "stationName": "Nakai",
+          "stationNameJa": "中井",
+          "stationNameParam": "nakai",
+          "stationCode": "2284040"
+        },
+        "area": {
+          "areaName": "Shinjuku-ku",
+          "areaNameJa": "新宿区",
+          "areaNameParam": "shinjuku-ku",
+          "areaCode": "13104"
+        },
+        "point": [
+          "No deposit required",
+          "Furnished with Appliances",
+          "Separated bath and toilet",
+          "Bathroom dryer",
+          "Delivery boxes/lockers",
+          "Smartlock",
+          "Air conditioner",
+          "Internet Compatible",
+          "Leopalace Green LP Gas"
+        ],
+        "furnitureFlg": true,
+        "keyExchangeFee": 16500,
+        "basicCleaningFee": 52250,
+        "status": "Scheduled to leave",
+        "isRecruitment": true,
+        "brokerageFee": 0,
+        "prefectureNameParam": "tokyo",
+        "updateDate": "20261113"
+      },
+      "images": [
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/ddmPoaad5gjZypMHSToSRN",
+          "title": "Exterior",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/CG5qBMZXutTzFCQpig8HhU",
+          "title": "Floor plan",
+          "isMadoriImage": true
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/VnpfgEzUJxBXhBEw5matmT",
+          "title": "Floor plan layout diagram",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/aXVUpKMstB5HxwzhwRXPJF",
+          "title": "Layout diagram",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/URaYZk6wXsDAGPgwhvMp5k",
+          "title": "Exterior",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/yKYSTCoxX3CkJqmKnGZsTZ",
+          "title": "Entrance",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/CE5zWbMDSAWvnUvEnBrnYn",
+          "title": "Shared spaces",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/rtEVDiswzewyqEXsyBxnMF",
+          "title": "Shared spaces",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/HmA6PZxwwtFzpWsNJ8w4hP",
+          "title": "Shared spaces",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/5PLRyoVQMFFcUcprWmbkrZ",
+          "title": "Surrounding area",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/pVhx85i3JWHXrsqU3M7Qwa",
+          "title": "Surrounding area",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/ryRpBdjT2rLc9xRzDzkpHD",
+          "isMadoriImage": false
+        }
+      ]
+    },
+    {
+      "source": "leopalace21",
+      "areaSlug": "kita",
+      "detail": {
+        "propertyNo": "0000051632106",
+        "propertyName": "leopalace Casa Soleado",
+        "propertyNameJa": "レオパレスカーサ　ソレアード",
+        "propertyNameParam": "casa-soleado",
+        "roomNo": "106",
+        "address": "Kima 2-16-9,Kita-ku,Tokyo-to",
+        "addressJa": "東京都北区浮間２−１６−９",
+        "rentFee": 68000,
+        "maintenanceFee": 6500,
+        "shikikin": 0,
+        "reikin": 1,
+        "layout": "1K",
+        "size": 20.63,
+        "floor": 1,
+        "buildDay": 201202,
+        "routes": [
+          {
+            "lineName": "Saikyo line",
+            "stationName": "Ukimafunado",
+            "stationWalkingTime": 9,
+            "viewFlg": true
+          }
+        ],
+        "station": {
+          "stationName": "Ukimafunado",
+          "stationNameJa": "浮間舟渡",
+          "stationNameParam": "ukimafunado",
+          "stationCode": "2198670"
+        },
+        "area": {
+          "areaName": "Kita-ku",
+          "areaNameJa": "北区",
+          "areaNameParam": "kita-ku",
+          "areaCode": "13117"
+        },
+        "point": [
+          "No deposit required",
+          "Furnished with Appliances",
+          "Auto-lock",
+          "TV door phone",
+          "Separated bath and toilet",
+          "Bathroom dryer",
+          "Washlet with warm water",
+          "Smartlock",
+          "security camera",
+          "Air conditioner",
+          "Internet Compatible"
+        ],
+        "furnitureFlg": true,
+        "keyExchangeFee": 16500,
+        "basicCleaningFee": 52250,
+        "status": "Vacant",
+        "isRecruitment": true,
+        "brokerageFee": 0,
+        "prefectureNameParam": "tokyo",
+        "updateDate": "20261113"
+      },
+      "images": [
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/3P28nhUZPiAYNqLKE5a344",
+          "title": "Exterior",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/RCCcrUsQWwaLZEzYU2FTQg",
+          "title": "Floor plan",
+          "isMadoriImage": true
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/LqBQHRtVVGLxxG6sucXyoM",
+          "title": "Living room",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/fXaTvqjDJofgXVgRnfokF5",
+          "title": "Storage",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/SGkjJK9wdsz5DRo8YPw3L",
+          "title": "Living room",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/AVvwWooh9biLJz6AaTqZoQ",
+          "title": "Floor plan layout diagram",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/6iPk5MrAKL3CjsQKLyJmjY",
+          "title": "Layout diagram",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/HEVW8GXFWiVpaYSeF9g8TX",
+          "title": "Exterior",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/T3PcMdAFuRXpR2FCanV3D8",
+          "title": "Entrance",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/Qi89RmtKYGWqb7PSFkmUQ7",
+          "title": "Shared spaces",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/RefhioyVQzrLAYZGiF3DWQ",
+          "title": "Shared spaces",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/msq877hRTWKtwvSi9zEKx",
+          "title": "Shared spaces",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/dwcGnkYvQavnih3jhtuMgD",
+          "title": "Surrounding area",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/G9nvfU3PCtVcnh2Vo826NN",
+          "title": "Surrounding area",
+          "isMadoriImage": false
+        }
+      ]
+    },
+    {
+      "source": "leopalace21",
+      "areaSlug": "toshima",
+      "detail": {
+        "propertyNo": "0000001379102",
+        "propertyName": "leopalace TOSA",
+        "propertyNameJa": "レオパレスＴＯＳＡ",
+        "propertyNameParam": "tosa",
+        "roomNo": "102",
+        "address": "Nishisugamo 2-5-13,Toshima-ku,Tokyo-to",
+        "addressJa": "東京都豊島区西巣鴨２−５−１３",
+        "rentFee": 64000,
+        "maintenanceFee": 6500,
+        "shikikin": 0,
+        "reikin": 1,
+        "layout": "1K",
+        "size": 13.3,
+        "floor": 1,
+        "buildDay": 198707,
+        "routes": [
+          {
+            "lineName": "Yamanote line",
+            "stationName": "Otsuka",
+            "stationWalkingTime": 12,
+            "viewFlg": true
+          },
+          {
+            "lineName": "Toeimita line",
+            "stationName": "Nishi-sugamo",
+            "stationWalkingTime": 13,
+            "viewFlg": false
+          }
+        ],
+        "station": {
+          "stationName": "Otsuka",
+          "stationNameJa": "大塚",
+          "stationNameParam": "otsuka",
+          "stationCode": "2172190"
+        },
+        "area": {
+          "areaName": "Toshima-ku",
+          "areaNameJa": "豊島区",
+          "areaNameParam": "toshima-ku",
+          "areaCode": "13116"
+        },
+        "point": [
+          "No deposit required",
+          "Loft",
+          "Air conditioner",
+          "Internet Compatible"
+        ],
+        "furnitureFlg": false,
+        "keyExchangeFee": 16500,
+        "basicCleaningFee": 52250,
+        "status": "Vacant",
+        "isRecruitment": true,
+        "brokerageFee": 0,
+        "prefectureNameParam": "tokyo",
+        "updateDate": "20261113"
+      },
+      "images": [
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/bVfSdNFBTFfv5GbFe22bSn",
+          "title": "Exterior",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/xX7y6zHVyCbYjCCPGQHwti",
+          "title": "Floor plan",
+          "isMadoriImage": true
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/BwAZbnPpnXcMbFxw7nLrhT",
+          "title": "Floor plan layout diagram",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/8fKPqYPCUa5BoaA2ykx5eY",
+          "title": "Layout diagram",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/aEYhKsvkDSidEo8bTf7ZV8",
+          "title": "Kitchen",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/ayq4AXTMLujrVhcJC9okJU",
+          "title": "Entrance",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/Fc5TUMvgUFbm62HcH9RNh8",
+          "title": "Bathroom",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/zGsQauAvVBeB9hUJGqTgi8",
+          "title": "Kitchen",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/3BWurDcXWsUnjmQka5mowR",
+          "title": "Living room",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/ZB6KrUBfhRbcL32VZFnmdn",
+          "title": "Exterior",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/rKHruwh3QX5mfE2oCQyhJ3",
+          "title": "Storage",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/JJher99ZtgPPxHebvB5QNe",
+          "title": "Toilet",
+          "isMadoriImage": false
+        }
+      ]
+    },
+    {
+      "source": "leopalace21",
+      "areaSlug": "sumida",
+      "detail": {
+        "propertyNo": "0000054020105",
+        "propertyName": "LEONEXT Quatre Saison",
+        "propertyNameJa": "レオネクストキャトル　セゾン",
+        "propertyNameParam": "quatre-saison",
+        "roomNo": "105",
+        "address": "Sumida 4-49-13,Sumida-ku,Tokyo-to",
+        "addressJa": "東京都墨田区墨田４−４９−１３",
+        "rentFee": 77000,
+        "maintenanceFee": 6500,
+        "shikikin": 0,
+        "reikin": 1,
+        "layout": "1R",
+        "size": 27.72,
+        "floor": 1,
+        "buildDay": 201404,
+        "routes": [
+          {
+            "lineName": "Keiseioshiage line",
+            "stationName": "Yahiro",
+            "stationWalkingTime": 9,
+            "viewFlg": true
+          },
+          {
+            "lineName": "Tobuisezaki line/daishi line",
+            "stationName": "Kanegafuchi",
+            "stationWalkingTime": 11,
+            "viewFlg": false
+          }
+        ],
+        "station": {
+          "stationName": "Yahiro",
+          "stationNameJa": "八広",
+          "stationNameParam": "yahiro",
+          "stationCode": "2252030"
+        },
+        "area": {
+          "areaName": "Sumida-ku",
+          "areaNameJa": "墨田区",
+          "areaNameParam": "sumida-ku",
+          "areaCode": "13107"
+        },
+        "point": [
+          "No deposit required",
+          "Furnished with Appliances",
+          "TV door phone",
+          "Separated bath and toilet",
+          "Bathroom dryer",
+          "Washlet with warm water",
+          "Smartlock",
+          "security camera",
+          "Air conditioner",
+          "Internet Compatible",
+          "Corner room"
+        ],
+        "furnitureFlg": true,
+        "keyExchangeFee": 16500,
+        "basicCleaningFee": 52250,
+        "status": "Vacant",
+        "isRecruitment": true,
+        "brokerageFee": 0,
+        "prefectureNameParam": "tokyo",
+        "updateDate": "20261113"
+      },
+      "images": [
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/HyTpqPJbxoZyfFsn7bPY4F",
+          "title": "Exterior",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/Gvr9e2wenB28ekG4pHHErY",
+          "title": "Floor plan",
+          "isMadoriImage": true
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/YZfvhzZPfLbjMomfywgn69",
+          "title": "Floor plan layout diagram",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/aXTtZuyghTjGAQygBEviwS",
+          "title": "Layout diagram",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/LVxBKge6QEMhdhoPNjSn26",
+          "title": "Kitchen",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/wRG5kyNpzu4cw2pHWwrYSk",
+          "title": "Bathroom",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/JQxjnezXuNwJzFcwTDctRC",
+          "title": "Toilet",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/HpumzRCGJ4vPz4w8totanL",
+          "title": "Sink",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/qh5Ege58JZwKdH6LvQPdpW",
+          "title": "Other",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/VAcoWZazXhCkzv88DsWgN",
+          "title": "Living room",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/Fu4uyZcpbX8j9wW4MNfYbX",
+          "title": "Storage",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/ywnfY7q5SVGZzF7NZRVRxQ",
+          "title": "Storage",
+          "isMadoriImage": false
+        },
+        {
+          "imagePath": "https://prd-leopalace21.imagewave.pictures/eVYAu8iDRzQM3eUUKJKDuU",
+          "title": "Balcony",
+          "isMadoriImage": false
+        }
+      ]
+    }
+  ],
+  "jk": [
+    {
+      "source": "jk",
+      "record": {
+        "$id": "13780",
+        "物件名": "サンライズＫＢ",
+        "部屋番号": "301",
+        "都道府県": "東京都",
+        "住所": "八王子市片倉町721-1",
+        "交通＿線": "JR横浜線",
+        "交通＿駅": "片倉駅",
+        "交通＿徒歩バス": "徒歩1分",
+        "賃料": "77000",
+        "管理費": "3000",
+        "間取り": "2DK",
+        "占有面積_": "42",
+        "築年数": "平成7年3月",
+        "条件1＿_敷金・礼金について": "敷金：0　礼金：0",
+        "ペット": "ペット飼育 : 不可",
+        "エアコン": "エアコン：1基",
+        "バス・トイレ": "バス・トイレ : 別",
+        "エレベーター": "エレベーター : 有",
+        "駐輪場": "駐輪場 : 有",
+        "申込の有無": "募集中",
+        "部屋の現況": "空室",
+        "図面＿間取り": [
+          {
+            "fileKey": "20261112042305F3144DD941DB443AB3DD521C8549C339094",
+            "name": "サンライズKB（2DK）.jpg",
+            "contentType": "image/jpeg",
+            "size": "92292"
+          }
+        ],
+        "図面＿外観": [
+          {
+            "fileKey": "2026111204223609C492F8CDDD485E838C70C1462B19A9117",
+            "name": "サンライズKB外観.JPG",
+            "contentType": "image/jpeg",
+            "size": "863129"
+          }
+        ],
+        "recordCode": "def50200188daf6feb6c1ba77eaf96fb7bf3c5c581c61e9674003ce6bf2bf411ddd63dd24ea939a92c4cefff61880eeade8090de850ed5da5f9738ff10629fca8db27711ed405e62927517550f7a18a13d23c4569bd7902a170273c37e9651ed1e94cf8e0e1ab16ab0624c69d81c2cfd52c697cb2057d97470aed02a670f5f129c46098d6d386e33e4391c7c7bb66a82b805c2ebaa8016f9238b"
+      }
+    },
+    {
+      "source": "jk",
+      "record": {
+        "$id": "13760",
+        "物件名": "田中ビル",
+        "部屋番号": "201",
+        "都道府県": "東京都",
+        "住所": "八王子市北野町529-6",
+        "交通＿線": "京王線",
+        "交通＿駅": "北野駅",
+        "交通＿徒歩バス": "徒歩8分",
+        "賃料": "63000",
+        "管理費": "3000",
+        "間取り": "2LDK",
+        "占有面積_": "40.08",
+        "築年数": "1983年8月",
+        "条件1＿_敷金・礼金について": "敷金：0　礼金：0",
+        "ペット": "ペット飼育 : 不可",
+        "エアコン": "エアコン(1基)",
+        "バス・トイレ": "バス・トイレ : 別",
+        "エレベーター": "エレベーター : 無",
+        "駐輪場": "駐輪場 : 無",
+        "申込の有無": "募集中",
+        "部屋の現況": "空室",
+        "図面＿間取り": [
+          {
+            "fileKey": "20261022004306CCA3E35B7D22422C9234D18139E5721F343",
+            "name": "田中ビル　201.jpg",
+            "contentType": "image/jpeg",
+            "size": "137035"
+          }
+        ],
+        "図面＿外観": [
+          {
+            "fileKey": "20261022002857D77E47D6D39C49B69C9533059090130F144",
+            "name": "田中ビル 外観A.jpg",
+            "contentType": "image/jpeg",
+            "size": "981120"
+          }
+        ],
+        "recordCode": "def50200964e5360b0cc10bdcad8147da392e99340f4d2118a12a8d5793c72b83fb9f1030f0687ba185bd816a5aa46f9ee67104b67ced879cdb0ec7cf30838a7abbe6e0b29fa01c06b1c3040bd7c0f348cfb762b694934e1d5c260219cb6893890d8a58f3294860772e3b42539ef04a967bec46da6fd9e3633d05a47be2e1140f356658b6bf71ffc79139474b39d1a1d9dd8f72562a467994bba"
+      }
+    },
+    {
+      "source": "jk",
+      "record": {
+        "$id": "13756",
+        "物件名": "EAハイツ多摩センター",
+        "部屋番号": "102",
+        "都道府県": "東京都",
+        "住所": "八王子市大塚114-1",
+        "交通＿線": "多摩都市モノレール線",
+        "交通＿駅": "大塚帝京大学駅",
+        "交通＿徒歩バス": "徒歩8分",
+        "賃料": "51000",
+        "管理費": "3000",
+        "間取り": "1K",
+        "占有面積_": "23.18",
+        "築年数": "平成10年3月",
+        "条件1＿_敷金・礼金について": "敷金：0　礼金：0",
+        "ペット": "ペット飼育 : 不可",
+        "エアコン": "エアコン：1基",
+        "バス・トイレ": "バス・トイレ : 別",
+        "エレベーター": "エレベーター : 無",
+        "駐輪場": "駐輪場 : 無",
+        "申込の有無": "募集中",
+        "部屋の現況": "空室",
+        "図面＿間取り": [
+          {
+            "fileKey": "20261021090309916B478475784183B9531808E0E10900307",
+            "name": "EAハイツ多摩センター.jpg",
+            "contentType": "image/jpeg",
+            "size": "31473"
+          }
+        ],
+        "図面＿外観": [
+          {
+            "fileKey": "202610210902464814BA0A614243B8843878B1953F5998226",
+            "name": "EAハイツ多摩センター 外観.jpg",
+            "contentType": "image/jpeg",
+            "size": "949424"
+          }
+        ],
+        "recordCode": "def502009ccdb6be5cff3eb2565cd951eb932596abe9547a5b7c5e3c0ba1ef5fe63e067bc98dd244f0148fa10f4c658811df16c4cf5af3f7d1255da1989ae01a17428d490dfe5f9d14abd4b096a03c6891602f32cde97d02da8af82cab1902752a59f391345da7858d1052b6b45b87514b226a2184b3b0357098ec5bc169bb418a6bdb03c0367559ff90eac94810be551c458496fd6ed749b630"
+      }
+    },
+    {
+      "source": "jk",
+      "record": {
+        "$id": "13752",
+        "物件名": "Ｆコート田園調布",
+        "部屋番号": "305",
+        "都道府県": "東京都",
+        "住所": "世田谷区玉堤1-20-1",
+        "交通＿線": "東急大井町線",
+        "交通＿駅": "尾山台駅",
+        "交通＿徒歩バス": "徒歩17分",
+        "賃料": "92000",
+        "管理費": "3000",
+        "間取り": "2DK",
+        "占有面積_": "32.4",
+        "築年数": "平成2年7月",
+        "条件1＿_敷金・礼金について": "敷金：0　礼金：0",
+        "ペット": "ペット飼育 : 可 (敷金1ヵ月分退去時償却)",
+        "エアコン": "エアコン：一機",
+        "バス・トイレ": "バス・トイレ : 別",
+        "エレベーター": "エレベーター : 無",
+        "駐輪場": "駐輪場 : 有",
+        "申込の有無": "募集中",
+        "部屋の現況": "空室",
+        "図面＿間取り": [
+          {
+            "fileKey": "202610180333586D19C5D064D44DE1816B8E6E8F3EC122049",
+            "name": "Fコート田園調布 305.jpg",
+            "contentType": "image/jpeg",
+            "size": "43103"
+          }
+        ],
+        "図面＿外観": [
+          {
+            "fileKey": "202610180333377333F573503347B29A11878FDA815224210",
+            "name": "Fコート田園調布 外観.jpg",
+            "contentType": "image/jpeg",
+            "size": "929747"
+          }
+        ],
+        "recordCode": "def502005e66a658e7bd98383d05b4bc540e3bb8940e0205bc7e61e7d9a60a8cefa6c281cc4f1b670730882d462c0365712d9da1738a7a5383231c847d3311a6920d682ac5c35698f4589c0b75da3ea5d8dbd4a6710e93fab331cd645c86133e40395697a9c6a990d150f3864045ea24880b238496517d2e927cfc8000d67265e0d41ee916aa023777f4345ac2558d9a0c8f9c989096e5aa1e5e"
+      }
+    },
+    {
+      "source": "jk",
+      "record": {
+        "$id": "13759",
+        "物件名": "コーポ吉田",
+        "部屋番号": "105",
+        "都道府県": "東京都",
+        "住所": "多摩市連光寺1-36-8",
+        "交通＿線": "京王線",
+        "交通＿駅": "聖蹟桜ヶ丘駅",
+        "交通＿徒歩バス": "徒歩18分",
+        "賃料": "40000",
+        "管理費": "2000",
+        "間取り": "1DK",
+        "占有面積_": "28.81",
+        "築年数": "昭和55年9月",
+        "条件1＿_敷金・礼金について": "敷金：0　礼金：0",
+        "ペット": "ペット飼育 : 不可",
+        "エアコン": "エアコン一基",
+        "バス・トイレ": "バス・トイレ : 一緒",
+        "エレベーター": "エレベーター : 無",
+        "駐輪場": "駐輪場 : 無",
+        "申込の有無": "募集中",
+        "部屋の現況": "空室",
+        "図面＿間取り": [
+          {
+            "fileKey": "2026102200205540D6BA7BA7CF4A76B8F5F7C39FD29348327",
+            "name": "コーポ吉田（反転）.jpg",
+            "contentType": "image/jpeg",
+            "size": "66147"
+          }
+        ],
+        "図面＿外観": [
+          {
+            "fileKey": "202610220010421301FED45D3D47C3B0D611851738F9FD140",
+            "name": "コーポ吉田外観A.jpg",
+            "contentType": "image/jpeg",
+            "size": "890431"
+          }
+        ],
+        "recordCode": "def50200f42f3a95b5ad4f3441551af7ad8e0c3a863cc8d848f7b8aa57896386363197cb18e3f900dc4e59fbde792b389f14fde2ce7ac8a40e1bbf8afeabe76df2b09a23f92e0044d89b1f7e715287894941c43a03e541fbba6de203f816918d4950bcad67ba73531131ce2e61c8661070cb3869ae79ce7781d9a4bf73ec4b3550a6cd4d2448c1071b0e7c8dc428c478ddfbffebf166a34a9fc0"
+      }
+    }
+  ]
+}

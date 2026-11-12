@@ -30,4 +30,16 @@ export const STATIONS: Station[] = [
   st('akabane', 'Akabane', '赤羽', ['saikyo', 'keihin-tohoku'], 'kita'),
   st('oji', 'Oji', '王子', ['keihin-tohoku', 'namboku'], 'kita'),
   st('jujo', 'Jujo', '十条', ['saikyo'], 'kita'),
+  // Stations added for the rooms pulled from Leopalace21 and J&K (see ../sources).
+  st('numabukuro', 'Numabukuro', '沼袋', ['seibu-shinjuku'], 'nakano'),
+  st('araiyakushi-mae', 'Araiyakushi-mae', '新井薬師前', ['seibu-shinjuku'], 'nakano'),
+  st('ukimafunado', 'Ukimafunado', '浮間舟渡', ['saikyo'], 'kita'),
+  st('nishi-sugamo', 'Nishi-sugamo', '西巣鴨', ['toei-mita'], 'toshima'),
+  st('yahiro', 'Yahiro', '八広', ['keisei-oshiage'], 'sumida'),
+  st('kanegafuchi', 'Kanegafuchi', '鐘ヶ淵', ['tobu-skytree'], 'sumida'),
+  st('oyamadai', 'Oyamadai', '尾山台', ['tokyu-oimachi'], 'setagaya'),
+  st('katakura', 'Katakura', '片倉', ['jr-yokohama'], 'hachioji'),
+  st('kitano', 'Kitano', '北野', ['keio'], 'hachioji'),
+  st('otsuka-teikyo-daigaku', 'Otsuka-Teikyo-Daigaku', '大塚・帝京大学', ['tama-monorail'], 'hachioji'),
+  st('seiseki-sakuragaoka', 'Seiseki-Sakuragaoka', '聖蹟桜ヶ丘', ['keio'], 'tama'),
 ];

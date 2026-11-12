@@ -7,6 +7,7 @@ import { listingPath } from '@/lib/listing/paths';
 import { Price } from '@/components/ui/Price';
 import { FavoriteButton } from './FavoriteButton';
 import { ListingStats } from './ListingStats';
+import { SourceTag } from './SourceTag';
 import { StatusBadge } from './StatusBadge';
 
 /** Vertical card for grids and carousels (home, similar listings, favorites). */
@@ -25,6 +26,7 @@ export function ListingCard({ listing, stations }: { listing: Listing; stations:
           className="object-cover transition duration-300 group-hover:scale-[1.03]" />
         {listing.status !== 'available' && <div className="absolute left-3 top-3"><StatusBadge status={listing.status} /></div>}
         <FavoriteButton code={listing.code} className="absolute right-3 top-3 z-10" />
+        {listing.source && <SourceTag source={listing.source} className="absolute bottom-3 left-3" />}
       </div>
       <div className="flex flex-1 flex-col gap-2 p-4">
         <h3 className="line-clamp-2 font-semibold text-ink">

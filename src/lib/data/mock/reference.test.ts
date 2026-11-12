@@ -4,10 +4,10 @@ import { LINES } from './lines';
 import { STATIONS } from './stations';
 
 describe('reference data', () => {
-  it('has 8 areas, 10 lines, 25 stations with unique slugs', () => {
-    expect(AREAS).toHaveLength(8);
-    expect(LINES).toHaveLength(10);
-    expect(STATIONS).toHaveLength(25);
+  it('has 11 areas, 17 lines, 36 stations with unique slugs', () => {
+    expect(AREAS).toHaveLength(11);
+    expect(LINES).toHaveLength(17);
+    expect(STATIONS).toHaveLength(36);
     for (const list of [AREAS, LINES, STATIONS]) {
       expect(new Set(list.map((x) => x.slug)).size).toBe(list.length);
     }

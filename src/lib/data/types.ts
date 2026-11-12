@@ -63,6 +63,20 @@ export interface Listing {
   floorPlan?: string;
   featured: boolean;
   publishedAt: string;
+  /** Set when the room was pulled from an outside listing site (see lib/data/sources). */
+  source?: ListingSource;
+}
+
+export const SOURCE_NAMES = ['leopalace21', 'jk'] as const;
+export type SourceName = (typeof SOURCE_NAMES)[number];
+
+export interface ListingSource {
+  name: SourceName;
+  /** The room's id on the source site. */
+  id: string;
+  /** Building name and room number as the source shows them. */
+  label: string;
+  url: string;
 }
 
 export interface ListingPage { items: Listing[]; total: number; page: number; pageCount: number }

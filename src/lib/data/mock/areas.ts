@@ -11,4 +11,8 @@ export const AREAS: Area[] = [
   area('taito', 'Taito (Ueno)', '台東区'),
   area('sumida', 'Sumida', '墨田区'),
   area('kita', 'Kita (Akabane)', '北区'),
+  // Areas added for the rooms pulled from J&K (see ../sources).
+  area('setagaya', 'Setagaya', '世田谷区'),
+  area('hachioji', 'Hachioji', '八王子市'),
+  area('tama', 'Tama', '多摩市'),
 ];
