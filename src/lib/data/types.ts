@@ -2,7 +2,10 @@ export const LOCALES = ['en', 'my', 'ja'] as const;
 export type Locale = (typeof LOCALES)[number];
 export type LocalizedText = Record<Locale, string>;
 
-export interface Area { slug: string; name: LocalizedText }
+export const PREFECTURES = ['tokyo', 'kanagawa', 'chiba', 'saitama'] as const;
+export type Prefecture = (typeof PREFECTURES)[number];
+
+export interface Area { slug: string; name: LocalizedText; prefecture: Prefecture }
 export interface Line { slug: string; name: LocalizedText; color: string }
 export interface Station { slug: string; name: LocalizedText; lineSlugs: string[]; areaSlug: string }
 

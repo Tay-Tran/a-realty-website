@@ -32,6 +32,8 @@ export interface LeopalaceDetail {
   /** yyyymm */
   buildDay: number;
   routes: LeopalaceRoute[];
+  /** Same routes with Japanese names (language=ja). */
+  routesJa?: LeopalaceRoute[];
   station: { stationName: string; stationNameJa: string; stationNameParam: string };
   area: { areaName: string; areaNameJa: string; areaNameParam: string; areaCode: string };
   point: string[];

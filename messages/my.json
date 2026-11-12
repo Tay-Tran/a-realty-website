@@ -30,6 +30,12 @@
     "bedroomsShort": "အိပ်ခန်း {count}",
     "tokyo": "တိုကျို"
   },
+  "prefecture": {
+    "tokyo": "တိုကျို",
+    "kanagawa": "ကာနာဂါဝါ",
+    "chiba": "ချီဘ",
+    "saitama": "ဆိုင်တာမ"
+  },
   "source": {
     "label": "ရင်းမြစ်: {name}",
     "view": "{name} တွင် ကြည့်ရန်"

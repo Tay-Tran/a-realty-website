@@ -12,10 +12,16 @@ const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { 'content-type': 'application/json', date: DATE } });
 
 describe('source listings from snapshot.json', () => {
-  it('maps 5 Leopalace21 and 5 J&K rooms with demo codes', () => {
-    expect(SOURCE_LISTINGS.map((l) => l.code)).toEqual(['L5001', 'L5002', 'L5003', 'L5004', 'L5005', 'J6001', 'J6002', 'J6003', 'J6004', 'J6005']);
-    expect(SOURCE_LISTINGS.filter((l) => l.source?.name === 'leopalace21')).toHaveLength(5);
-    expect(SOURCE_LISTINGS.filter((l) => l.source?.name === 'jk')).toHaveLength(5);
+  it('maps 25 Leopalace21 and 25 J&K rooms with demo codes', () => {
+    const codes = (prefix: string, start: number) => Array.from({ length: 25 }, (_, i) => `${prefix}${start + i}`);
+    expect(SOURCE_LISTINGS.map((l) => l.code)).toEqual([...codes('L', 5001), ...codes('J', 6001)]);
+    expect(SOURCE_LISTINGS.filter((l) => l.source?.name === 'leopalace21')).toHaveLength(25);
+    expect(SOURCE_LISTINGS.filter((l) => l.source?.name === 'jk')).toHaveLength(25);
+  });
+
+  it('keeps one room per building for each source', () => {
+    const buildings = (name: string) => SOURCE_LISTINGS.filter((l) => l.source?.name === name).map((l) => l.source!.label.replace(/ \S+$/, ''));
+    for (const name of ['leopalace21', 'jk']) expect(new Set(buildings(name)).size, name).toBe(25);
   });
 
   it('points to existing areas and stations, with photos, a source link and text in every language', () => {
@@ -57,6 +63,8 @@ describe('parsing helpers', () => {
     expect(findStation('Nishi-sugamo')?.slug).toBe('nishi-sugamo');
     expect(findStation('大塚帝京大学駅')?.slug).toBe('otsuka-teikyo-daigaku');
     expect(findStation('北野駅')?.slug).toBe('kitano');
+    expect(findStation('県立大学前駅')?.slug).toBe('kenritsudaigaku');
+    expect(findStation('Hachiojiminamino')?.slug).toBe('hachioji-minamino');
     expect(findStation('Nowhere')).toBeUndefined();
   });
 });

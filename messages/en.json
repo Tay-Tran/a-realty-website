@@ -30,6 +30,12 @@
     "bedroomsShort": "{count} BR",
     "tokyo": "Tokyo"
   },
+  "prefecture": {
+    "tokyo": "Tokyo",
+    "kanagawa": "Kanagawa",
+    "chiba": "Chiba",
+    "saitama": "Saitama"
+  },
   "source": {
     "label": "Source: {name}",
     "view": "View on {name}"
