@@ -46,7 +46,7 @@ export function ListingRow({ listing, stations, areas, lines }: {
       <div className="min-w-0 space-y-2.5 md:pr-2">
         {area && (
           <span className="inline-flex items-center gap-1 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-white">
-            <PinIcon className="h-3.5 w-3.5" />{pickText(area.name, locale)}, {t('common.tokyo')}
+            <PinIcon className="h-3.5 w-3.5" />{pickText(area.name, locale)}, {t(`prefecture.${area.prefecture}`)}
           </span>
         )}
         <h3 className="line-clamp-2 text-lg font-bold leading-snug text-ink">

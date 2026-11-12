@@ -30,6 +30,12 @@
     "bedroomsShort": "寝室{count}",
     "tokyo": "東京都"
   },
+  "prefecture": {
+    "tokyo": "東京都",
+    "kanagawa": "神奈川県",
+    "chiba": "千葉県",
+    "saitama": "埼玉県"
+  },
   "source": {
     "label": "掲載元：{name}",
     "view": "{name}で見る"

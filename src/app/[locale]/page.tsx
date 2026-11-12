@@ -65,7 +65,8 @@ export default async function HomePage({ params }: Props) {
           </div>
         </Container>
       </section>
-      <AreaGrid areas={areas} counts={counts} />
+      {/* The section is "Popular areas in Tokyo"; rooms elsewhere are reached through search. */}
+      <AreaGrid areas={areas.filter((a) => a.prefecture === 'tokyo')} counts={counts} />
       <Services />
       <RentalSteps />
       <About />

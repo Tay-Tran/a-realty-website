@@ -41,8 +41,9 @@ export function mapLeopalace(room: LeopalaceRoom, code: string, publishedAt: str
   const layout = asLayout(d.layout);
   if (!layout) throw new Error(`Leopalace ${d.propertyNo}: unsupported layout ${d.layout}`);
   const stations = d.routes
-    .filter((r) => !r.busStationName)
-    .map((r) => ({ station: findStation(r.stationName), walk: r.stationWalkingTime }))
+    .map((r, i) => ({ r, ja: d.routesJa?.[i] }))
+    .filter(({ r }) => !r.busStationName)
+    .map(({ r, ja }) => ({ station: findStation(r.stationName) ?? (ja ? findStation(ja.stationName) : undefined), walk: r.stationWalkingTime }))
     .filter((s): s is { station: NonNullable<typeof s.station>; walk: number } => s.station !== undefined);
   if (stations.length === 0) throw new Error(`Leopalace ${d.propertyNo}: no known station in ${d.routes.map((r) => r.stationName)}`);
 

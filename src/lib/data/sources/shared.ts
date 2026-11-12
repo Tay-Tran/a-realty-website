@@ -9,10 +9,14 @@ import {
 
 const norm = (s: string) => s.normalize('NFKC').toLowerCase().replace(/駅$/, '').replace(/[\s・\-]/g, '');
 
+/** Names a source uses that differ from the station's official name. */
+const ALIASES: Record<string, string> = { [norm('県立大学前')]: 'kenritsudaigaku' };
+
 /** Finds a demo station by its English or Japanese name ("Nishi-sugamo", "大塚帝京大学駅"). */
 export function findStation(name: string): Station | undefined {
   const key = norm(name);
-  return STATIONS.find((s) => norm(s.name.en) === key || norm(s.name.ja) === key);
+  const alias = ALIASES[key];
+  return STATIONS.find((s) => s.slug === alias || norm(s.name.en) === key || norm(s.name.ja) === key);
 }
 
 /** Finds the demo area whose Japanese name (区/市) appears in a Japanese address. */

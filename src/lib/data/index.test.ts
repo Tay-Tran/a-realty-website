@@ -12,13 +12,13 @@ afterEach(() => { vi.mocked(checkLeopalace).mockImplementation(async () => null)
 describe('data access layer', () => {
   it('getListings excludes rented and paginates', async () => {
     const page1 = await getListings({});
-    expect(page1.total).toBe(32);
-    expect(page1.pageCount).toBe(3);
+    expect(page1.total).toBe(72);
+    expect(page1.pageCount).toBe(6);
     expect(page1.items).toHaveLength(PAGE_SIZE);
     expect(page1.items.every((l) => l.status !== 'rented')).toBe(true);
     const last = await getListings({ page: 99 });
-    expect(last.page).toBe(3);
-    expect(last.items).toHaveLength(8);
+    expect(last.page).toBe(6);
+    expect(last.items).toHaveLength(12);
   });
 
   it('getListing is case-insensitive and returns rented listings', async () => {
@@ -43,10 +43,11 @@ describe('data access layer', () => {
 
   it('countListingsByArea ignores rented', async () => {
     const counts = await countListingsByArea();
-    expect(counts.shinjuku).toBe(6);
-    expect(counts.shibuya).toBe(1);
-    expect(counts.kita).toBe(4);
-    expect(counts.hachioji).toBe(3);
+    expect(counts.shinjuku).toBe(8);
+    expect(counts.shibuya).toBe(3);
+    expect(counts.kita).toBe(6);
+    expect(counts.hachioji).toBe(9);
+    expect(counts.yokohama).toBe(3);
   });
 
   it('getListingsByCodes keeps the requested order and skips unknown codes', async () => {
@@ -54,16 +55,16 @@ describe('data access layer', () => {
     expect(list.map((l) => l.code)).toEqual(['A1003', 'A1001']);
   });
 
-  it('getStations filters by line; getListingRefs covers all 34', async () => {
+  it('getStations filters by line; getListingRefs covers all 74', async () => {
     expect((await getStations('tozai')).map((s) => s.slug).sort()).toEqual(['nakano', 'takadanobaba']);
-    expect(await getListingRefs()).toHaveLength(34);
+    expect(await getListingRefs()).toHaveLength(74);
   });
 
   it('applies the live status from the source: a room the source reports rented leaves the list', async () => {
     vi.mocked(checkLeopalace).mockImplementation(async (no) =>
       no === '0000024433204' ? { status: 'rented', checkedAt: '2026-11-12T05:00:00.000Z' } : null);
     const page = await getListings({});
-    expect(page.total).toBe(31);
+    expect(page.total).toBe(71);
     expect((await getListing('L5001'))?.status).toBe('rented');
     expect((await getFeaturedListings(6)).some((l) => l.code === 'L5001')).toBe(false);
   });
