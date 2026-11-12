@@ -24,11 +24,15 @@
     "stationName": "{name}駅",
     "viewDetails": "詳細を見る",
     "code": "物件番号 {code}",
-    "demoNotice": "デモサイトです。掲載物件はすべてサンプルです。",
+    "demoNotice": "デモサイトです。サンプル物件のほか、レオパレス21・J&Kから取得した実際の物件を一部掲載しています。",
     "currency": "通貨",
     "rateNote": "参考レートで換算",
     "bedroomsShort": "寝室{count}",
     "tokyo": "東京都"
+  },
+  "source": {
+    "label": "掲載元：{name}",
+    "view": "{name}で見る"
   },
   "hero": {
     "title": "東京のお部屋探しを、あなたの言葉で",

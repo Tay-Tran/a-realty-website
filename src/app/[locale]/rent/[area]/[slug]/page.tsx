@@ -17,6 +17,7 @@ import { InquiryBlock } from '@/components/listing/InquiryBlock';
 import { MapEmbed } from '@/components/listing/MapEmbed';
 import { Overview } from '@/components/listing/Overview';
 import { SimilarListings } from '@/components/listing/SimilarListings';
+import { SourceLine } from '@/components/listing/SourceTag';
 import { StatusBadge } from '@/components/listing/StatusBadge';
 import { SummaryBar } from '@/components/listing/SummaryBar';
 import { Container } from '@/components/ui/Container';
@@ -84,6 +85,7 @@ export default async function ListingPage({ params }: Props) {
           </div>
           <FavoriteButton code={listing.code} withLabel />
         </div>
+        {listing.source && <SourceLine source={listing.source} />}
         <div className="mt-4">
           <Gallery images={listing.images} alt={title} floorPlan={
             listing.floorPlan

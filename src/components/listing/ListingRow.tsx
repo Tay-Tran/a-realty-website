@@ -12,6 +12,7 @@ import { FavoriteButton } from './FavoriteButton';
 import { FloorPlan } from './FloorPlan';
 import { ListingStats } from './ListingStats';
 import { RowPhotos } from './RowPhotos';
+import { SourceTag } from './SourceTag';
 import { StatusBadge } from './StatusBadge';
 
 /** Horizontal result card for the search page, laid out like the reference: photos | details | price. */
@@ -33,6 +34,7 @@ export function ListingRow({ listing, stations, areas, lines }: {
           <span className="absolute right-2 top-2 rounded-full bg-white/95 px-2.5 py-0.5 text-xs font-semibold text-accent-dark shadow-sm">
             {t('hero.tabRent')}
           </span>
+          {listing.source && <SourceTag source={listing.source} className="absolute bottom-2 left-2" />}
         </>}
         planThumb={listing.floorPlan
           ? <Image src={listing.floorPlan} alt="" fill sizes="80px" className="object-contain" />

@@ -24,11 +24,15 @@
     "stationName": "{name} Sta.",
     "viewDetails": "View details",
     "code": "Listing {code}",
-    "demoNotice": "Demo site – all listings are sample data.",
+    "demoNotice": "Demo site – sample listings, plus a few real rooms pulled from Leopalace21 and J&K.",
     "currency": "Currency",
     "rateNote": "Converted at reference rates",
     "bedroomsShort": "{count} BR",
     "tokyo": "Tokyo"
+  },
+  "source": {
+    "label": "Source: {name}",
+    "view": "View on {name}"
   },
   "hero": {
     "title": "Find your home in Tokyo",
