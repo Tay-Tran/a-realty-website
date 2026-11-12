@@ -43,6 +43,34 @@ export interface InitialCosts {
   cleaning: number;        // yen
 }
 
+export const COST_KEYS = [
+  'advanceRent', 'deposit', 'keyMoney', 'brokerage', 'guaranteeFee', 'insurance', 'keyExchange', 'cleaning',
+  'environmentFee', 'supportFee', 'fixedFee', 'residentSupport', 'antibacterial',
+] as const;
+export type CostKey = (typeof COST_KEYS)[number];
+
+export interface CostLine {
+  key: CostKey;
+  /** Yen, tax included. */
+  amount: number;
+  months?: number;
+  /** The source's own name for the item (e.g. 固定水道), shown instead of the standard label. */
+  label?: string;
+  note?: LocalizedText;
+}
+
+/** Room-specific costs as the listing site states them (rooms pulled from a source). */
+export interface CostBreakdown {
+  /** Monthly charges on top of rent and management fee. */
+  monthlyExtras: CostLine[];
+  /** Required move-in costs; the site adds its own agency fee. */
+  initial: CostLine[];
+  /** Services the tenant may choose; not part of the total. */
+  optional: CostLine[];
+  /** Items the source does not state; shown as "ask us". */
+  toConfirm: CostKey[];
+}
+
 export interface Listing {
   code: string;
   slug: string;
@@ -68,6 +96,8 @@ export interface Listing {
   publishedAt: string;
   /** Set when the room was pulled from an outside listing site (see lib/data/sources). */
   source?: ListingSource;
+  /** Room-specific costs from the source; when missing, initial costs are estimated from initialCosts. */
+  costs?: CostBreakdown;
 }
 
 export const SOURCE_NAMES = ['leopalace21', 'jk'] as const;

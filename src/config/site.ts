@@ -5,6 +5,8 @@ export const site = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000',
   env: (process.env.NEXT_PUBLIC_SITE_ENV === 'production' ? 'production' : 'staging') as SiteEnv,
   colors: { ink: '#1f2a44', accent: '#1d3557', paper: '#f7f9fc' },
+  /** Our own agency fee, added to rooms whose costs come from a listing site. Set by the client. */
+  agencyFee: { months: 1, taxRate: 0.1 },
   contact: {
     phoneDisplay: '03-0000-0000',
     phoneHref: 'tel:+81300000000',

@@ -56,11 +56,22 @@ export interface LeopalaceUrlParts {
   roomNo: string;
 }
 
+/** Leopalace21's move-in calculator (GET /api/properties/{no}/cost); amounts in yen, tax rates in %. */
+export interface LeopalaceCost {
+  /** Required items (rentContractFee). */
+  required: Record<string, number>;
+  /** Monthly charges (rentUsageFeePerMonth). */
+  monthly: Record<string, number>;
+  /** rentContractFee with every optional service switched on. */
+  withOptions: Record<string, number>;
+}
+
 export interface LeopalaceRoom {
   source: 'leopalace21';
   areaSlug: string;
   detail: LeopalaceDetail;
   images: LeopalaceImage[];
+  cost: LeopalaceCost;
 }
 
 export interface JkFile { fileKey: string; name: string; contentType: string }
@@ -92,6 +103,13 @@ export interface JkRecord {
   図面＿外観: JkFile[] | null;
   /** kViewer key for the room's own page. */
   recordCode: string;
+  '条件2＿保証会社の加入条件': string | null;
+  '条件3＿_更新料・解約予告・違約金': string | null;
+  安心サポート費: string | null;
+  固定費項目＿1: string | null;
+  固定費＿1: string | null;
+  固定費項目＿2: string | null;
+  固定費＿2: string | null;
 }
 
 export interface JkRoom { source: 'jk'; record: JkRecord }

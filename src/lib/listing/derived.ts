@@ -32,6 +32,7 @@ export function activeConditions(listing: Listing, now: Date = new Date()): Cond
   return CONDITION_KEYS.filter((key) => hasCondition(listing, key, now));
 }
 
-export function monthlyTotal(listing: Pick<Listing, 'rent' | 'managementFee'>): number {
-  return listing.rent + listing.managementFee;
+/** Rent + management fee + any other monthly charge the source lists (support fee, fixed water fee…). */
+export function monthlyTotal(listing: Pick<Listing, 'rent' | 'managementFee' | 'costs'>): number {
+  return listing.rent + listing.managementFee + (listing.costs?.monthlyExtras ?? []).reduce((sum, c) => sum + c.amount, 0);
 }

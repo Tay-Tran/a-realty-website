@@ -1,5 +1,5 @@
 {
-  "fetchedAt": "2026-11-12T07:22:03.882Z",
+  "fetchedAt": "2026-11-12T07:41:06.939Z",
   "leopalace": [
     {
       "source": "leopalace21",
@@ -174,7 +174,58 @@
           "title": "Surrounding area",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 81500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 82050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 238550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 255600,
+          "reikin": 75000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 75000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 81500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 82050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 81500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 82050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 258440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 367615,
+          "reikin": 75000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -315,7 +366,58 @@
           "imagePath": "https://prd-leopalace21.imagewave.pictures/ryRpBdjT2rLc9xRzDzkpHD",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 89500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 90050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 262550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 279600,
+          "reikin": 83000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 83000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 89500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 90050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 89500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 90050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 282440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 391615,
+          "reikin": 83000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -457,7 +559,58 @@
           "title": "Surrounding area",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 74500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 75050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 217550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 234600,
+          "reikin": 68000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 68000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 74500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 75050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 74500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 75050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 237440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 346615,
+          "reikin": 68000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -594,7 +747,58 @@
           "title": "Toilet",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 70500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 71050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 205550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 222600,
+          "reikin": 64000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 64000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 70500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 71050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 70500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 71050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 225440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 334615,
+          "reikin": 64000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -743,7 +947,58 @@
           "title": "Balcony",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 83500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 84050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 244550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 261600,
+          "reikin": 77000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 77000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 83500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 84050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 83500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 84050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 264440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 373615,
+          "reikin": 77000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -867,7 +1122,58 @@
           "title": "Surrounding area",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 126500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 127050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 371550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 388600,
+          "reikin": 118000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 118000,
+          "commonServiceFeePerMonth": 8500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 126500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 127050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 126500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 127050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 391440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 500615,
+          "reikin": 118000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -1053,7 +1359,58 @@
           "title": "Surrounding area",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 123500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 124050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 364550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 381600,
+          "reikin": 117000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 117000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 123500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 124050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 123500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 124050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 384440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 493615,
+          "reikin": 117000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -1203,7 +1560,58 @@
           "title": "Shared spaces",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 112500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 113050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 331550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 348600,
+          "reikin": 106000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 106000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 112500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 113050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 112500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 113050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 351440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 460615,
+          "reikin": 106000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -1349,7 +1757,58 @@
           "title": "Entrance",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 72500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 73050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 211550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 228600,
+          "reikin": 66000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 66000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 72500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 73050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 72500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 73050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 231440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 340615,
+          "reikin": 66000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -1521,7 +1980,58 @@
           "title": "Shared spaces",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 0,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 54550,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 54550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 71600,
+          "reikin": 0,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 48000,
+          "commonServiceFeePerMonth": 6000,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 54000,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 54550,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 0,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 54550,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 74440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 183615,
+          "reikin": 0,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -1654,7 +2164,58 @@
           "title": "Storage",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 90500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 91050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 265550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 282600,
+          "reikin": 84000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 84000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 90500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 91050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 90500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 91050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 285440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 394615,
+          "reikin": 84000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -1780,7 +2341,58 @@
           "title": "Other",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 97500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 98050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 286550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 303600,
+          "reikin": 91000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 91000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 97500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 98050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 97500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 98050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 306440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 415615,
+          "reikin": 91000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -1907,7 +2519,58 @@
           "title": "Living room",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 91500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 92050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 268550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 285600,
+          "reikin": 85000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 85000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 91500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 92050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 91500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 92050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 288440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 397615,
+          "reikin": 85000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -2061,7 +2724,58 @@
           "title": "Surrounding area",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 82500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 83050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 241550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 258600,
+          "reikin": 76000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 76000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 82500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 83050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 82500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 83050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 261440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 370615,
+          "reikin": 76000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -2242,7 +2956,58 @@
           "title": "Surrounding area",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 85500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 86050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 250550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 267600,
+          "reikin": 79000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 79000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 85500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 86050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 85500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 86050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 270440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 379615,
+          "reikin": 79000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -2387,7 +3152,58 @@
           "title": "Bathroom",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 128500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 129050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 377550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 394600,
+          "reikin": 120000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 120000,
+          "commonServiceFeePerMonth": 8500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 128500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 129050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 128500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 129050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 397440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 506615,
+          "reikin": 120000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -2603,7 +3419,58 @@
           "title": "Surrounding area",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 126500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 127050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 373550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 390600,
+          "reikin": 120000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 120000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 126500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 127050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 126500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 127050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 393440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 502615,
+          "reikin": 120000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -2730,7 +3597,58 @@
           "title": "Other",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 116500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 117050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 341550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 358600,
+          "reikin": 108000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 108000,
+          "commonServiceFeePerMonth": 8500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 116500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 117050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 116500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 117050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 361440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 470615,
+          "reikin": 108000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -2886,7 +3804,58 @@
           "title": "Surrounding area",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 78500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 79050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 229550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 246600,
+          "reikin": 72000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 72000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 78500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 79050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 78500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 79050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 249440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 358615,
+          "reikin": 72000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -3082,7 +4051,58 @@
           "title": "Other",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 59000,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 59550,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 169550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 186600,
+          "reikin": 51000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 51000,
+          "commonServiceFeePerMonth": 8000,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 59000,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 59550,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 59000,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 59550,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 189440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 298615,
+          "reikin": 51000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -3249,7 +4269,58 @@
           "title": "Surrounding area",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 96500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 97050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 283550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 300600,
+          "reikin": 90000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 90000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 96500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 97050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 96500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 97050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 303440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 412615,
+          "reikin": 90000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -3405,7 +4476,58 @@
           "title": "Shared spaces",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 101500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 102050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 298550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 315600,
+          "reikin": 95000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 95000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 101500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 102050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 101500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 102050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 318440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 427615,
+          "reikin": 95000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -3522,7 +4644,58 @@
           "title": "Living room",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 97500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 98050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 286550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 303600,
+          "reikin": 91000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 91000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 97500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 98050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 97500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 98050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 306440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 415615,
+          "reikin": 91000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -3725,7 +4898,58 @@
           "title": "Surrounding area",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 84500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 85050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 247550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 264600,
+          "reikin": 78000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 78000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 84500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 85050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 84500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 85050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 267440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 376615,
+          "reikin": 78000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     },
     {
       "source": "leopalace21",
@@ -3862,7 +5086,58 @@
           "title": "Living room",
           "isMadoriImage": false
         }
-      ]
+      ],
+      "cost": {
+        "required": {
+          "rentIncludeCommonServiceFee": 85500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 86050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 250550,
+          "taxSubtotal": 15500,
+          "tax": 1550,
+          "taxRate": 10,
+          "totalFee": 267600,
+          "reikin": 79000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10
+        },
+        "monthly": {
+          "rentPerMonth": 79000,
+          "commonServiceFeePerMonth": 6500,
+          "environmentalMaintenanceFeePerMonth": 500,
+          "noTaxSubtotalPerMonth": 85500,
+          "taxSubtotalPerMonth": 500,
+          "taxPerMonth": 50,
+          "taxRate": 10,
+          "totalFeePerMonth": 86050,
+          "environmentalMaintenanceFeeTaxRate": 10
+        },
+        "withOptions": {
+          "rentIncludeCommonServiceFee": 85500,
+          "environmentalMaintenanceFee": 500,
+          "guaranteeFee": 86050,
+          "keyExchangeFee": 15000,
+          "noTaxSubtotal": 270440,
+          "taxSubtotal": 99250,
+          "tax": 9925,
+          "taxRate": 10,
+          "totalFee": 379615,
+          "reikin": 79000,
+          "shikikin": 0,
+          "environmentalMaintenanceFeeTaxRate": 10,
+          "residentAnshinInsurance": 19890,
+          "residentSupportSystemFee": 17250,
+          "residentSupportSystemFeeTaxRate": 10,
+          "antibacterialConstructionFee": 19000,
+          "photocatalyticConstructionFee": 25000,
+          "antibacterialConstructionFeeTaxRate": 10,
+          "keyExchangeFeeTaxRate": 10,
+          "basicCleaningFee": 47500,
+          "basicCleaningFeeTaxRate": 10
+        }
+      }
     }
   ],
   "jk": [
@@ -3906,7 +5181,14 @@
             "size": "863129"
           }
         ],
-        "recordCode": "def50200b0b68d325a9a1392574958d69d755d2ef1d6c15e0276b6cc6073c17e8e82ab79aed5d28f7581d70647b4b141390c6b35f8fe16b0b0e5ca7bb6fa0c2458933ff4a622281cde2ce3ad798a3a77ddc46c5d22b8b987ca7bc0cc773005c8d9a0ff603246a396975d27f01b41477edd292367169484804961fe251f48a969b908cfd410f49b330a0aeb6d429a9f709251441b0fb330c4c3de"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％ ※属性により違いあり\n【保証会社更新料】10,000円/1年毎\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "-",
+        "固定費＿1": "0",
+        "固定費項目＿2": "-",
+        "固定費＿2": "0",
+        "recordCode": "def502009de8de6e9984bfac67cbe8594076c37cfd98d37dcbf0a29114c1710babf76b163ee114bed7ad3de2b672585a086abd5083d99c95bd336480b0bfe11975a638b248fc1c2e173f821683ec487ec9bc50c5ac94c9846b8094591b0dc2481cde5f02437d1f41edd6dd13c663232311f446f2503b7d41b6dce3d9db98b3256e89fe441b016310852b02beb0ba4453ac9736573f2feefe1b10"
       }
     },
     {
@@ -3949,7 +5231,14 @@
             "size": "981120"
           }
         ],
-        "recordCode": "def502004deb70008855e4050c9d57f16e9fc7886ba859e876e98f2c041b41c42edd1a1159d12fbda623f25dc3e47669306f2a618ae1d91b6c5231b719f4c9fd4d7581663f5647dc09d75b108fc4af81faed74e9e40684cb33e48c775ab5ad93f81b7d838958b07e19939f6c02e9898c269203f6c3c806beeccae0190370203756ce60c20a00456fff85db74d9f18c7955db5dbe5882d3951114"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％  ※属性により違いあり\n【保証会社更新料】10,000円(税別)/1年毎\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "",
+        "固定費＿1": "",
+        "固定費項目＿2": "",
+        "固定費＿2": "",
+        "recordCode": "def5020098f56076ca45ccba9f87a40b1aeb2632e34c8e7be2215b7fa6c9044ae23b4f9c89d15f4bedb87b0aea03ddac7d1c23cff9b25f9cd40a76475e9fef36e5fb4155c5d101cea043a8f46ad96877681f57abfbb545033c6e71a1a32b85d0f0cf0fa54da2098e1411b00d97d8e513a1d9d716d64af86e2d9999b5d0eb4f6704788279087dfd93c741b37b7d3ddd179b72cf5834001a4d6e85"
       }
     },
     {
@@ -3992,7 +5281,14 @@
             "size": "949424"
           }
         ],
-        "recordCode": "def50200b3d4ed9f7888f22b2581edb2b1844278d8aaf07165248e58bbafac89a4d8bc9718c8bbff0941cf8d8b98d89e57585ae33d94d3ec14657dcb23036f73bf784a1d252387e43c9a3e31f6051f511edc90599b7d6d3410cfa1aae0bda0da306bd4ec07bcfe1c18861ce3004cf616ba80d1ff53c3540f3b9fc7c43c4b3037a51d12f3231aef180e6f8e46531c5d074b1871bd4fb87fe5ee8d"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％ ※属性により違いあり\n【保証会社更新料】10,000円/1年毎\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "-",
+        "固定費＿1": "0",
+        "固定費項目＿2": "-",
+        "固定費＿2": "0",
+        "recordCode": "def50200f87fce4d92c822ce22836deda73ac5d42b12259bdd59285bf5b52e3c2178d8a4d533cbe0b7e86fcbe602b3f0a113d06c1f5bf21f8f26e2889d6eb4dc691dce56b364dd30b216ddd7ced2f2b835714afc7961ca19f6386d531f09eb1c46b03cfc8e2e34e340e38ccc1369aca3fb52da7550dfc2cc2b950f23b9a54ce7c385ab03b8b0577c073291ecdebcccd056143c170c5dde8d55aa"
       }
     },
     {
@@ -4035,7 +5331,14 @@
             "size": "929747"
           }
         ],
-        "recordCode": "def50200d3ebcf54aa1e14222bcb3525b2cd1a76a96aece0cb663b389bde48d5ab8befc130634415cb8dd49651e7c2e7618ca5ed7b2018237281171f05adf2f0ecb670ec16c0650fb5098f9f40feaa37a1955ef8cc4847ee07743610a16de19f2f80998c2da1509cbcd3c1c212723f2ed5bd4262f5074476fb3a07b8e9f5028f91ea490be99314a3a2b638cbaad059fecedaf18062eeb6c61bb1"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％ ※属性により違いあり\n【保証会社更新料】10,000円/1年毎\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "-",
+        "固定費＿1": "0",
+        "固定費項目＿2": "-",
+        "固定費＿2": "0",
+        "recordCode": "def502005b05a5094a505d0750b524bcf7598b7ae173c3f21323e6acbe4d9765087318809495674c287c8ca55436a81ce31e5c3469e8ae25fda7311bb405308dfd9331fd287f8b3abc607ebdae7947eb317a5b4259ab7dd9a7d265628dd6cb4e9e00acdc742b46a555ae612ec233849634cd7f8fcd2979557e56c93ee1aad6c76c94aeb17b808739a729143dade17820158d98baa1f5d00d1c39"
       }
     },
     {
@@ -4078,7 +5381,14 @@
             "size": "890431"
           }
         ],
-        "recordCode": "def50200b8d91a98245ef45ec6d9023a5f3b549ccb6c009337aef35c143c952dc15c518a9f69e3a0c025e16b9505264ee6a9f1ae30492b02f96ce546d445bc2699d8a3ea2005d0c9f3b687ce20ea522bf1ab0d88f8f6160ec10490216e97a60db9db956192763ebe9bfaf60f3482b7f1cbdaea34a45492fa7c1b4be1007114784754929358b83edb3f4307d523fe9b605815fff04286558da7fb"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％ ※属性により違いあり\n【保証会社更新料】10,000円/1年毎\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "-",
+        "固定費＿1": "0",
+        "固定費項目＿2": "-",
+        "固定費＿2": "0",
+        "recordCode": "def50200bfba93566e052503193135fbf06212b7b5e2d453a9a21f0824948c96f8958b7e5f7a3b4faf92c19a3c203cffcd46e156a59111e7319d3054a00f32c2a709a521ae71ac363d9271fa06a20b9c5ea3b0fd64d92df57ef125faf1f4ad0f6ee94d6af046440ebe313f0130b135d2f36ed1c9df8c35165e3c4a38e2600720296d0e551075110699e3a7f9d03cb45c867aa91bbb989c2708ac"
       }
     },
     {
@@ -4121,7 +5431,14 @@
             "size": "1007299"
           }
         ],
-        "recordCode": "def502001016f58eefdb7e6f1e4ea55a914a58e122268e55c3f871279fa02e18cb78f9e8a5d1eb15cd3a91c6f5f9f94cee0efec5eeea23484979c94d5653140ae47552e6f2baa948b9bde07c0167d5c4747fc248d2f79819d7cb01f51f92351aab32cf8e8d0072be64307c95513701d8cdbb9f374d916970568a871af3277695e813aaebc86aa156c7faf27a0376cfc6cad216262bd0e11d5ddd"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％ ※属性により違いあり\n【保証会社更新料】10,000円/1年毎\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "-",
+        "固定費＿1": "0",
+        "固定費項目＿2": "-",
+        "固定費＿2": "0",
+        "recordCode": "def5020075bd3ddf9466c99db4ae26a482f023c6e7476038d55a7ee96cd47502dd98fd26f1bd512d6bd4ce018a9f02500f4380b3c91fa57b7a16bdbe987cdfb24c00f22a0c10a7dcc9259eff6d220eaa82edbe4ce7d5210bc791848d7f05c05ba515e4cf31ab559d3b95f66c677aa4ffc4e48c86acdc3e92a8c8d9d92be880e60cbad37a6ece109005fd94861738172e5b0405feefadb557dbf1"
       }
     },
     {
@@ -4164,7 +5481,14 @@
             "size": "992775"
           }
         ],
-        "recordCode": "def5020010f8858402313fbfff872430b8f443144610083d48baec13573a1517aabccb49d11f97db043613f034c67891e43e7ff76af1bced317b9f44d0f4c06f329af665eeb0160a4bbd2fe2be279c5eeae705c099f735e47318c88ce65eda4c02a88ba9b0f2652136da1b5490ced78f5a7bb8e1ec7b1f521d8d4ee2237837dec9f36870460a5aaf71cb5f99b90298c9819c6854d63efccb0d96"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％  ※属性により違いあり\n【保証会社更新料】10,000円(税別)/1年毎\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "",
+        "固定費＿1": "",
+        "固定費項目＿2": "",
+        "固定費＿2": "",
+        "recordCode": "def502008110d29c6656a4c2b6e96a1cd34652b23c4671c252295d5af247ceccf5aee0dfcd31603ee02b70df91ae901809019e93b86580e3e61ed4646443aaaf446bbc69290eff81a2f976c300edb534561c010ff707a78a4a2c6e3512d97e38e3b22d80b9658a21f9d088ca124d0ec1c8b9783868673e5d03fe7fb5cd550e39f3d749f4bf1c8937369baf0e5a2b3e3258486cc9b87c7a7b0fa8"
       }
     },
     {
@@ -4207,7 +5531,14 @@
             "size": "205441"
           }
         ],
-        "recordCode": "def50200495cc3d2fc102310d578a97f70a76039641dbbc014b5ed25cfffcc6e89ac34716e526608a49de44a22f1ff48b6ac7e39b422b0ec4da882f89607d19150d4f4fbbd92bbe36fc568244536ea0cc393b6cce2c45073b208ec48ac1f917a3e602396fb27b92ccd3498be7ae67b36a148ac238b819e40c00f70572a340768dcb23e7297c90e83f5f72a8b1f839818c708b759cb5ea3cd1a27"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％  \n【保証会社更新料】10,000円(税別)/1年毎\n※属性により違いあり\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "",
+        "固定費＿1": "",
+        "固定費項目＿2": "",
+        "固定費＿2": "",
+        "recordCode": "def5020078b8600ec5d03674e54744433a70f1e9e9099c8b6f260def7f574f9404a8d6e1bdc9fad7c556d42d8392c2858e6a3d7aad65d954c5064253b9f06d910445df7da64523cd44d062485d179e8c788ad0aaaa521f1444dfd407d07c2b7ee8460a419560970b79b4da0c4494887aea1f0dbda7f35d6bff979b46252dc6fe228308b3185dde08b1929a23f49f9433c1a589dcc46850062faa"
       }
     },
     {
@@ -4250,7 +5581,14 @@
             "size": "945507"
           }
         ],
-        "recordCode": "def502008dfc0cdbc649be20a8073e9d0f376c0c9292c9c7ca9a7e2314d7669c8e15f86cd4063b49c623fe76b16a92eb622440a55b5d23f5e5c2f84cc600665f6b2f333b98a2ef4ce98d6c83dd135ae2577d685b281d211d7c7ad0ba5200150eb106aed851ef80478a18fc47ffc97723963f0efa4db4ed34a585dad89d507458de168ffa48a1e1482505780923df621edd3f7f98b6a801fc4afc"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％ ※属性により違いあり\n【保証会社更新料】10,000円/1年毎\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "固定水道",
+        "固定費＿1": "2200",
+        "固定費項目＿2": "-",
+        "固定費＿2": "0",
+        "recordCode": "def50200a099e8c0ad7264b7e0ffd9d737c817566267c35557261f0098cf2537c2775a7c062180aa7b9c887b5c924a768088d71bafc754b527e2f752273a1431a24bf55cad921a9b8c341a91248e1e6ed925d69f39a402e9a0e0791f04296afd7ed7c48ea99dbf00f05c7eb9387361f316543437a497e6be6340b03c22b99f1988c05ee66bd07a236d653b8b45d76a6e42d0a1351307de41f310"
       }
     },
     {
@@ -4293,7 +5631,14 @@
             "size": "821212"
           }
         ],
-        "recordCode": "def5020072175ae826c667b91c7ac5d20a9e16e6112b4afa1afb67b4df4beb470e89cfb58d59e6d38e11e95269d202b61ee8aebe09b4171da0e95430bbd61adc36e9a737b1bb44b0f9547f0aad364752cb87c3a8b1eb9494186d7014511cc50a4c5f6f39b3ad5052c85794abe4f7bcee6c8605e594dc8eb7f3e5e54e9730e7a069ef0e4fe1ca5674aa309345f05bf32805136d59bc1765473278"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％  ※属性により違いあり\n【保証会社更新料】10,000円(税別)/1年毎\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "",
+        "固定費＿1": "",
+        "固定費項目＿2": "",
+        "固定費＿2": "",
+        "recordCode": "def5020041e6c5e9aa38b34942885a9bdb044341c293983fd2bf5b157175aae77fefd07e18c3cd6e1ee9ef276f23c7c126b70c54928c52f66375cfdf236f15d654b7f0c8b1ddbe60ce6d6f73dc4161fb127c929fb2620606714b383d3d4f38360a9c4e99564c9f15db18471a9b59450bd6adb643117b40819aa317b8454d2a61eff31cf7dd1d90b92bb101ab8de61baa7c832d9d2db7ba82fd35"
       }
     },
     {
@@ -4336,7 +5681,14 @@
             "size": "656584"
           }
         ],
-        "recordCode": "def50200ed2ae4b6d2dfe7cb6f1eb4f9abaf2c37b920a322b5566ebd453397094873b15008dc701c21b6e69eddc3da971f1d3d902eead9778d040f0051cff76e1fe439d14eaf558d306e83387811554630b6b2e1ae5a4f23aa9aa7cfc4347928804f6673449e8b222e8e5a96fddbd26fcc8e711a21ad0a77409e7cfa97ba86f452b2e43ff453a8cc1e3beb2b0da96f15ea3f0fd7d80f6170d041"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％  　※属性により違いあり\n【保証会社更新料】10,000円(税別)/1年毎\n【火災保険】21,500〜27,000円/2年毎\n【カギ交換】任意",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "",
+        "固定費＿1": "",
+        "固定費項目＿2": "",
+        "固定費＿2": "",
+        "recordCode": "def502003743ed0749182ae59c474539d8fde105659d425c446f741a084fb649199e0aa8929739068f9d93d170cfebc9729c35bb75ba9bacfdb9bfb983cd8c1920a355f794b66dbf4264caeac2449245879bc307833cc7a11625f10a24d871ed300866c2a6a2f475abfc58babfa3cebc628aab5e6a677c5815d730a43395e8d9f347b5ccb792dfb15665858b477581b58848a5ba785df592254e"
       }
     },
     {
@@ -4379,7 +5731,14 @@
             "size": "851294"
           }
         ],
-        "recordCode": "def5020043d0dccfcf3f12b52d3f8fbe93ab7ddecf4baadf964cb6cc03fa63080c8918c466a7e1b13ab911a3381463a2641572856f320f073de8cb85f8f704d88783a5f8fad4857668447eddd42fa3d1ed1e95d608ae73ca04066898ef6e758a445d5c6c0de4a060ddbe1a63ec587eca443b5b647006a3c1bc7e590a6a3350cf239db7ccf48aad069ecef5aa7552cee13ed5b6c2129b5d07ae"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％ ※属性により違いあり\n【保証会社更新料】10,000円/1年毎\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "固定水道費",
+        "固定費＿1": "2200",
+        "固定費項目＿2": "-",
+        "固定費＿2": "0",
+        "recordCode": "def50200428d69ec4bbeb28210bbd3ae9714690279a429bccfc71825198d769437ee4ca30a96456780792454036ca17ed2f3f158bbae9a325b7f1d6d6f1c4597342871d36b5e8bf7e209471a1937a66748a09ad9fe7c597e3cc57f8e22e579ee7896c61a9f7db236b4d86139e0245d6b6abb23dc2de5d7520e808bacb486ebd223269730e4f196f46528f52805d99ff712194d96bdbe354f14"
       }
     },
     {
@@ -4422,7 +5781,14 @@
             "size": "662072"
           }
         ],
-        "recordCode": "def5020009e5ee44524c069d46cba22b30c22e0d008db890688dfc8f1ec613a77354dda208c7268939ede82e02c3de8567034f82d8a678e241e3e03f03844627ac8a17660e79672ba9b575077f171472fc138ea4876aec61a433613ffc72f85b5d719429bab505a99a3fae904fb09a465013ebc1baaff9f22d9be986d89b9fd38646b028c415cb5f9ff21da01570101d66fb48b061296d87e08c"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％ ※属性により違いあり\n【保証会社更新料】10,000円/1年毎\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "-",
+        "固定費＿1": "0",
+        "固定費項目＿2": "-",
+        "固定費＿2": "0",
+        "recordCode": "def50200d90873ab724e6ae7c0c9294d3d5f979dc506b5957d3e287663e329720a1569ee54c69dd4c7b3d5f74988a9116b07308326cf85d1db481cbf10f7a34ade8de511666007d0014b6a809c6b4c48c77a054bcdef8a9caff3eda32caf06c46b476e5b19aa5cedad794852de8f715300cc97b4cf692f44a09bd41dd32a685091e2e04f838b02dc3b49d16dc9c7dc788730d800b9ed90f13e4e"
       }
     },
     {
@@ -4465,7 +5831,14 @@
             "size": "801516"
           }
         ],
-        "recordCode": "def50200bb04a757a3e59ba99c4893154b77e58343f21898d058ddda4f4048fae4edc1e7ef6bc0b6a7e20cb40375385c63c8288c55001cc8c54f3d257a81f91c7d1fd10b6faeb49b1810894c83a58e4cbc9f3674cb9254c14f4de386f74a083dce18cf2568f80c609e6d8c52428e49d293db571f9c2c6ec0aaeec21472aaf6ee22f074b459db7163580112b43c4107e3f38cb5015e8734d6f807"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％  ※属性により違いあり\n【保証会社更新料】10,000円(税別)/1年毎\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "",
+        "固定費＿1": "",
+        "固定費項目＿2": "",
+        "固定費＿2": "",
+        "recordCode": "def50200773335a314e851ce78b616a41ce034a93d16f09c1eed2c42916100887454b0066497f969f9d9fc8412bad335f76e14b91104c95bcf9d163ef00b4f64b589c11254ae3329198935caa5c49b3372a3e6b983b3bdc003ef96267f785c8eb790f5ecf7df9b6ff0813735e3a3590510d99bd480809a619bd7f094614b5a64b281f3c43a30d28ccf5377db6f57977b1d26d4f04029168c1184"
       }
     },
     {
@@ -4508,7 +5881,14 @@
             "size": "933771"
           }
         ],
-        "recordCode": "def502000e09efa81fbe098c0a6f7adb91fb28c52b2d84afc0d46eb2955c1f2e274e40654b72bf76a33e5ea646038bd9e47c04305199dacedf124d45858d55cb6c2b620a8f384cd28bd392552d7dfaff041761bf70f77ccee511edd1ab5c32905e8030227de256e7ad4bbc7901f0aa88cc7155e99234a6ac8318a21d634012494d8b90fde0e62999d215ea9f1354ac13cc41e626d0fe87bd1c63"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％ ※属性により違いあり\n【保証会社更新料】10,000円/1年毎\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "固定水道",
+        "固定費＿1": "2200",
+        "固定費項目＿2": "-",
+        "固定費＿2": "0",
+        "recordCode": "def50200c93ccca36249f957bce01a89db3a577d91811134a2b091b84777733e55e8be584cee9c74edd2d58f634c47c4e4f456df916ef935ed913e9f68e891e92162e36138d855594c26d7df7219557527c784568dae426610d1be2bc4a894dad8e082be02a32d527d32ba7edc9d9a86233e748d3eb6efc4f888a823267aaff42fc33ba0330fed02aac8e6e4e0f21384dbe8dbd2a331166208f9"
       }
     },
     {
@@ -4551,7 +5931,14 @@
             "size": "173099"
           }
         ],
-        "recordCode": "def502001e1273e5187705e96e68280bcfe443c6d1e5002e3cf7597944fa34bb0b674bed1c1ff9dbc9e8b7ba711a92f7f88047772547ee14153854e9ef5e592eb96284e73dc13439fce4f2d10e54d71b062a25715f4999fc37c03129cb183fb8af56fcfdbcbaa3b5ed958a381dc067b3d0d6184f4bc073087313a9b3786fe9b737692d8b3a8008c62dfa6e2c9834b86fa23145f8551c5bddf643"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％ ※属性により違いあり\n【保証会社更新料】10,000円/1年毎\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "-",
+        "固定費＿1": "0",
+        "固定費項目＿2": "-",
+        "固定費＿2": "0",
+        "recordCode": "def502006364ed0c30862d1c15a100c4abf6418be4584d84791b21a696b21a43bb32373eeff5aba23bb759535eba06133998b98506f0326c1e42fe1e964e38ef2c9b21b0b3a122bcf921445d9bb01fc2cbacaed78e006176d96b36287e71b14e81967a98b4c0ab140ff6430269131217d917a7f6a3f32d6fa7e34391b88bbd63679b0a7ec1fd4a305729b68c074ccddd0408916f729c16efa544"
       }
     },
     {
@@ -4594,7 +5981,14 @@
             "size": "112583"
           }
         ],
-        "recordCode": "def50200825d4fe6f7997df88c91ead5136115c50bf04737afa1cb54a6e977908699dcf97c45f19e951aa9f11a460624f9879e2312c521bfa366c4a4729ae93b4d36a0c7a6925454f8b970547f9c98e1f258b20340aabd97a7ba22d5c25f787773ba3a43732e58991b79e2791da30722106d664ad9ef8d9374652f3c34ee920f120b6a9192fe921cfd664d240870b7418dff5f0f0157cdfe995c"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％ ※属性により違いあり\n【保証会社更新料】10,000円/1年毎\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "-",
+        "固定費＿1": "0",
+        "固定費項目＿2": "-",
+        "固定費＿2": "0",
+        "recordCode": "def50200ec946d706410097d309fa7fe308d8e576f64ec7d1d82fca4c380f6706b394ad3240cb6f879e09b63b8da77324cb13cbf2ed5a1f5dcc4bb3eb4d35afc45397590de8164ba037228ab05feef4b0743ce821aeb52d3dfa97e74702b937e9b3486d238bf2f61685536f69a3ad91fb7261a0e46a1faf501c1d26cc8c96b4c2dab0ee27554198ea94663a658a00bfd6df7d039bed2ddb3adc8"
       }
     },
     {
@@ -4637,7 +6031,14 @@
             "size": "910439"
           }
         ],
-        "recordCode": "def5020056681819b21a069d3a32a58c3cd1d774e7b8c6d6cbd59e069f15895b805a817860aa512d18f6b508052b31273171d6c9ebbf56c5a981d2e8ca4a0deab0050e6534a65dcef09a44ecbc3a9cc1ae37a9b729d02fa6792f45047ab499b22b591192d81a89b4ed3627f66c9dd6328040e00123300bfa80517e6fec6311855e03094f9e62bfa5f800a93f687566cc4ef92ce439b3ca01a3eb"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1％ \n【保証会社更新料】10,000円(税別)/1年毎\n※属性により違いあり\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "",
+        "固定費＿1": "",
+        "固定費項目＿2": "",
+        "固定費＿2": "",
+        "recordCode": "def50200a61ad5a60a644029d6a05952ab83271911075c18c61c276dcc25625c7194ae46b98e4ca6c4b562050be1339046e9a0799a14d2e0d873fe02f805110915597bc04cd3d2272b110a24af15397217e305b07833b87acf84483769899c3d5cee1af9c7178c27bf6e81bdf7e6f21aa187cad41e9437ddf941f4ffcedd77dc0152cbf9c3239f2a2b16ccab5b3c01d0ae55041aa80f044cae71"
       }
     },
     {
@@ -4680,7 +6081,14 @@
             "size": "398521"
           }
         ],
-        "recordCode": "def50200c16c3cc0e13c6ed2c38a6bbbbd20a81a6512107e86eca880b7adfaef9e1c2ae6ffd509b7d3194f14980a341595feee46a959cb93c54cd1f67e84bf9fd8f48ae7ed98146dc84aaff14426b584894e71cad5a3b06cc7c2ee5634208383a12aedfe4b3eb33c4de4ad3a0138c966a6d00b87d2f3d15a758b24b513abdb00594ccc2a3e726292ff42845d44279cd311f2b31231ae5fada3b3"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％ ※属性により違いあり\n【保証会社更新料】10,000円/1年毎\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "-",
+        "固定費＿1": "0",
+        "固定費項目＿2": "-",
+        "固定費＿2": "0",
+        "recordCode": "def50200f8300a07e789e229da21f33654d81ad3c18c8d0981c87b536c735ed2b73d3e47bd6a9c10f96b4f523e463a94609de62820e1e02e4359b85409c0a35b770d8d54d45a5496eb9268fda5b2c884d2a45f4541f811f2b8d24fd0cb9ba82a17cd402f7eebca561b13c8e29603987623ad27be1d05cddb9333a584daff0aa2f609609697090bdd2727621102da9d36210f0d1dfef4d97eed0c"
       }
     },
     {
@@ -4723,7 +6131,14 @@
             "size": "919301"
           }
         ],
-        "recordCode": "def502009a9b5c60bd045fa25a0c91ae915ba86abeb31615c70b4e673259d595d2599971f6cdfbc1797429fc251cc4dd36aa60029f45eb6d57cf341c1a37a3417ec643db4d4a5aacaef97506e0b9cb658d915882d96f89b0f887af9773eb0316ff3c4f276e0bb52fe74d6b54f6210a36d23fa757fd4abb8578244bb56c2e290f2dfd65df72c5b674739ed7f93f9b707c0c3b107afe877d9b1e27"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％ \n【保証会社更新料】10,000円/1年毎\n※属性により違いあり\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "-",
+        "固定費＿1": "0",
+        "固定費項目＿2": "-",
+        "固定費＿2": "0",
+        "recordCode": "def502004c689765eca42da5622bcc7506ddab86f57324dbcc340e67b86f0701892a31270f6c10b33975d045668e1aaf96cd5a803199ca1fdf13e34714e3a33c0e9725c1364e63fc8ed06632d48aaa26b480700f749493106cfab6823cf063339c4f848e7010983398dcb6aa04b4ab68705190060a5d49c7750752d15be974936378fa9bd2603724d01963bdbaaba5a44c8b01b2db9f1bdd3c97"
       }
     },
     {
@@ -4766,7 +6181,14 @@
             "size": "113754"
           }
         ],
-        "recordCode": "def502007e074716c8ebff71fdb912a4a9427402cb5f3b88a2b62018cf86378b628565f571cbfac452fabc04e75f9513ab85bb680034e7d2de905767f90ab0df5414761f1c321cc8a8d66f225b92df5fe07bdd4b780472194e593c7fba9f612a11f6e43f1aaccf5cee3a030b9f7481cd1926ef73cc6c74495f9e2c5c2d214d0c55421db35f01f88af7ef5754a73847685a440145b1c4827265e9"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％ \n【保証会社更新料】10,000円/1年毎\n※属性により違いあり\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "-",
+        "固定費＿1": "0",
+        "固定費項目＿2": "-",
+        "固定費＿2": "0",
+        "recordCode": "def5020011917e4de168dcecf68e111d3fa1083bd11d6960baf97607c9cc2f71a7e962c3ceeb0582dc7d2c15b15e82d089741e95bdba6419ee00fb56768f3931bc7f7e85a8d389d47d1ce10597af53a37a9fa58e86b3676c01d6a10cecffb848a437fec2c548a9e53b1d1cd8b65e6721d42e7a9061e8211feecc576ef330aabfe036fa78ec58a1dbd385e38856a3f78966512921d61663a31f59"
       }
     },
     {
@@ -4809,7 +6231,14 @@
             "size": "1096972"
           }
         ],
-        "recordCode": "def5020096d3f194a982e985e876fb83d2f5565525f6591f9a9f8662b2ae2ce84ce2cd51dbffc6bfd2ae017947a16cbe6c39e52afb8bcc5637bdfb84eab9434d22334fce60381b8254f210b820f694ef959837fd2b661d9b42f44158fda48c417eda179fd5e58960c081c49e075505254ece357cfcefbcdc51a04e28f0d234d53910ab7a4e7834ad22d9da70bcca6a72a0b0289a21fddbb8982c"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％ ※属性により違いあり\n【保証会社更新料】10,000円/1年毎\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "-",
+        "固定費＿1": "0",
+        "固定費項目＿2": "-",
+        "固定費＿2": "0",
+        "recordCode": "def50200a420c477c28966d4c1ff14a5d95e21d87942cd9aba66f50348fdbd067495fd83bd5653c27e7e7fc0aa20728d078030e1e4f0f7b54f419f50db1c28371e1c0b09463d77b59c2c08222956789691c85763ddf2231eb9229ee03694911398e99985f8c5dfb05e099f0207afea1941267d8df9a91b62837de5e4e17e343a0a77cbe15acb657541756266ab7824bb99b0d8820cc3b9ac16c7"
       }
     },
     {
@@ -4852,7 +6281,14 @@
             "size": "880606"
           }
         ],
-        "recordCode": "def502005db4ec159ce2151c4b64777b72c92a5b862ab272ae30e7753b411bd7b7ac11e1c6047a3a1e8d223c690fa379b911b2078b1f1fcdbcee139e980b16d2ed44b84c1ca37c23b8bc7d9d0f93e0cd2d3701e0317bcf3bc1755538ba07d35861d162fd24bb9db1d92537db19e1eb7ac71ad121d81184afd5ad8d17ab0f75a84be175ee13a5f0e794496ec07c233e6914eb5364e0ab396e023e"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％ \n【保証会社更新料】10,000円/1年毎\n※属性により違いあり\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "-",
+        "固定費＿1": "0",
+        "固定費項目＿2": "-",
+        "固定費＿2": "0",
+        "recordCode": "def50200300823917b560764800e47c584e46d2501ac29501a7aa2c544f259f1d4725108a198971d502e53819d9135b82010bc121923bd6d6ab7f5ab30ba4175c612df99bea1d4b4c36fafe2f9fce472c4563a8cc7d039106d90c3df7f6bbbd4ad8b4a8986a5d4b6d5b3980525bdc7e113d6731267a2129f75f5eff72898691b57707ca62d6284c53340db1a9b7805df33d1d535428e4258fd2b"
       }
     },
     {
@@ -4895,7 +6331,14 @@
             "size": "758187"
           }
         ],
-        "recordCode": "def502008377441ccdd943b1f7eb8e13432c6bc8df773de8a29b9af1039646c9f8f9e6ddc88b0ecd59a618ad77a8c8016080b3fab06419d98d1228599ddb94e1b6e68b73e57737fd15d7b7f4d7ca9d8c01969289e77b7bd452a0120eb6ba94aa3cd25899bd1b4af58b362e46188a222ff1ac040cd0d8f788ed59946265ea8a89a03a6219bcf66ca25315f1e8c98d0db230d42706c96cc92b4f64"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％  \n【保証会社更新料】10,000円(税別)/1年毎\n※属性により違いあり\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "",
+        "固定費＿1": "",
+        "固定費項目＿2": "",
+        "固定費＿2": "",
+        "recordCode": "def50200d996f7960659cd468c652a0e3e6d0983c6cdf398fadd2e7f47ca8e6d8a62f3bcb7936bf78eb2070cfe9cf4901d79e7c2da5327fb84bd06eb5da35e2ae0b45dad66b4323dc001f2c8c6e5aa1b09c589d95f87e4dfbe86109409b43b98977a951d919b036f9b2edf83987998a6031319fd67dc5692e3bafd066198b270fb28dd22bcd328c84aca9e0da70d33dd86fec18fd127cdeacdb8"
       }
     },
     {
@@ -4938,7 +6381,14 @@
             "size": "611593"
           }
         ],
-        "recordCode": "def50200a473a55e446354a878f7041a74a46bfff16f80939a6cc00ae61e8bfab7c458d052a2f2e59d06a86315c66ef2e04813d265d16d918a8baca26ba67b4f759307c8e5b75c0f445c83f252402fbd76362db50222a8ee25222816e0d74a2d73874fcf91503eb1577330f9c4af6482ac5f9ec6b9c40854ad2cf407f3c093dd23fae1e7b47313eea3269223e555985bb28ff2c867ec685417ba"
+        "条件2＿保証会社の加入条件": "◇ 保証会社加入必須 (家賃引落し必須) ◇\n【初回保証料】総賃料の85％ \n【手数料】総賃料の1.3％ \n【保証会社更新料】10,000円/1年毎\n※属性により違いあり\n【火災保険】21,500〜22,000円/2年毎\n【カギ交換】任意\n・ユーナインタイプ：16,500円(税込)\n・ディンプルタイプ：27,000円(税込)",
+        "条件3＿_更新料・解約予告・違約金": "更新料：新賃料の1ヵ月分 / 解約予告期間：1ヵ月\n1年未満解約：違約金あり(賃料2ヵ月分)\n1年以上2年未満解約：違約金あり(賃料1ヵ月分)",
+        "安心サポート費": "1100",
+        "固定費項目＿1": "-",
+        "固定費＿1": "",
+        "固定費項目＿2": "-",
+        "固定費＿2": "",
+        "recordCode": "def50200408c5f7d6ffaf39808952f09be0058d974c588a081953e6932175773ec92d21a2b349a4be8f66a0a7c6b993c941eff5608333f28f9d76bbdd1067191ee894c927fc847c3d60cac7e95534aec58307a8f3c43253885c8afeb0eaa5263457516e047f1f1703aa4b298b5360377eeb041217709c8bb042da30db192d1063b4a5279dee4cdcf3c90b81e6fd6744c9ef1efa31ae49d39bf36"
       }
     }
   ]

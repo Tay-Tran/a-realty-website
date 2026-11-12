@@ -1,4 +1,5 @@
 import { AMENITY_KEYS, type AmenityKey, type Listing, type ListingStatus, type StoredConditionKey } from '../types';
+import { leopalaceCosts } from './costs';
 import { asLayout, findAreaSlug, findStation, toListing } from './shared';
 import type { LeopalaceDetail, LeopalaceRoom, LeopalaceUrlParts } from './types';
 
@@ -71,15 +72,9 @@ export function mapLeopalace(room: LeopalaceRoom, code: string, publishedAt: str
     builtYear: Math.floor(d.buildDay / 100),
     rent: d.rentFee,
     managementFee: d.maintenanceFee,
-    initialCosts: {
-      depositMonths: d.shikikin,
-      keyMoneyMonths: d.reikin,
-      brokerageMonths: 1.1,
-      guaranteeFee: d.rentFee + d.maintenanceFee,
-      insurance: 20000,
-      keyExchange: d.keyExchangeFee,
-      cleaning: d.basicCleaningFee,
-    },
+    // Only deposit/key months are read from here (search filters); the cost table uses `costs`.
+    initialCosts: { depositMonths: d.shikikin, keyMoneyMonths: d.reikin, brokerageMonths: 0, guaranteeFee: 0, insurance: 0, keyExchange: 0, cleaning: 0 },
+    costs: leopalaceCosts(room.cost, d.rentFee),
     conditions,
     amenities: AMENITY_KEYS.filter((k) => found.has(k)),
     images: [...new Set(photos)].slice(0, MAX_PHOTOS),
