@@ -113,3 +113,25 @@ export interface ListingSource {
 }
 
 export interface ListingPage { items: Listing[]; total: number; page: number; pageCount: number }
+
+export const EMPLOYMENT_TYPES = ['fullTime', 'partTime', 'contract'] as const;
+export type EmploymentType = (typeof EMPLOYMENT_TYPES)[number];
+
+/** A job opening on the careers page (managed by staff in the CMS in production). */
+export interface Job {
+  slug: string;
+  title: LocalizedText;
+  location: LocalizedText;
+  employment: EmploymentType;
+  /** Work from home (Google for Jobs: TELECOMMUTE). */
+  remote?: boolean;
+  salary: LocalizedText;
+  /** Languages the role needs, as language codes (en, ja, my, vi…). */
+  languages: string[];
+  summary: LocalizedText;
+  duties: LocalizedText[];
+  requirements: LocalizedText[];
+  benefits: LocalizedText[];
+  postedAt: string;
+  open: boolean;
+}

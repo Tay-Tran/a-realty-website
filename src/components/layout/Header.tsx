@@ -13,6 +13,8 @@ export function Header() {
     { href: '/rent', label: t('findRoom') },
     { href: { pathname: '/', hash: 'areas' }, label: t('areas') },
     { href: { pathname: '/', hash: 'steps' }, label: t('howItWorks') },
+    { href: '/partner', label: t('partners') },
+    { href: '/careers', label: t('careers') },
     { href: { pathname: '/', hash: 'contact' }, label: t('contact') },
   ];
   return (
@@ -22,8 +24,8 @@ export function Header() {
           <span aria-hidden className="grid h-8 w-8 place-items-center rounded-lg bg-accent text-sm font-bold text-white">暮</span>
           <span className="whitespace-nowrap text-base sm:text-lg">{site.name}</span>
         </Link>
-        <nav className="hidden items-center gap-6 text-sm lg:flex">
-          {links.map((l) => <Link key={l.label} href={l.href} className="text-ink-soft hover:text-ink">{l.label}</Link>)}
+        <nav className="hidden items-center gap-5 text-sm xl:flex">
+          {links.map((l) => <Link key={l.label} href={l.href} className="whitespace-nowrap text-ink-soft hover:text-ink">{l.label}</Link>)}
         </nav>
         <div className="flex items-center gap-1.5 sm:gap-2">
           <FavoritesLink />

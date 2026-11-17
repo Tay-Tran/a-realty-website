@@ -9,7 +9,7 @@ export type NavItem = { href: string | { pathname: string; hash?: string }; labe
 export function MobileMenu({ links, menuLabel, closeLabel }: { links: NavItem[]; menuLabel: string; closeLabel: string }) {
   const [open, setOpen] = useState(false);
   return (
-    <div className="lg:hidden">
+    <div className="xl:hidden">
       <button type="button" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-label={open ? closeLabel : menuLabel}
         className="grid h-9 w-9 place-items-center rounded-full border border-line bg-white text-base">
         <span aria-hidden>{open ? '✕' : '☰'}</span>

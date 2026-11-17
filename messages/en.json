@@ -13,7 +13,9 @@
     "contact": "Contact",
     "menu": "Menu",
     "close": "Close",
-    "favorites": "Saved"
+    "favorites": "Saved",
+    "partners": "Partners",
+    "careers": "Careers"
   },
   "lang": {
     "label": "Language"
@@ -375,5 +377,276 @@
     "toilet": "Toilet",
     "entrance": "Entrance",
     "balcony": "Balcony"
+  },
+  "partner": {
+    "metaTitle": "Partner program – refer clients who need a home in Tokyo",
+    "metaDescription": "Schools, agencies, companies, communities and individual collaborators: refer foreign residents to us and earn a fee for every signed contract.",
+    "eyebrow": "Partner program",
+    "heroLine1": "You know the people.",
+    "heroLine2": "We know the homes.",
+    "heroAccent": "One easy move-in.",
+    "heroText": "We are looking for partners across Japan. If you help foreign students, workers or families who need a place to live, let’s work together – you introduce, we do the rest.",
+    "ctaApply": "Become a partner",
+    "ctaBenefits": "See benefits",
+    "watermark": "PARTNERS",
+    "whoEyebrow": "Who we work with",
+    "whoLine1": "Made for people",
+    "whoAccent": "who connect people.",
+    "whoText": "We work with any organization or person who regularly meets foreigners looking for housing in Japan. When your students, staff or members need an apartment, we are the team behind you.",
+    "types": {
+      "agency": {
+        "title": "Recruitment and staffing agencies",
+        "b1": "Housing ready before your candidates land in Japan",
+        "b2": "We handle guarantor companies and screening for foreigners",
+        "b3": "Fewer early drop-outs caused by housing problems"
+      },
+      "school": {
+        "title": "Language schools",
+        "b1": "Apartments near campus, ready by the start of term",
+        "b2": "Every step explained in the student’s language",
+        "b3": "Priority viewing slots for students you refer"
+      },
+      "company": {
+        "title": "Companies hiring foreign staff",
+        "b1": "One contact for every new hire who needs a home",
+        "b2": "Corporate lease or personal contract – both supported",
+        "b3": "Move-in dates matched to the start of employment"
+      },
+      "individual": {
+        "title": "Creators and individual collaborators",
+        "b1": "Share apartment tours and guides with your followers",
+        "b2": "A partner code your followers mention when they contact us",
+        "b3": "Early access to new listings for your content"
+      },
+      "broker": {
+        "title": "Real estate brokers",
+        "b1": "Pass on foreign clients you cannot serve in their language",
+        "b2": "Licensed in Tokyo – your referral stays in safe hands",
+        "b3": "You keep the client relationship"
+      },
+      "relocation": {
+        "title": "Relocation companies",
+        "b1": "From executive apartments to staff housing",
+        "b2": "Timelines that follow your relocation schedule",
+        "b3": "Utilities, furniture and local tips after move-in"
+      },
+      "community": {
+        "title": "Community organizers",
+        "b1": "Members get homes that fit their budget and area",
+        "b2": "Foreigner-friendly listings with guarantor help",
+        "b3": "Smooth moves build trust in your community"
+      },
+      "union": {
+        "title": "Unions and support organizations",
+        "b1": "Priority help for members in difficult situations",
+        "b2": "Paperwork and contracts handled for foreign residents",
+        "b3": "We coordinate with your caseworkers"
+      },
+      "other": {
+        "title": "Other",
+        "b1": "",
+        "b2": "",
+        "b3": ""
+      }
+    },
+    "photosEyebrow": "Homes we found for referred clients",
+    "benefitsEyebrow": "What you get",
+    "benefitsLine1": "Clear rewards.",
+    "benefitsAccent": "No extra work.",
+    "benefitsText": "We built the program around one idea: every introduction deserves a fair and reliable reward. Here is what that looks like.",
+    "benefitsCta": "Apply now",
+    "watermarkBenefits": "REWARDS",
+    "benefits": {
+      "fee": {
+        "title": "A fee for every signed contract",
+        "text": "Earn a referral fee for each client who signs a lease with us. No sign-up cost and no minimum – you introduce, we handle it, you get paid.",
+        "tag": "Per contract"
+      },
+      "scale": {
+        "title": "Better rates as you grow",
+        "text": "The more contracts come from your referrals, the better your terms. Regular partners move up automatically, with priority support.",
+        "tag": "Volume bonus"
+      },
+      "care": {
+        "title": "Support after the keys",
+        "text": "We stay with your client after signing: utilities, internet, furniture rental and local rules such as garbage sorting – so their first weeks go smoothly.",
+        "tag": "Full service"
+      },
+      "language": {
+        "title": "Three languages, one contact",
+        "text": "English, Burmese and Japanese from the first message to the contract, with one person who follows each client you send.",
+        "tag": "Multilingual"
+      },
+      "upfront": {
+        "title": "Every cost shown upfront",
+        "text": "Your clients see the full move-in cost before they apply – no surprises that come back to you later.",
+        "tag": "Transparent"
+      }
+    },
+    "scaleEyebrow": "Grow with us",
+    "scaleLine1": "Refer more,",
+    "scaleAccent": "earn more.",
+    "scaleText": "Partners with regular contracts are upgraded automatically: a higher rate, a senior advisor and joint marketing as the partnership grows.",
+    "tiers": {
+      "fee": "Referral fee per contract",
+      "manager": "Dedicated partner contact",
+      "materials": "Co-branded flyers",
+      "rate": "Higher referral rate",
+      "advisor": "Senior advisor access"
+    },
+    "tierAll": "All partners",
+    "tierVolume": "Regular partners",
+    "benefitsNote": "Referral fees are agreed with each partner.",
+    "stepsEyebrow": "How it works",
+    "stepsLine1": "Three steps.",
+    "stepsAccent": "No paperwork.",
+    "stepsText": "Becoming a partner is simple. We keep it light on your side – your only job is the introduction.",
+    "steps": {
+      "s1": {
+        "title": "Apply as a partner",
+        "text": "Fill in the form below – tell us about your organization, your network and how many referrals you expect. We reply within 2 business days with a plan.",
+        "link": "Form below"
+      },
+      "s2": {
+        "title": "Introduce clients",
+        "text": "When someone needs a home, send us a quick message or ask them to mention your partner code when they contact us. That’s it – no forms or case management on your side.",
+        "link": "One message"
+      },
+      "s3": {
+        "title": "Receive your fee",
+        "text": "Your fee is paid once the lease is signed. Regular partners move to a higher rate automatically – no renegotiation needed.",
+        "link": "After signing"
+      }
+    },
+    "clientsEyebrow": "What we do for your clients",
+    "clientsLine1": "Send one message.",
+    "clientsAccent": "We handle the move.",
+    "clients": {
+      "search": {
+        "title": "Apartment search",
+        "text": "Foreigner-friendly apartments across Tokyo, matched to budget, area and commute – in their language."
+      },
+      "application": {
+        "title": "Application support",
+        "text": "Guarantor companies, documents and ID checks explained step by step."
+      },
+      "contract": {
+        "title": "Contract explained",
+        "text": "Every clause translated and explained before signing – no surprises later."
+      },
+      "movein": {
+        "title": "Move-in help",
+        "text": "Utilities, key handover and a local orientation, with follow-up in the first weeks."
+      }
+    },
+    "managerEyebrow": "Your partner contact",
+    "managerLine1": "One person who",
+    "managerAccent": "looks after your referrals.",
+    "managerQuote": "“Every introduction you make should be treated with care – not passed around. I personally onboard new partners and follow their first clients until they move in.”",
+    "managerBio": "Our partner manager speaks English, Burmese and Japanese and replies within one business day.",
+    "managerName": "Partner manager",
+    "managerPhoto": "Photo and name provided by the company",
+    "statYears": "years in Tokyo real estate",
+    "statPartners": "partners onboard",
+    "statLanguages": "languages",
+    "statsNote": "Sample figures for the demo.",
+    "ctaEmail": "Email us directly",
+    "logosEyebrow": "Trusted by",
+    "logosTitle": "Our partners",
+    "logosText": "Schools, companies and communities we work with across Japan.",
+    "logoPlaceholder": "Partner logo",
+    "formEyebrow": "Partner application",
+    "formLine1": "Become a",
+    "formAccent": "partner.",
+    "formSubtitle": "Send the form and we will contact you within 2 business days to discuss a plan that fits your organization.",
+    "type": "Partner type",
+    "typePlaceholder": "Choose a type",
+    "organization": "Organization name",
+    "organizationHint": "Not needed if you apply as an individual.",
+    "contact": "Contact person",
+    "email": "Email",
+    "phone": "Phone / LINE / WhatsApp",
+    "volume": "Expected referrals per month",
+    "volumePlaceholder": "Choose a range",
+    "volumeOption": "{range} a month",
+    "network": "Tell us about your network (optional)",
+    "networkPlaceholder": "Who you help, where they are from, how you help them find housing today…",
+    "submit": "Send application",
+    "success": "Thank you! We received your application and will contact you within 2 business days. (Demo: nothing was actually sent.)",
+    "talkEyebrow": "Direct contact",
+    "talkLine1": "Prefer to",
+    "talkAccent": "talk first?",
+    "talkText": "Message us on WhatsApp or LINE, or send an email. We will discuss a plan with you – no long forms and no commitment until you are ready.",
+    "emailLabel": "Email",
+    "emailNote": "Reply within 2 business days",
+    "chatLabel": "WhatsApp / LINE",
+    "chatNote": "English, Burmese and Japanese",
+    "officeLabel": "Office",
+    "officeValue": "Shinjuku, Tokyo (address provided by the company)"
+  },
+  "careers": {
+    "metaTitle": "Careers – join our Tokyo team",
+    "metaDescription": "Open positions at our Tokyo rental agency for foreign residents: rental agents, multilingual support and marketing.",
+    "title": "Careers",
+    "subtitle": "Join a team that helps foreign residents feel at home in Japan.",
+    "why": {
+      "languages": {
+        "title": "Use your languages every day",
+        "text": "English, Burmese, Japanese – your customers speak them all."
+      },
+      "support": {
+        "title": "Visa and licence support",
+        "text": "We sponsor visas and help you pass the Takken real estate exam."
+      },
+      "growth": {
+        "title": "Grow with a young team",
+        "text": "Take responsibility early and shape how we serve new arrivals."
+      }
+    },
+    "openingsTitle": "Open positions",
+    "openingsCount": "{count, plural, one {# open position} other {# open positions}}",
+    "empty": "No open positions right now – send us an open application below.",
+    "employment": {
+      "fullTime": "Full-time",
+      "partTime": "Part-time",
+      "contract": "Contract"
+    },
+    "languages": "Languages",
+    "lang": {
+      "en": "English",
+      "ja": "Japanese",
+      "my": "Burmese",
+      "vi": "Vietnamese"
+    },
+    "viewJob": "View job",
+    "posted": "Posted {date}",
+    "duties": "What you will do",
+    "requirements": "What we look for",
+    "benefits": "What we offer",
+    "salary": "Salary",
+    "location": "Location",
+    "type": "Employment type",
+    "back": "All positions",
+    "applyTitle": "Apply for this job",
+    "applyNow": "Apply now",
+    "openApplyTitle": "Open application",
+    "openApplyText": "Don’t see the right role? Tell us about yourself and we’ll contact you when something fits.",
+    "name": "Your name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "position": "Position",
+    "positionPlaceholder": "Choose a position",
+    "positionOpen": "Open application",
+    "message": "Message (optional)",
+    "messagePlaceholder": "Your experience, languages, when you can start…",
+    "cv": "CV / résumé (optional)",
+    "cvHint": "PDF or Word, up to 5 MB",
+    "cvChoose": "Choose file",
+    "cvRemove": "Remove",
+    "fileType": "Please attach a PDF or Word file.",
+    "fileSize": "The file is larger than 5 MB.",
+    "submit": "Send application",
+    "success": "Thank you for applying! We will review your application and contact you within a week. (Demo: nothing was actually sent.)",
+    "related": "Other open positions"
   }
 }

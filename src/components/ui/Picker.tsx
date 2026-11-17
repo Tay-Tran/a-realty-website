@@ -25,6 +25,8 @@ interface Props {
   allowEmpty?: boolean;
   /** Submits the value with a surrounding form under this name. */
   name?: string;
+  /** "dark" for fields on a dark section (the list itself stays light). */
+  tone?: 'light' | 'dark';
 }
 
 /**
@@ -33,7 +35,7 @@ interface Props {
  */
 export function Picker({
   value, onChange, options, placeholder, label, variant = 'field', icon,
-  searchable = false, searchPlaceholder, noResults = '—', align = 'left', allowEmpty = true, name,
+  searchable = false, searchPlaceholder, noResults = '—', align = 'left', allowEmpty = true, name, tone = 'light',
 }: Props) {
   const [open, setOpen] = useState(false);
   const [query, setQuery] = useState('');
@@ -87,7 +89,7 @@ export function Picker({
     </>
   ) : (
     <span className="flex items-center gap-2">
-      <span className={`flex-1 truncate text-left ${selected ? 'text-ink' : 'text-ink-soft'}`}>{selected?.label ?? placeholder}</span>
+      <span className={`flex-1 truncate text-left ${tone === 'dark' ? (selected ? 'text-white' : 'text-white/40') : (selected ? 'text-ink' : 'text-ink-soft')}`}>{selected?.label ?? placeholder}</span>
       <ChevronDownIcon className={`h-4 w-4 shrink-0 text-ink-soft transition ${open ? 'rotate-180' : ''}`} />
     </span>
   );
@@ -109,7 +111,7 @@ export function Picker({
         }}
         className={variant === 'tile'
           ? 'block w-full px-4 py-3 text-left'
-          : `block w-full border bg-white text-sm focus:outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 ${variant === 'pill' ? 'rounded-full py-1.5 pl-3.5 pr-2.5' : 'rounded-xl px-3 py-2.5'} ${open ? 'border-accent ring-2 ring-accent/20' : 'border-line hover:border-ink/30'}`}>
+          : `block w-full border text-sm focus:outline-none ${tone === 'dark' ? 'bg-white/[0.04]' : 'bg-white'} focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-accent/20 ${variant === 'pill' ? 'rounded-full py-1.5 pl-3.5 pr-2.5' : 'rounded-xl px-3 py-2.5'} ${open ? 'border-accent ring-2 ring-accent/20' : tone === 'dark' ? 'border-white/15 hover:border-white/30' : 'border-line hover:border-ink/30'}`}>
         {trigger}
       </button>
 

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Noto_Sans, Noto_Sans_JP, Noto_Sans_Myanmar } from 'next/font/google';
+import { Noto_Sans, Noto_Sans_JP, Noto_Sans_Myanmar, Playfair_Display } from 'next/font/google';
 import { notFound } from 'next/navigation';
 import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getTranslations, setRequestLocale } from 'next-intl/server';
@@ -15,6 +15,10 @@ import '../globals.css';
 
 const notoSans = Noto_Sans({ subsets: ['latin'], variable: '--font-noto-sans', display: 'swap' });
 const notoSansJP = Noto_Sans_JP({ subsets: ['latin'], variable: '--font-noto-sans-jp', display: 'swap', preload: false });
+// Display serif for big editorial headings (partner page); Latin only – ja/my fall back to Noto Sans.
+const playfair = Playfair_Display({
+  subsets: ['latin', 'latin-ext'], weight: ['600', '700', '800'], style: ['normal', 'italic'], variable: '--font-playfair', display: 'swap', preload: false,
+});
 const notoSansMyanmar = Noto_Sans_Myanmar({
   subsets: ['myanmar'], weight: ['400', '500', '700'], variable: '--font-noto-sans-myanmar', display: 'swap', preload: false,
 });
@@ -49,7 +53,7 @@ export default async function LocaleLayout({ children, params }: {
   } as React.CSSProperties;
 
   return (
-    <html lang={locale} className={`${notoSans.variable} ${notoSansJP.variable} ${notoSansMyanmar.variable}`} style={brandVars}>
+    <html lang={locale} className={`${notoSans.variable} ${notoSansJP.variable} ${notoSansMyanmar.variable} ${playfair.variable}`} style={brandVars}>
       <body className="min-h-screen font-sans antialiased">
         <NextIntlClientProvider>
           <PreferencesProvider defaultCurrency={defaultCurrency(locale)}>
