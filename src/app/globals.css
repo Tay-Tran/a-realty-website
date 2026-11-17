@@ -11,9 +11,14 @@
   --color-paper: #f7f9fc;
   --color-line: #dbe4ee;
   --color-danger: #b42318;
+  /* Dark editorial sections (partner page) */
+  --color-night: #0c1626;
+  --color-deep: #132a45;
+  --color-glow: #a9cdf2;
   --color-success: #1a7f4b;
   --color-warn: #a86a12;
   --font-sans: var(--font-noto-sans), var(--font-noto-sans-jp), var(--font-noto-sans-myanmar), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-playfair), var(--font-noto-sans-jp), var(--font-noto-sans-myanmar), Georgia, serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -43,3 +48,16 @@ html[lang="ja"] :is(h1, h2, h3, h1 + p) { word-break: keep-all; overflow-wrap: a
 @supports (word-break: auto-phrase) {
   html[lang="ja"] :is(h1, h2, h3, h1 + p) { word-break: auto-phrase; }
 }
+
+/* Editorial display type: italic only for Latin; Japanese and Burmese stay upright and bold. */
+.display-it { font-style: italic; }
+html:not([lang="en"]) .display-it { font-style: normal; }
+html:not([lang="en"]) .font-display { font-weight: 700; letter-spacing: 0; }
+
+/* Japanese and Burmese headings need more room than the tight Latin display setting:
+   Burmese stacks marks above and below the line, Japanese reads better smaller. */
+html[lang="ja"] .font-display { line-height: 1.25 !important; }
+html[lang="my"] .font-display { line-height: 1.55 !important; }
+html:not([lang="en"]) .display-hero { font-size: clamp(2rem, 7.5vw, 4.25rem); }
+html:not([lang="en"]) .display-lg { font-size: clamp(1.75rem, 5.5vw, 3rem); }
+html:not([lang="en"]) .display-md { font-size: clamp(1.5rem, 4.5vw, 2.25rem); }

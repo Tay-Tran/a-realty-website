@@ -17,6 +17,8 @@ export function Footer() {
           <ul className="mt-2 space-y-1 text-sm">
             <li><Link href="/rent" className="hover:text-white">{t('nav.findRoom')}</Link></li>
             <li><Link href={{ pathname: '/', hash: 'areas' }} className="hover:text-white">{t('nav.areas')}</Link></li>
+            <li><Link href="/partner" className="hover:text-white">{t('nav.partners')}</Link></li>
+            <li><Link href="/careers" className="hover:text-white">{t('nav.careers')}</Link></li>
             <li><Link href={{ pathname: '/', hash: 'faq' }} className="hover:text-white">{t('faq.title')}</Link></li>
           </ul>
         </div>

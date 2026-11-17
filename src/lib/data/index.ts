@@ -1,10 +1,11 @@
 import { filterListings, type Filters } from '@/lib/listing/filters';
 import { AREAS } from './mock/areas';
+import { JOBS } from './mock/jobs';
 import { LINES } from './mock/lines';
 import { LISTINGS } from './mock/listings';
 import { STATIONS } from './mock/stations';
 import { SOURCE_LISTINGS, getSourceListings } from './sources';
-import type { Area, Line, Listing, ListingPage, Station } from './types';
+import type { Area, Job, Line, Listing, ListingPage, Station } from './types';
 
 // Data-access layer. Pages import only from here; in week 2 these bodies switch to Payload.
 
@@ -75,4 +76,14 @@ export async function countListingsByArea(): Promise<Record<string, number>> {
 
 export async function getListingRefs(): Promise<{ code: string; areaSlug: string; slug: string }[]> {
   return [...SOURCE_LISTINGS, ...LISTINGS].map(({ code, areaSlug, slug }) => ({ code, areaSlug, slug }));
+}
+
+/** Open job openings, newest first. */
+export async function getJobs(): Promise<Job[]> {
+  return JOBS.filter((j) => j.open).sort((a, b) => b.postedAt.localeCompare(a.postedAt));
+}
+
+/** One open job; closed or unknown slugs give null (the page then 404s). */
+export async function getJob(slug: string): Promise<Job | null> {
+  return JOBS.find((j) => j.slug === slug && j.open) ?? null;
 }

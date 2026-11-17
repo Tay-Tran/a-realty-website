@@ -10,3 +10,6 @@ next-env.d.ts
 .claude/
 bao-gia/
 chao-gia-*.md
+
+# Quote / proposal documents stay local
+*.docx
