@@ -13,3 +13,6 @@ chao-gia-*.md
 
 # Quote / proposal documents stay local
 *.docx
+
+# Internal planning notes (client details) stay local
+docs/
